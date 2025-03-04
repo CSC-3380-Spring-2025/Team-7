@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collectinos.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 //Currency Script
-public class Currency : MonoBehavior {
+public class Currency : MonoBehaviour {
 
 //public because we want it to be accesible to Item_Pickup
 
@@ -21,7 +21,7 @@ public class Currency : MonoBehavior {
     }
     void Update () 
     {
-        currencyUI.GetComponent<text>().text = coin.ToString();
+        currencyUI.GetComponent<Text>().text = coin.ToString();
         if (coin < 0)
         {
             coin = 0;
