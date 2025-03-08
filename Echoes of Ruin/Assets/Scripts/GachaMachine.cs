@@ -11,6 +11,7 @@ public class GachaMachine : MonoBehaviour
         spriteSuperRare1, spriteSuperRare2, spriteSuperRare3, spriteSuperRare4, spriteSuperRare5, spriteSuperRare6, 
         spriteUltraRare1, spriteUltraRare2, spriteUltraRare3;
 
+
     // Lists of skin names by rarity
     [SerializeField] 
     private List<string> rareSkins = new List<string>{"Rare1", "Rare2", "Rare3", "Rare4", "Rare5", "Rare6"};
