@@ -8,7 +8,6 @@ public class Vendor : MonoBehaviour {
     Currency script;
 
 //allows for purchasing items including equipable items  
-
     public GameObject vendorUI;
     public GameObject objToCreate;
     public Transform posToCreate;
@@ -30,8 +29,7 @@ public class Vendor : MonoBehaviour {
     void OnTriggerExit () {
 
         vendorUI.SetActive(false);
-        Cursor.visivle = false;
-
+        Cursor.visible = false;
     } 
 
     public void BuyItem(){
