@@ -30,6 +30,7 @@ public class Vendor : MonoBehaviour {
 
         vendorUI.SetActive(false);
         Cursor.visible = false;
+
     } 
 
     public void BuyItem(){
