@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Vendor : MonoBehaviour {
 
+//takes refrence frpm currency script
     Currency script;
+
+//allows for purchasing items including equipable items  
 
     public GameObject vendorUI;
     public GameObject objToCreate;
@@ -28,6 +31,7 @@ public class Vendor : MonoBehaviour {
 
         vendorUI.SetActive(false);
         Cursor.visivle = false;
+
     } 
 
     public void BuyItem(){
