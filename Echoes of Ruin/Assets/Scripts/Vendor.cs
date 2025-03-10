@@ -1,5 +1,5 @@
 using System.Collections;
-using Systems.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Vendor : MonoBehaviour {
