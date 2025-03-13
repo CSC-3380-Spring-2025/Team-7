@@ -28,7 +28,7 @@ public class PlayerAttack : MonoBehaviour {
             if(timer >= timeToAttack) {
                 timer = 0;
                 attacking - false;
-                attackArea.SetActive(attacking)
+                attackArea.SetActive(attacking);
             }
         }
     }
