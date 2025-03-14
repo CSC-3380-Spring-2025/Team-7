@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
 
         if(health <= 0){
 
-            Die();
+            PlayerHealth.UpdateHP();
         } 
     }
 
@@ -45,8 +45,4 @@ public class Health : MonoBehaviour
         
     }
 
-    private void Die() {
-        Debug.Log("I am Dead!");
-        Destroy(gameObject);
-    }
-}
+  }
