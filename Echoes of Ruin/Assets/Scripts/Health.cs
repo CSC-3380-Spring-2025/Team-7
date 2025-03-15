@@ -5,29 +5,36 @@ using System.Collections.Generic;
 public class Health : MonoBehaviour
 
 {
-    [SerializeField] private int health = 100;
+    [SerializeField] private int maxHearts = 5; // maximum number of hearts
+    [SerializeField] private int heartValue =20; // hp per heart
+    [SerializeField] private int currentHearts; // current hearts
 
-    private int MAX_HEALTH = 100;
-    PlayerHealth player = new PlayerHealth();
+    // PlayerHealth player = new PlayerHealth();
+    PlayerHealth player;
 
     //Update is called once per frame
-    void Update()
+     void Start()
     {
-      
+        currentHearts = maxHearts;  // Start with full hearts
+        player = GetComponent<PlayerHealth>();  // Get PlayerHealth from the same GameObject
     }
 
-    public void Damage(int amount) {
-
-        if (amount < 0){
-            throw new System.ArgumentOutOfRangeException("Cannot have negative health");           
+   public void Damage(int amount)
+    {
+        if (amount < 0)
+        {
+            throw new System.ArgumentOutOfRangeException("Cannot have negative damage");
         }
 
-        this.health -= amount;
+//converting hp damage into number of hearts lost
+        int heartsToLose = amount / heartValue;
+        currentHearts -= heartsToLose;
 
-        if(health <= 0){
-
-           player.UpdateHP();
-        } 
+        if (currentHearts <= 0)
+        {
+            currentHearts = 0;
+            player.UpdateHP();  // Call when health is zero
+        }
     }
 
     public void Heal(int amount) {
@@ -36,12 +43,12 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");           
         }
 
-        if(health + amount > MAX_HEALTH) {
-            this.health = MAX_HEALTH;
-        }
-        else {
+         int heartsToGain = amount / heartValue;
+        currentHearts += heartsToGain;
 
-            this.health += amount;
+        if (currentHearts > maxHearts)
+        {
+            currentHearts = maxHearts;
 
         }
         
