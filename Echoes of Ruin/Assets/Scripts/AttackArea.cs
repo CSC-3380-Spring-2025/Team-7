@@ -5,7 +5,7 @@ using System.Collections.Generic;
 //If collider has a health then they will recieve damage upon attack
 public class AttackArea : MonoBehaviour 
 {
-   private int damage = 3;
+   private int damage;
 
    private void OnTriggerEnter2D(Collider2D collider)
    {
@@ -15,4 +15,10 @@ public class AttackArea : MonoBehaviour
             health.Damage(damage);
         }  
    }
+
+//allows attack value to be dynamic
+   public void SetDamage(int newDamage){
+    
+    damage = newDamage;
+   } 
 }
