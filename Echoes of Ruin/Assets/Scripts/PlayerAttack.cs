@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour {
-    private GameObject attackArea1;
-    private GameObject attackArea2;
+    public GameObject attackArea1;
+    public GameObject attackArea2;
 
 //variables to check if player is attacking, set attack to last certain duration, time how long attack has been active
     private bool attacking1 = false;
@@ -52,14 +52,15 @@ public class PlayerAttack : MonoBehaviour {
     }
 //attack method sets attack area to true and attackarea checks if there are colliders in the trigger area 
 
-    private void Attack1() {
+    void Attack1() {
         attacking1 = true;
         attackArea1.SetActive(true);
     }
 
-    private void Attack2() {
+    void Attack2() {
         attacking2 = true;
         attackArea2.SetActive(true);
     }
 }
 
+}
