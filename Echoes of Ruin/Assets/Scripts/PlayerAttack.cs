@@ -50,6 +50,7 @@ public class PlayerAttack : MonoBehaviour {
                 attackArea2.SetActive(false);
         }
     }
+}
 //attack method sets attack area to true and attackarea checks if there are colliders in the trigger area 
 
     private void Attack1() {
