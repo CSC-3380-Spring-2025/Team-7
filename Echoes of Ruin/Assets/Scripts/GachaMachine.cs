@@ -7,7 +7,7 @@ using TMPro;
 public class GachaMachine : MonoBehaviour
 { 
     // Public sprite references for different skin rarities
-    public Sprite spriteRare1, spriteRare2, spriteRare3, spriteRare4, spriteRare5, spriteRare6, 
+    public Sprite spriteDefault, spriteRare1, spriteRare2, spriteRare3, spriteRare4, spriteRare5, spriteRare6, 
         spriteSuperRare1, spriteSuperRare2, spriteSuperRare3, spriteSuperRare4, spriteSuperRare5, spriteSuperRare6, 
         spriteUltraRare1, spriteUltraRare2, spriteUltraRare3;
 
@@ -23,7 +23,7 @@ public class GachaMachine : MonoBehaviour
     private List<string> ultraSkins = new List<string>{"UltraRare1", "UltraRare2", "UltraRare3"};
     
     // Set of skins the player owns
-    private HashSet<string> mySkins = new HashSet<string>();
+    public HashSet<string> mySkins = new HashSet<string>(){"Default"};
     
     // UI Components
     [SerializeField]
@@ -36,21 +36,18 @@ public class GachaMachine : MonoBehaviour
     private TextMeshProUGUI showProbability;
 
     // Dictionary to map skin names to their sprites
-    private Dictionary<string, Sprite> skinSprites = new Dictionary<string, Sprite>();
+    public Dictionary<string, Sprite> skinSprites = new Dictionary<string, Sprite>();
 
-    /// <summary>
-    /// Called when the script instance is being loaded
-    /// </summary>
+    // Called when the script instance is being loaded
     private void Awake()
     {
         StartDictionary();
     }   
 
-    /// <summary>
-    /// Initialize the dictionary that maps skin names to sprites
-    /// </summary>
+    // Initialize the dictionary that maps skin names to sprites
     private void StartDictionary()
     {
+        skinSprites.Add("Default", spriteDefault);
         skinSprites.Add("Rare1", spriteRare1);
         skinSprites.Add("Rare2", spriteRare2);
         skinSprites.Add("Rare3", spriteRare3);
@@ -68,9 +65,8 @@ public class GachaMachine : MonoBehaviour
         skinSprites.Add("UltraRare3", spriteUltraRare3);
     } 
 
-    /// <summary>
-    /// Performs a gacha roll to potentially win a skin
-    /// </summary>
+
+    // Performs a gacha roll to potentially win a skin
     public void Roll()
     {
         // Determine the roll outcome (64 * 128 * 256 = 2097152)
@@ -139,9 +135,7 @@ public class GachaMachine : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Displays the probability information for the gacha machine
-    /// </summary>
+    // Displays the probability information for the gacha machine
     public void ViewProbability()
     {
         showProbability.text = "Gacha Machine Probabilities:\n\n" +
