@@ -19,6 +19,11 @@ public class Health : MonoBehaviour
         player = GetComponent<PlayerHealth>();  // Get PlayerHealth from the same GameObject
     }
 
+   public void SetHearts(int maxHearts, int hearts)
+    {
+        this.maxHearts = maxHearts;
+        this.currentHearts = hearts;
+    }
    public void Damage(int amount)
     {
         if (amount < 0)
