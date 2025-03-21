@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackWalkMeleeRobot-Sheet_0: 4649370965994958744
+      BackWalkMeleeRobot-Sheet_1: 1408804002236704558
+      BackWalkMeleeRobot-Sheet_2: 4452908320243925590
+      BackWalkMeleeRobot-Sheet_3: 6533442711164762998
+      BackWalkMeleeRobot-Sheet_4: 4038707087918258067
+      BackWalkMeleeRobot-Sheet_5: 6162630840652555833
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

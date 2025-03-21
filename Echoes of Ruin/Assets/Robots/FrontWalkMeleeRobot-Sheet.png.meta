@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FrontWalkMeleeRobot-Sheet_0: -2816263480727585271
+      FrontWalkMeleeRobot-Sheet_1: 883386907605790569
+      FrontWalkMeleeRobot-Sheet_2: -8655208757403545360
+      FrontWalkMeleeRobot-Sheet_3: 2258585826285291552
+      FrontWalkMeleeRobot-Sheet_4: -1778869708864031723
+      FrontWalkMeleeRobot-Sheet_5: 3071858565963061560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
