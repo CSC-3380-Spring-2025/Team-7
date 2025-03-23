@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHearts = 5; // maximum number of hearts
     [SerializeField] private int heartValue =20; // hp per heart
-    [SerializeField] private int currentHearts; // current hearts
+    [SerializeField] public int currentHearts; // current hearts
 
     // PlayerHealth player = new PlayerHealth();
     PlayerHealth player;
@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
         this.maxHearts = maxHearts;
         this.currentHearts = hearts;
     }
+
    public void Damage(int amount)
     {
         if (amount < 0)
