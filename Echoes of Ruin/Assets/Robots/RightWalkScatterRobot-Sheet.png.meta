@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RightWalkScatterRobot-Sheet_0: -5367341606680992340
+      RightWalkScatterRobot-Sheet_1: 8427929357665563243
+      RightWalkScatterRobot-Sheet_2: 4718080334762995995
+      RightWalkScatterRobot-Sheet_3: 5103527856466618888
+      RightWalkScatterRobot-Sheet_4: 1988638008644085365
+      RightWalkScatterRobot-Sheet_5: 850095404160788583
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
