@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BackWalkScatterRobot-Sheet_0: 4318465746192223273
+      BackWalkScatterRobot-Sheet_1: 682587370592117621
+      BackWalkScatterRobot-Sheet_2: 6932804599221363846
+      BackWalkScatterRobot-Sheet_3: -5800888390212827595
+      BackWalkScatterRobot-Sheet_4: -7109703165198131631
+      BackWalkScatterRobot-Sheet_5: -6500744003984007187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

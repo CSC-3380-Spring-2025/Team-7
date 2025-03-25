@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FrontWalkScatterRobot-Sheet_0: 49284600853177679
+      FrontWalkScatterRobot-Sheet_1: -3122807812878760621
+      FrontWalkScatterRobot-Sheet_2: -319601396022929015
+      FrontWalkScatterRobot-Sheet_3: 8342682357894411430
+      FrontWalkScatterRobot-Sheet_4: -671271652121493394
+      FrontWalkScatterRobot-Sheet_5: -6584998461001684193
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
