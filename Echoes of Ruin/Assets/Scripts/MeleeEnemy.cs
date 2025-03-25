@@ -1,5 +1,6 @@
-using System.Xml.Serialization;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MeleeEnemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MeleeEnemy : MonoBehaviour
     private float speed = 1.5f;
     [SerializeField]
     private EnemyData data;
+    //want to make ememy follow player thats why palyer is defined
     private GameObject player;
 
     //Start is called befpre the first frame update
