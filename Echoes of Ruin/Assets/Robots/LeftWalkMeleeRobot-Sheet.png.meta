@@ -118,10 +118,10 @@ TextureImporter:
       name: LeftWalkMeleeRobot-Sheet_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 8
-        width: 29
-        height: 46
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +140,10 @@ TextureImporter:
       name: LeftWalkMeleeRobot-Sheet_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 9
-        width: 29
-        height: 45
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: LeftWalkMeleeRobot-Sheet_2
       rect:
         serializedVersion: 2
-        x: 143
-        y: 10
-        width: 29
-        height: 44
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: LeftWalkMeleeRobot-Sheet_3
       rect:
         serializedVersion: 2
-        x: 207
-        y: 8
-        width: 29
-        height: 46
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: LeftWalkMeleeRobot-Sheet_4
       rect:
         serializedVersion: 2
-        x: 271
-        y: 9
-        width: 29
-        height: 46
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,10 +228,10 @@ TextureImporter:
       name: LeftWalkMeleeRobot-Sheet_5
       rect:
         serializedVersion: 2
-        x: 335
-        y: 9
-        width: 29
-        height: 46
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 613cb8b0c31efef4dae0ef1658d93204
     internalID: 0
     vertices: []
     indices: 
