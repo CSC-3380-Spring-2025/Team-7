@@ -565,8 +565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCameraPos: {x: 0, y: -11, z: 0}
-  newPlayerCatPos: {x: 0, y: -3.5, z: 0}
 --- !u!1 &210016835
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,13 +847,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 324078432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef9b6a720eb109749950883cb5c5e75e, type: 3}
+  m_Script: {fileID: 11500000, guid: d335a760b5f0bbb46a796d796e9b0980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCat: {fileID: 396712184}
-  camSpeed: 0.3
-  minPosi: {x: 0, y: 0, z: -10}
-  maxPosi: {x: 0, y: 0, z: -10}
+  camSpeed: 0.02
+  minPosi: {x: 0, y: 0, z: 0}
+  maxPosi: {x: 0, y: 0, z: 0}
 --- !u!114 &324078438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,7 +962,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 396712183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e788211f8997b0047af3cd2aa9fd602c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e1fce4c4e39ccd4fa7d53a74dc46abe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 9.5
@@ -1128,11 +1126,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 406224358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
+  m_Script: {fileID: 11500000, guid: d411039778c074242a28327159ffea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCameraPos: {x: 20, y: 0, z: 0}
-  newPlayerCatPos: {x: 3.5, y: 0, z: 0}
+  newCameraPos: {x: 2, y: 0, z: 0}
+  newPlayerCatPos: {x: 4, y: 0, z: 0}
 --- !u!61 &406224361
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2689,8 +2687,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCameraPos: {x: 20, y: 0, z: 0}
-  newPlayerCatPos: {x: 4, y: 0, z: 0}
 --- !u!61 &1062509206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4025,8 +4021,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCameraPos: {x: 20, y: -1, z: 0}
-  newPlayerCatPos: {x: 3.5, y: 0, z: 0}
 --- !u!61 &1512877667
 BoxCollider2D:
   m_ObjectHideFlags: 0
