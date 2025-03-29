@@ -21,4 +21,9 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {  transform.SetParent(afterDrag);
        transform.position = temp; //snaps back to original position
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {   if (other.tag == "CatPlayer")
+        { Debug.Log("over sprite"); }
+    }
 }
