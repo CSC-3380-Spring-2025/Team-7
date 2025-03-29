@@ -4,6 +4,10 @@ using System.Collections.Generic;
 
 public class MeleeEnemy : MonoBehaviour
 {
+
+    // Radius within which the enemy detects the player
+    [SerializeField]
+    private float detectionRange = 5f;
     [SerializeField]
     private int damage = 1;
     [SerializeField]
@@ -13,7 +17,7 @@ public class MeleeEnemy : MonoBehaviour
     //want to make ememy follow player thats why palyer is defined
     private GameObject player;
 
-    //Start is called befpre the first frame update
+    //Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -37,8 +41,14 @@ public class MeleeEnemy : MonoBehaviour
 //makes object move toward player
     private void Swarm()
     {
+        float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+        if(distanceToPlayer <= detectionRange) {
+
+             //Move towards the player if within detection range
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        }
     }
+
     
     // private void OnTriggerEnter2D(Collider2D collider) 
     // {
