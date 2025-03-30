@@ -562,9 +562,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 160817699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
+  m_Script: {fileID: 11500000, guid: d411039778c074242a28327159ffea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCameraPos: {x: 0, y: -10, z: 0}
+  newPlayerCatPos: {x: 0, y: -4, z: 0}
 --- !u!1 &210016835
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +790,7 @@ Transform:
   m_GameObject: {fileID: 324078432}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4443817, y: 0.22729695, z: -45.984768}
+  m_LocalPosition: {x: 40.44438, y: -12.772703, z: -45.984768}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -851,9 +853,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCat: {fileID: 396712184}
-  camSpeed: 0.02
-  minPosi: {x: 0, y: 0, z: 0}
-  maxPosi: {x: 0, y: 0, z: 0}
+  camSpeed: 0.4
+  minPosi: {x: 0, y: 0, z: -10}
+  maxPosi: {x: 0, y: 0, z: -10}
 --- !u!114 &324078438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,7 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d411039778c074242a28327159ffea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newCameraPos: {x: 2, y: 0, z: 0}
+  newCameraPos: {x: 20, y: 0, z: 0}
   newPlayerCatPos: {x: 4, y: 0, z: 0}
 --- !u!61 &406224361
 BoxCollider2D:
@@ -2654,7 +2656,7 @@ GameObject:
   - component: {fileID: 1062509206}
   - component: {fileID: 1062509205}
   m_Layer: 0
-  m_Name: MoveRight (2)
+  m_Name: MoveRightLastRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2684,9 +2686,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062509203}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
+  m_Script: {fileID: 11500000, guid: d411039778c074242a28327159ffea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCameraPos: {x: 18, y: -0.5, z: 0}
+  newPlayerCatPos: {x: 4, y: 0, z: 0}
 --- !u!61 &1062509206
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3988,7 +3992,7 @@ GameObject:
   - component: {fileID: 1512877667}
   - component: {fileID: 1512877666}
   m_Layer: 0
-  m_Name: MoveRight (1)
+  m_Name: MoveRightRoom2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4018,9 +4022,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1512877664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c67da0c14eb5b8f47a0d678df3b000da, type: 3}
+  m_Script: {fileID: 11500000, guid: d411039778c074242a28327159ffea2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newCameraPos: {x: 18.5, y: 0, z: 0}
+  newPlayerCatPos: {x: 4, y: 0, z: 0}
 --- !u!61 &1512877667
 BoxCollider2D:
   m_ObjectHideFlags: 0

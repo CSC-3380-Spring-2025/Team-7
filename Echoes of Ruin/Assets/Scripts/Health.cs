@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 
 public class Health : MonoBehaviour
 
@@ -11,12 +13,16 @@ public class Health : MonoBehaviour
 
     // PlayerHealth player = new PlayerHealth();
     PlayerHealth player;
+    public int playerHP;
+    public GameObject[] hearts;
+    
 
     //Update is called once per frame
      void Start()
     {
         currentHearts = maxHearts;  // Start with full hearts
-        player = GetComponent<PlayerHealth>();  // Get PlayerHealth from the same GameObject
+        player = GetComponent<PlayerHealth>();
+          // Get PlayerHealth from the same GameObject
     }
 
    public void SetHearts(int maxHearts, int hearts)
@@ -42,6 +48,17 @@ public class Health : MonoBehaviour
             player.UpdateHP();  // Call when health is zero
         }
     }
+
+    /*public void UpdateHP()
+    {   if (playerHP <= 0){
+          SceneManager.LoadScene("GameOver"); 
+          }else{
+            for (int i =0; i <hearts.Length; i++){
+                hearts[i].SetActive(i < playerHP);
+            }
+          } 
+        
+    }*/
 
     public void Heal(int amount) {
 
