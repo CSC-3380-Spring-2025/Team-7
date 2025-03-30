@@ -4,11 +4,14 @@ using System.Collections.Generic;
 
 public class LaserEnemy : MonoBehaviour
 {
-    // will need to to attach a collider
     public Transform player;
     public GameObject laser;
+    
+    [SerializeField] private float startShootCooldown = 2f;
+    [SerializeField] private float shootingRange = 10f; // Max distance to shoot
+    [SerializeField] private LayerMask obstacleLayer;  // Layer for obstacles
+
     private float shootCooldown;
-    public float startShootCooldown;
 
     void Start()
     {
@@ -17,17 +20,36 @@ public class LaserEnemy : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
+        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+        if (distanceToPlayer <= shootingRange)
+        {
+            AimAtPlayer();
+            Shoot();
+        }
+
+        // Reduce cooldown timer
+        if (shootCooldown > 0)
+            shootCooldown -= Time.deltaTime;
+    }
+
+// Rotates the enemy to face the player 
+    private void AimAtPlayer()
+    {
+        Vector2 direction = player.position - transform.position;
         transform.up = direction;
+    }
 
-        if(shootCooldown <=0)
+//Shoots when colldown reaches 0
+    private void Shoot()
+    {
+        if (shootCooldown <= 0)
         {
             Instantiate(laser, transform.position, transform.rotation);
             shootCooldown = startShootCooldown;
-
-        } else {
-            shootCooldown -= Time.deltaTime;
         }
-    } 
-}
+    }
+}    
+
+
+  
