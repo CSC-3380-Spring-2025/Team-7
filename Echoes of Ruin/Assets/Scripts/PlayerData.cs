@@ -1,11 +1,11 @@
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using System; 
 
-[System.Serializable]
+[Serializable] 
 public class PlayerData
 {
-    public string playerId; 
-    public int currency;    
-    public List<string> ownedSkins = new List<string>(); 
-    public string currentSkin; 
-
+    public string PlayerId;
+    public int Currency;
+    public List<string> OwnedSkins = new List<string>();
+    public string CurrentSkin;
 }
