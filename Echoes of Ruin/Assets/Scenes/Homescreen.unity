@@ -275,7 +275,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -159691193
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -922,7 +922,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -159691193
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -935,6 +935,188 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &772097875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 772097876}
+  - component: {fileID: 772097877}
+  m_Layer: 0
+  m_Name: Audios
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &772097876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772097875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.68824583, y: -2.3654923, z: -0.08149445}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &772097877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772097875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122e0f69c9c7d45249d67e1e6bb34f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundMusics:
+  - name: Homescreen
+    clip: {fileID: 8300000, guid: 6baa5fbe8d42a544d923d599efe69f6d, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: Base
+    clip: {fileID: 8300000, guid: d301219e4416ba444a23957745cdc2bc, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: Nurture
+    clip: {fileID: 8300000, guid: 2ffa925f3e71d5c45a78dd34779ffb48, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: GachaCave
+    clip: {fileID: 8300000, guid: 773e6b7dc90102a4bbd5818cbec5164f, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: Level1
+    clip: {fileID: 8300000, guid: 8211bb86545a77c40b23823abed957b9, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: Level2
+    clip: {fileID: 8300000, guid: bcd5211d7e146904cb9540e309fd77ea, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: Level3
+    clip: {fileID: 8300000, guid: f76972efe4a63384e9f8a775d6c7b87d, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: FinalBoss
+    clip: {fileID: 8300000, guid: 3edbacc8117fe30478b23fc5b153f210, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: Credits
+    clip: {fileID: 8300000, guid: 7aec3bf6a00aadc449c6e0a85f3fc875, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: GameOver
+    clip: {fileID: 8300000, guid: c2f353bb8e427894185065fcc7b84fca, type: 3}
+    isLoop: 1
+    volume: 1
+  - name: SceneLore
+    clip: {fileID: 8300000, guid: a17e9d3874739c64399182326109a6e0, type: 3}
+    isLoop: 1
+    volume: 1
+  soundEffects:
+  - name: GachaPlay
+    clip: {fileID: 8300000, guid: d82ba30202345904298fb5827a7c7648, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: GachaSpin
+    clip: {fileID: 8300000, guid: fbe9388abb8c24f46ac9354dab846322, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: GachaWin
+    clip: {fileID: 8300000, guid: 0fcee067c15790e4fa2eb2ca2937af84, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: GachaWinUltra
+    clip: {fileID: 8300000, guid: 63bc652b8a2fd2048869e7de5ea3cd29, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: GachaLose
+    clip: {fileID: 8300000, guid: cbde41e428477474faa489933cbc8360, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: Pause
+    clip: {fileID: 8300000, guid: e93b7235b1c1d6c44b7503ec97c5ef2c, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: Unpause
+    clip: {fileID: 8300000, guid: 7bf52beebbef931409bfc4ec79944a6e, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: Level1walk
+    clip: {fileID: 8300000, guid: b251960cd5d27f94bb878bc2b4b5ea50, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: Level2walk
+    clip: {fileID: 8300000, guid: 1f42cd8706da95b448cafbb3c5e845fa, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: woosh1
+    clip: {fileID: 8300000, guid: f47d0ec6f7a593b489e98312c8ff1162, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: woosh2
+    clip: {fileID: 8300000, guid: 57f5d976b646b634d8d81df04caa5aeb, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 3c002543b3dff3049bc054cccd4bd291, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: ShopOpen
+    clip: {fileID: 8300000, guid: befc636fe6f79f04b9314790ab2555d5, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: ShopBuy
+    clip: {fileID: 8300000, guid: 93bcc0f2b4ad3ce44a3436f4ee839e8a, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: ShopSell
+    clip: {fileID: 8300000, guid: 6d8b015cdca8ada4b8f40da83679584c, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: LevelUp
+    clip: {fileID: 8300000, guid: c6c2e862b35940a478c0117cdbd4a662, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: Feed
+    clip: {fileID: 8300000, guid: f34c3a2edb2c20542af20d3040ae1ea6, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: PickUpCoin
+    clip: {fileID: 8300000, guid: 7b27fe1aeffdd9d4f82acab0dba2795d, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: Mumble
+    clip: {fileID: 8300000, guid: 836bf26ec28b4e642b5ff7fea51c6b68, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: EnemyHurt
+    clip: {fileID: 8300000, guid: e7a1d72d3531be042832c54f2bded2d8, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: EnemyLaser
+    clip: {fileID: 8300000, guid: b9ccdf318f829e84c9a45303a369e853, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: EnemyMelee
+    clip: {fileID: 8300000, guid: fc31e15ca1fa513459e049f3d8c233a2, type: 3}
+    isLoop: 0
+    volume: 0
+  - name: FinalBossHurt
+    clip: {fileID: 8300000, guid: a0f9eb896989365418e21de6ec4858a3, type: 3}
+    isLoop: 0
+    volume: 0
 --- !u!1 &830945100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,7 +1328,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -159691193
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1356,7 +1538,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1402803887
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -5774637900496580554, guid: 7fe00db980115b140b6d728546d4fd20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1652,7 +1834,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1933462583
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2484028809583da42befade563640d62, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1951,7 +2133,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -159691193
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2355,7 +2537,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -159691193
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2532,3 +2714,4 @@ SceneRoots:
   - {fileID: 830945104}
   - {fileID: 1405778784}
   - {fileID: 2080695901}
+  - {fileID: 772097876}

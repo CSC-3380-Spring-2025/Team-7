@@ -11,7 +11,8 @@ public class PlayerHealth : MonoBehaviour
 
     public void UpdateHP()
     {   if (playerHP <= 0){
-          SceneManager.LoadScene("GameOver"); 
+          SceneManager.LoadScene("GameOver");
+          Audios.Instance.PlayMusic("GameOver"); 
           }else{
             for (int i =0; i <hearts.Length; i++){
                 hearts[i].SetActive(i < playerHP);
