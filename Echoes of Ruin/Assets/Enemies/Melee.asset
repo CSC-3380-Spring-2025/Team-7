@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af50232269d685741b3d72a93624ccf5, type: 3}
+  m_Script: {fileID: 11500000, guid: 54afcaa4a6fe0eb42a873706a9df297e, type: 3}
   m_Name: Melee
   m_EditorClassIdentifier: 
-  hp: 25
+  hp: 3
   damage: 1
-  speed: 0
+  speed: 2
