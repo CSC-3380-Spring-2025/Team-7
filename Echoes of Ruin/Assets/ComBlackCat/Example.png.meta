@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 1c5ef054ad7b3984d95e7f3874476920
+guid: bb071bc8a387bbc4f8b46b59507879d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8226324693387425445
-    second: ComBlackCatRightIdle-Sheet_0
+      213: -6166943735136916572
+    second: ComBlackCatFrontIdle-Sheet 1_0
   - first:
-      213: 8376291134384663812
-    second: ComBlackCatRightIdle-Sheet_1
+      213: 3193681968941526913
+    second: ComBlackCatFrontIdle-Sheet 1_1
   - first:
-      213: -8026175212984314531
-    second: ComBlackCatRightIdle-Sheet_2
+      213: -4128298721102078660
+    second: ComBlackCatFrontIdle-Sheet 1_2
   - first:
-      213: -7870971162814677316
-    second: ComBlackCatRightIdle-Sheet_3
+      213: 8828458304854455405
+    second: ComBlackCatFrontIdle-Sheet 1_3
   - first:
-      213: 3791610735358203540
-    second: ComBlackCatRightIdle-Sheet_4
+      213: -185767038257753195
+    second: ComBlackCatFrontIdle-Sheet 1_4
   - first:
-      213: 256744732762443169
-    second: ComBlackCatRightIdle-Sheet_5
+      213: 329055672657936940
+    second: ComBlackCatFrontIdle-Sheet 1_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ComBlackCatRightIdle-Sheet_0
+      name: Example_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,16 +128,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: b594e9bb64936dd80800000000000000
-      internalID: -8226324693387425445
+      spriteID: a21393a90b3f7ec49acd392d1cfe91a8
+      internalID: -813812058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComBlackCatRightIdle-Sheet_1
+      name: Example_1
       rect:
         serializedVersion: 2
         x: 64
@@ -150,16 +150,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 40d604048609e3470800000000000000
-      internalID: 8376291134384663812
+      spriteID: 3d7c525bdc6439c4b989bc426d9f054e
+      internalID: 1759066947
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComBlackCatRightIdle-Sheet_2
+      name: Example_2
       rect:
         serializedVersion: 2
         x: 128
@@ -172,16 +172,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d5556051b2c4d9090800000000000000
-      internalID: -8026175212984314531
+      spriteID: a0ee32578a90d1449a5f7bb7e46f52eb
+      internalID: -2145891903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComBlackCatRightIdle-Sheet_3
+      name: Example_3
       rect:
         serializedVersion: 2
         x: 192
@@ -194,16 +194,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cbe761bfd61b4c290800000000000000
-      internalID: -7870971162814677316
+      spriteID: 4e2052d14a86f2a4b94badf421efdf7a
+      internalID: 780804989
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComBlackCatRightIdle-Sheet_4
+      name: Example_4
       rect:
         serializedVersion: 2
         x: 256
@@ -216,16 +216,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 496559fffd18e9430800000000000000
-      internalID: 3791610735358203540
+      spriteID: 490e1ce7001715141908bdbe1353f2c7
+      internalID: -2033099696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ComBlackCatRightIdle-Sheet_5
+      name: Example_5
       rect:
         serializedVersion: 2
         x: 320
@@ -238,10 +238,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1ad024269f3209300800000000000000
-      internalID: 256744732762443169
+      spriteID: ece9e9fdf81a73845b82bd62a7be6700
+      internalID: 1002499626
       vertices: []
       indices: 
       edges: []
@@ -250,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b52c19daad7e4df4198bcaf5ac4312ae
+    spriteID: 7ae9bafd2423fa244b3092af1110bb83
     internalID: 0
     vertices: []
     indices: 
@@ -260,12 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ComBlackCatRightIdle-Sheet_0: -8226324693387425445
-      ComBlackCatRightIdle-Sheet_1: 8376291134384663812
-      ComBlackCatRightIdle-Sheet_2: -8026175212984314531
-      ComBlackCatRightIdle-Sheet_3: -7870971162814677316
-      ComBlackCatRightIdle-Sheet_4: 3791610735358203540
-      ComBlackCatRightIdle-Sheet_5: 256744732762443169
+      Example_0: -813812058
+      Example_1: 1759066947
+      Example_2: -2145891903
+      Example_3: 780804989
+      Example_4: -2033099696
+      Example_5: 1002499626
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

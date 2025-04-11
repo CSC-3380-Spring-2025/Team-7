@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ccd40fb39830ff449d4ab5e409fcf08, type: 3}
+  m_Name: New Character Database
+  m_EditorClassIdentifier: 
+  character:
+  - characterName: Orange Cat
+    characterSprite: {fileID: -5857383661371205599, guid: 846bf8e6ddcee2c47a81a176312a3240, type: 3}
+  - characterName: Black Cat
+    characterSprite: {fileID: -813812058, guid: bb071bc8a387bbc4f8b46b59507879d2, type: 3}
+  - characterName: White Cat
+    characterSprite: {fileID: 1241493258446850375, guid: 5ddbf9ef58fdce7468ff100b4eca6db1, type: 3}
+  - characterName: Siamese Cat
+    characterSprite: {fileID: 387822497130711603, guid: 63a36d1c9a9569e45893b9c86a4ddb10, type: 3}
+  - characterName: American Shorthair Cat
+    characterSprite: {fileID: -4589170530324107781, guid: 9eab4af37a6ad50438bd003a9d8c09d7, type: 3}
+  - characterName: Calico Cat
+    characterSprite: {fileID: 4689647987342797733, guid: 8f036835b6cb06246a1851ea4d545d72, type: 3}
