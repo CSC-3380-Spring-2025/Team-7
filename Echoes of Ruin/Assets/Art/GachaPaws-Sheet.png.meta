@@ -434,7 +434,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GachaPaws-Sheet_0: 6128423757117816010
+      GachaPaws-Sheet_1: 5044507971892756745
+      GachaPaws-Sheet_10: -1906352741410874947
+      GachaPaws-Sheet_11: 5552920085258089310
+      GachaPaws-Sheet_12: 5920745931881605615
+      GachaPaws-Sheet_2: -4194306470984273298
+      GachaPaws-Sheet_3: 7494361897238829464
+      GachaPaws-Sheet_4: 6121110622905088724
+      GachaPaws-Sheet_5: 4017348927123362265
+      GachaPaws-Sheet_6: -7324855389674926636
+      GachaPaws-Sheet_7: 8391340862979584145
+      GachaPaws-Sheet_8: 5376449100793502020
+      GachaPaws-Sheet_9: 4721676247132343028
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -259,7 +259,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LeftWalkMeleeRobot-Sheet_0: 2204887818894755456
+      LeftWalkMeleeRobot-Sheet_1: 240706329496192391
+      LeftWalkMeleeRobot-Sheet_2: -9029624791191176735
+      LeftWalkMeleeRobot-Sheet_3: -2854262271471296688
+      LeftWalkMeleeRobot-Sheet_4: -5728395726220353179
+      LeftWalkMeleeRobot-Sheet_5: 8192661073662250561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
