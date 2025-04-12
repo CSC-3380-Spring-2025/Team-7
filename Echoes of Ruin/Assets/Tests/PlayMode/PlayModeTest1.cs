@@ -25,7 +25,7 @@ public class PlayModeTest1
     {
         healthcheck.currentHearts = 3;
         healthcheck.Damage(20);
-        int result = healthcheck.hearts[i].activeSelf;
+        bool result = healthcheck.hearts[i].activeSelf;
         Assert.AreEqual(2, result);
         
         yield return null;
