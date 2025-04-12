@@ -15,13 +15,19 @@ MonoBehaviour:
   character:
   - characterName: Orange Cat
     characterSprite: {fileID: -5857383661371205599, guid: 846bf8e6ddcee2c47a81a176312a3240, type: 3}
+    animatorOverride: {fileID: 9100000, guid: afe10ef800c227d40b304875d6fb0376, type: 2}
   - characterName: Black Cat
     characterSprite: {fileID: -813812058, guid: bb071bc8a387bbc4f8b46b59507879d2, type: 3}
+    animatorOverride: {fileID: 9100000, guid: 656d83419bfe90940ac6f61ff1b25466, type: 2}
   - characterName: White Cat
     characterSprite: {fileID: 1241493258446850375, guid: 5ddbf9ef58fdce7468ff100b4eca6db1, type: 3}
+    animatorOverride: {fileID: 9100000, guid: f29b591a46b06ed4087df4aaae033c5f, type: 2}
   - characterName: Siamese Cat
     characterSprite: {fileID: 387822497130711603, guid: 63a36d1c9a9569e45893b9c86a4ddb10, type: 3}
+    animatorOverride: {fileID: 9100000, guid: 6a0ea210f1292444698eb0d7df29ba2d, type: 2}
   - characterName: American Shorthair Cat
     characterSprite: {fileID: -4589170530324107781, guid: 9eab4af37a6ad50438bd003a9d8c09d7, type: 3}
+    animatorOverride: {fileID: 9100000, guid: ab6f31e89d216704bba9c55ef76e316e, type: 2}
   - characterName: Calico Cat
     characterSprite: {fileID: 4689647987342797733, guid: 8f036835b6cb06246a1851ea4d545d72, type: 3}
+    animatorOverride: {fileID: 9100000, guid: df84f0e015130564d91b3559624993b3, type: 2}

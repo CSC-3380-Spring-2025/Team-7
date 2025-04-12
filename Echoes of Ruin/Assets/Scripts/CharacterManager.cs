@@ -1,14 +1,21 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterManager : MonoBehaviour{
 
     public CharacterDatabase characterDB;
     public SpriteRenderer artworkSprite;
-
+   
     private int SelectedOption = 0;
 
     void Start(){
+
+        if(!PlayerPrefs.HasKey("SelectedOption")){
+            SelectedOption = 0;
+        }else{
+            Load();
+        }
         UpdateCharacter(SelectedOption);
     }
 
@@ -18,6 +25,7 @@ public class CharacterManager : MonoBehaviour{
             SelectedOption = 0;
         }
         UpdateCharacter(SelectedOption);
+        Save();
     }
 
     public void BackOption(){
@@ -26,6 +34,7 @@ public class CharacterManager : MonoBehaviour{
             SelectedOption = characterDB.characterCount -1;
         }
         UpdateCharacter(SelectedOption);
+        Save();
     }
 
     private void UpdateCharacter(int SelectedOption){
@@ -34,6 +43,17 @@ public class CharacterManager : MonoBehaviour{
         
     }
 
+    private void Load(){
+        SelectedOption = PlayerPrefs.GetInt("SelectedOption");
+    }
+
+    private void Save(){
+        PlayerPrefs.SetInt("SelectedOption",SelectedOption);
+    }
    
-    
+    public void ChangeScene(int scenceID){
+        SceneManager.LoadScene(scenceID);
+    }
+
+  
 }
