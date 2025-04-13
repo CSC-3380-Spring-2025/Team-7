@@ -1785,6 +1785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405778784}
   - component: {fileID: 1405778783}
+  - component: {fileID: 1405778785}
   m_Layer: 0
   m_Name: HomeScreen
   m_TagString: Untagged
@@ -1862,6 +1863,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405778785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405778782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f8f20e7dacd4f258fe1c8c503c1aa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1610431127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2269,6 +2282,8 @@ GameObject:
   - component: {fileID: 1942916211}
   - component: {fileID: 1942916210}
   - component: {fileID: 1942916209}
+  - component: {fileID: 1942916213}
+  - component: {fileID: 1942916214}
   m_Layer: 5
   m_Name: MusicandSoundButtons
   m_TagString: Untagged
@@ -2362,6 +2377,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1942916213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942916208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4c679f1e28247c59a5af3df5389d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSlider: {fileID: 384891279}
+  soundSlider: {fileID: 1306869414}
+--- !u!114 &1942916214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942916208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bce74380d3b74b4c9ee9ce910176231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsPanel: {fileID: 967535305}
+  applyButton: {fileID: 318593273}
+  exitButton: {fileID: 899461167}
+  musicSlider: {fileID: 384891279}
+  soundSlider: {fileID: 1306869414}
 --- !u!1 &2024946790
 GameObject:
   m_ObjectHideFlags: 0
