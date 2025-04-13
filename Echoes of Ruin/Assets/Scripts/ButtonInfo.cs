@@ -1,16 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class ButtonInfo : MonoBehaviour
 {   public int ItemID;
-    public TextMeshProUGUI CostTXT;
-    public TextMeshProUGUI QuantTXT;
+    public Text CostTXT;
+    public Text QuantTXT;
     public GameObject vend;
     
     void Start()
-    {   CostTXT.text = "Price: \n" + vend.GetComponent<Vendor>().items[2, ItemID].ToString();
-        QuantTXT.text = "Owned: \n" + vend.GetComponent<Vendor>().items[3, ItemID].ToString();
+    {   //CostTXT.text = "Cost: " + vend.GetComponent<Vendor>().BuyItem[2, ItemID].ToString();
+        //QuantTXT.text = "Quantity: " + vend.GetComponent<Vendor>().BuyItem[3, ItemID].ToString();
     }
     
 }
