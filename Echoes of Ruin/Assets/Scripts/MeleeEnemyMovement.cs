@@ -1,23 +1,35 @@
 using UnityEngine;
 
-public class MeleeEnemyMovement : MonoBehaviour {
+public class EnemyMovement : MonoBehaviour
+{
     public Rigidbody2D Body;
-    public float MoveSpeed = 2f;
-    public Vector2 Direction;
-    public Animator Animator;
+    public GameObject PlayerCat; // Reference to player
+    public Animator Animator; // Optional, for animation
 
-    void Update() {
-        Direction.x = Input.GetAxisRaw("Horizontal");
-        Direction.y = Input.GetAxisRaw("Vertical");
-        if(Direction != Vector2.zero) {
-            Animator.SetFloat("Horizontal", Direction.x);
-            Animator.SetFloat("Vertical", Direction.y);
-        }
-        Animator.SetFloat("Speed", Direction.sqrMagnitude);
-       
-    }   
+    private Vector2 direction;
 
-    void FixedUpdate() {
-        Body.MovePosition(Body.position + Direction * MoveSpeed * Time.fixedDeltaTime);
+    void Start()
+    {
+        // Assign player if not already set in inspector
+        if (PlayerCat == null)
+            PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
     }
+
+    void Update()
+    {
+        if (PlayerCat != null)
+        {
+            // Get direction to player
+            direction = (PlayerCat.transform.position - transform.position).normalized;
+
+            // Optionally, update animations if needed
+            if (Animator != null)
+            {
+                Animator.SetFloat("Horizontal", direction.x);
+                Animator.SetFloat("Vertical", direction.y);
+                Animator.SetFloat("Speed", direction.sqrMagnitude);
+            }
+        }
+    }
+
 }
