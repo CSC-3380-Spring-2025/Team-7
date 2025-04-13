@@ -1,20 +1,26 @@
-using System.Xml.Serialization;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MeleeEnemy : MonoBehaviour
 {
+
+    // Radius within which the enemy detects the player
+    [SerializeField]
+    private float detectionRange = 5f;
     [SerializeField]
     private int damage = 1;
     [SerializeField]
     private float speed = 1.5f;
     [SerializeField]
     private EnemyData data;
-    private GameObject player;
+    //want to make ememy follow player thats why palyer is defined
+    private GameObject PlayerCat;
 
-    //Start is called befpre the first frame update
+    //Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
         SetEnemyValues();
     }
 
@@ -35,8 +41,14 @@ public class MeleeEnemy : MonoBehaviour
 //makes object move toward player
     private void Swarm()
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
+        if(distanceToPlayer <= detectionRange) {
+
+             //Move towards the player if within detection range
+        transform.position = Vector2.MoveTowards(transform.position, PlayerCat.transform.position, speed * Time.deltaTime);
+        }
     }
+
     
     // private void OnTriggerEnter2D(Collider2D collider) 
     // {

@@ -26,10 +26,12 @@ public class PlayerAttack : MonoBehaviour {
     void Update() {
         if(Input.GetKeyDown(KeyCode.Q)) {
             Attack1();
+            Audios.Instance.PlaySound("Woosh1");
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
             Attack2();
+            Audios.Instance.PlaySound("Woosh2");
         }
 
         if(attacking1) {
@@ -40,7 +42,7 @@ public class PlayerAttack : MonoBehaviour {
                 attacking1 = false;
                 attackArea1.SetActive(false);
         }
-
+        
         if(attacking2) {
             timer2 += Time.deltaTime; 
 
