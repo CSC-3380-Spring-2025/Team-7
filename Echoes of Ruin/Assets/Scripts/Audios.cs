@@ -18,8 +18,8 @@ public class Audios : MonoBehaviour
 
     [SerializeField] private AudioData[] backgroundMusics;
     [SerializeField] private AudioData[] soundEffects;
-    private Dictionary<string, AudioSource> musics = new Dictionary<string, AudioSource>();
-    private Dictionary<string, AudioSource> sounds = new Dictionary<string, AudioSource>();
+    public Dictionary<string, AudioSource> musics = new Dictionary<string, AudioSource>();
+    public Dictionary<string, AudioSource> sounds = new Dictionary<string, AudioSource>();
 
     private void Awake(){
         if (Instance == null){
@@ -65,6 +65,15 @@ public class Audios : MonoBehaviour
         }
         else {
              Debug.LogWarning($"Sounds {name} not found!");
+        }
+    }
+
+    public void SetMasterVolume(float volume){
+        foreach(var music in musics.Values){
+            music.volume = volume;
+        }
+        foreach(var sound in sounds.Values){
+            sound.volume = volume;
         }
     }
 }
