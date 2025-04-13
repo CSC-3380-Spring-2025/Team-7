@@ -20,13 +20,14 @@
 //         healthcheck = dummyPlayer.AddComponent<Health>();
 //     }
     
-//     [UnityTest]
-//     public IEnumerator PlayModeTest1WithEnumeratorPasses()
-//     {
-//         healthcheck.currentHearts = 3;
-//         healthcheck.Damage(20);
-//         int result = healthcheck.hearts[i].activeSelf;
-//         Assert.AreEqual(2, result);
+    [UnityTest]
+    public IEnumerator PlayModeTest1WithEnumeratorPasses()
+    {
+        healthcheck.currentHearts = 3;
+        healthcheck.Damage(20);
+        bool result = healthcheck.hearts[i].activeSelf;
+        Assert.AreEqual(2, result);
+
         
 //         yield return null;
 //     }
