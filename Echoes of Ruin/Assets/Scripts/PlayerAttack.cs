@@ -4,27 +4,31 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour {
-    public GameObject attackArea1;
-    public GameObject attackArea2;
+    public GameObject MeleeAttack;
+    public GameObject RangeAttack;
 
 //variables to check if player is attacking, set attack to last certain duration, time how long attack has been active
-    private bool attacking1 = false;
-    private bool attacking2 = false;
-    private float timeToAttack1 = 0.25f;
-    private float timetoAttack2 = 0.5f;
+    private bool melee = false;
+    private bool range = false;
+    private float timeToMelee = 0.25f;
+    private float timeToRange = 0.5f;
     private float timer1 = 0f;
     private float timer2 = 0f;
 
+//variables for range (hairball) attack
+    public Transform Aimer;
+    public float fireSpeed = 10f;
+
     //start is called before the first frame update
     void Start() {
-        attackArea1 = transform.GetChild(0).gameObject;
-        attackArea2 = transform.GetChild(1).gameObject;
-    } 
+        MeleeAttack = transform.GetChild(0).gameObject;
+        RangeAttack = transform.GetChild(1).gameObject;
+    }
 
     //update is called once per frame
     //If space bar is pressed, attack method is called
     void Update() {
-        if(Input.GetKeyDown(KeyCode.Q)) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             Attack1();
             Audios.Instance.PlaySound("Woosh1");
         }
@@ -34,35 +38,41 @@ public class PlayerAttack : MonoBehaviour {
             Audios.Instance.PlaySound("Woosh2");
         }
 
-        if(attacking1) {
+        if (melee)
+        {
             timer1 += Time.deltaTime;
 
-            if(timer1 >= timeToAttack1) {
+            if (timer1 >= timeToMelee)
+            {
                 timer1 = 0;
-                attacking1 = false;
-                attackArea1.SetActive(false);
+                melee = false;
+                MeleeAttack.SetActive(false);
+            }
         }
         
-        if(attacking2) {
+        if(range) {
             timer2 += Time.deltaTime; 
 
-            if(timer2 >= timetoAttack2)
+            if(timer2 >= timeToRange)
                 timer2 = 0;
-                attacking2 = false;
-                attackArea2.SetActive(false);
+                GameObject intRange = Instantiate(RangeAttack, Aimer.position, Aimer.rotation);
+                intRange.GetComponent<Rigidbody2D>().AddForce(-Aimer.up * fireSpeed, ForceMode2D.Impulse);
+
+                range = false;
+                RangeAttack.SetActive(false);
         }
-    }
+    
 }
 //attack method sets attack area to true and attackarea checks if there are colliders in the trigger area 
 
     void Attack1() {
-        attacking1 = true;
-        attackArea1.SetActive(true);
+        melee = true;
+        MeleeAttack.SetActive(true);
     }
 
     void Attack2() {
-        attacking2 = true;
-        attackArea2.SetActive(true);
+        range = true;
+        RangeAttack.SetActive(true);
     }
 }
 

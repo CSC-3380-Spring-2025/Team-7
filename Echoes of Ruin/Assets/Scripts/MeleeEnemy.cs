@@ -15,12 +15,16 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField]
     private EnemyData data;
     //want to make ememy follow player thats why palyer is defined
-    private GameObject PlayerCat;
+
+    private GameObject CatPlayer;
+
 
     //Start is called before the first frame update
     void Start()
     {
-        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+
+        CatPlayer = GameObject.FindGameObjectWithTag("Player");
+
         SetEnemyValues();
     }
 
@@ -41,11 +45,13 @@ public class MeleeEnemy : MonoBehaviour
 //makes object move toward player
     private void Swarm()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
+
+        float distanceToPlayer = Vector2.Distance(transform.position, CatPlayer.transform.position);
         if(distanceToPlayer <= detectionRange) {
 
              //Move towards the player if within detection range
-        transform.position = Vector2.MoveTowards(transform.position, PlayerCat.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, CatPlayer.transform.position, speed * Time.deltaTime);
+
         }
     }
 
