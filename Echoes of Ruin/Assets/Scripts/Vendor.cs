@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
-using TMPro;
 
 public class Vendor : MonoBehaviour {
 
@@ -15,9 +14,6 @@ public class Vendor : MonoBehaviour {
 
     public int cost;
     public int[,] items = new int[4, 4];
-    public TextMeshProUGUI CoinsTXT;
-
-    private Canvas canvas;
 
 //have to have an event system thats tagged gamecontroller where currency script is stored
     void Start() {
@@ -30,28 +26,23 @@ public class Vendor : MonoBehaviour {
         items[2, 1] = 3;
         items[2, 2] = 3;
         items[2, 3] = 3;
-        // item quantities
+        // item quantitiesquantity
         items[3, 1] = 0;
         items[3, 2] = 0;
         items[3, 3] = 0;
-
-        vendorUI.SetActive(false);
     }
-    void OnTriggerEnter2D(Collider2D collider) {
+    void OnTriggerEnter() {
 
         //makes vendor appear
-        if (collider.gameObject.tag == "UI") {
-            vendorUI.SetActive(true);
-            Cursor.visible = true; 
-        }
+        vendorUI.SetActive(true);
+        Cursor.visible = true;  
     }
 
     //Updaate is called once per frame
-    void OnTriggerExit2D (Collider2D collider) {
-       if (collider.gameObject.tag == "UI") {
-            vendorUI.SetActive(false);
-            Cursor.visible = false; 
-        }
+    void OnTriggerExit () {
+
+        vendorUI.SetActive(false);
+        Cursor.visible = false;
     } 
 
     public void BuyItem(){
@@ -59,10 +50,9 @@ public class Vendor : MonoBehaviour {
         
         cost = items[2, ShopButton.GetComponent<ButtonInfo>().ItemID];
         if (script.coin >= cost) {
+
             script.coin -= cost;
             items[3, ShopButton.GetComponent<ButtonInfo>().ItemID]++;
-            CoinsTXT.text = "Coins: " + script.coin.ToString();
-            ShopButton.GetComponent<ButtonInfo>().QuantTXT.text = items[3, ShopButton.GetComponent<ButtonInfo>().ItemID].ToString();
         }
     }
 
