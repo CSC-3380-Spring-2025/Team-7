@@ -2421,7 +2421,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1923072342}
         m_TargetAssemblyTypeName: Vendor, ScriptsAssembly
         m_MethodName: BuyItem
         m_Mode: 1
@@ -2446,8 +2446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemID: 3
-  CostTXT: {fileID: 0}
-  QuantTXT: {fileID: 0}
+  CostTXT: {fileID: 814565996}
+  QuantTXT: {fileID: 640548494}
   vend: {fileID: 1923072340}
 --- !u!1 &732222179
 GameObject:
@@ -3253,7 +3253,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1923072342}
         m_TargetAssemblyTypeName: Vendor, ScriptsAssembly
         m_MethodName: BuyItem
         m_Mode: 1
@@ -3278,8 +3278,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemID: 2
-  CostTXT: {fileID: 0}
-  QuantTXT: {fileID: 0}
+  CostTXT: {fileID: 2125979567}
+  QuantTXT: {fileID: 801582631}
   vend: {fileID: 1923072340}
 --- !u!1 &1009023952
 GameObject:
@@ -4162,7 +4162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef393f248cbc38040acef59e386422ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 1
 --- !u!212 &1646620649
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5864,6 +5864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1923072341}
+  - component: {fileID: 1923072342}
   m_Layer: 0
   m_Name: vendorUI
   m_TagString: Untagged
@@ -5887,6 +5888,21 @@ Transform:
   - {fileID: 1116084691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923072342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923072340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db4fa3f9e4de7b4b964ae11cd092351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vendorUI: {fileID: 1923072340}
+  cost: 0
+  CoinsTXT: {fileID: 0}
 --- !u!1 &2029289232
 GameObject:
   m_ObjectHideFlags: 0
@@ -6286,6 +6302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vendorUI: {fileID: 1923072340}
   cost: 0
+  CoinsTXT: {fileID: 0}
 --- !u!1 &2108395495
 GameObject:
   m_ObjectHideFlags: 0
@@ -6379,8 +6396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemID: 1
-  CostTXT: {fileID: 0}
-  QuantTXT: {fileID: 0}
+  CostTXT: {fileID: 860441103}
+  QuantTXT: {fileID: 1205581580}
   vend: {fileID: 1923072340}
 --- !u!114 &2108395500
 MonoBehaviour:
@@ -6426,7 +6443,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1923072342}
         m_TargetAssemblyTypeName: Vendor, ScriptsAssembly
         m_MethodName: BuyItem
         m_Mode: 1
