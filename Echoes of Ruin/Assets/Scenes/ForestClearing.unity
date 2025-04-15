@@ -119,6 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+
 --- !u!1 &27083974
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +289,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+
 --- !u!1 &92477228
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +495,9 @@ MonoBehaviour:
   MoveSpeed: 2
   Direction: {x: 0, y: 0}
   Animator: {fileID: 92477229}
+
   Aimer: {fileID: 1494906422}
+
 --- !u!114 &92477235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2598,6 +2602,7 @@ GameObject:
   - component: {fileID: 1198049157}
   - component: {fileID: 1198049159}
   - component: {fileID: 1198049158}
+  - component: {fileID: 1198049160}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2648,7 +2653,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.75
+  orthographic size: 2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2730,7 +2735,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198049153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
@@ -2771,6 +2776,20 @@ MonoBehaviour:
   camSpeed: 0
   minPosi: {x: 0, y: 0, z: -10}
   maxPosi: {x: 0, y: 0, z: -10}
+--- !u!114 &1198049160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198049153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e182984538da1414caab6dabb43c8797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camSpeed: 2
+  targetPos: {fileID: 92477233}
 --- !u!1 &1393608153
 GameObject:
   m_ObjectHideFlags: 0
