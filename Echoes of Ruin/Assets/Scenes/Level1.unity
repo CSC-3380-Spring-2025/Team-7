@@ -2523,9 +2523,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 178677489}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb38b2cc821025f48b052dd70cd75325, type: 3}
+  m_Script: {fileID: 11500000, guid: e182984538da1414caab6dabb43c8797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camSpeed: 2
+  targetPos: {fileID: 902062659}
 --- !u!1 &233584250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2836,6 +2838,7 @@ MonoBehaviour:
   MoveSpeed: 2
   Direction: {x: 0, y: 0}
   Animator: {fileID: 902062655}
+  Aimer: {fileID: 0}
 --- !u!95 &902062655
 Animator:
   serializedVersion: 7
@@ -2951,7 +2954,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.47, y: 0.46}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
