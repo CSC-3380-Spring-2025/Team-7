@@ -26,7 +26,7 @@ public class LaserEnemy : MonoBehaviour
     void Start()
     {
         shootCooldown = startShootCooldown;
-         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
         SetEnemyValues();
     }
 
