@@ -26,7 +26,7 @@ public class LaserEnemy : MonoBehaviour
     void Start()
     {
         shootCooldown = startShootCooldown;
-         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
         SetEnemyValues();
     }
 
@@ -73,7 +73,10 @@ public class LaserEnemy : MonoBehaviour
         if (shootCooldown <= 0)
         {
         Vector2 direction = (PlayerCat.transform.position - transform.position).normalized;
-        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction); // 2D forward = Z axis
+
+         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.Euler(0, 0, angle);
+        // Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction); // 2D forward = Z axis
 
         Instantiate(laser, transform.position, rotation);
         shootCooldown = startShootCooldown;

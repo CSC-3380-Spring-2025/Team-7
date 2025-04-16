@@ -121,12 +121,17 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
-      tessellationDetail: -1
+      physicsShape:
+      - - {x: 32, y: 23}
+        - {x: -9, y: 22}
+        - {x: -25, y: -21}
+        - {x: -25, y: -32}
+        - {x: 32, y: -32}
+      tessellationDetail: 0
       bones: []
       spriteID: e012187b9c74883a0800000000000000
       internalID: -6662996717001957106
@@ -143,11 +148,16 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 25.982796, y: -21.670021}
+        - {x: 9, y: 22}
+        - {x: -32, y: 22}
+        - {x: -32, y: -32}
+        - {x: 26, y: -32}
       tessellationDetail: 0
       bones: []
       spriteID: 9b8868b88e636ee4d98f961a709e067f
@@ -165,11 +175,16 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 32, y: 32}
+        - {x: -25, y: 32}
+        - {x: -27, y: 24.452099}
+        - {x: -27, y: -20}
+        - {x: 32, y: -20}
       tessellationDetail: 0
       bones: []
       spriteID: f3b3a80cadba1c74da5be3bc32897437
@@ -187,11 +202,16 @@ TextureImporter:
         width: 64
         height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: 28, y: 24.452068}
+        - {x: 25, y: 31}
+        - {x: -32, y: 32}
+        - {x: -32, y: -20}
+        - {x: 28, y: -20}
       tessellationDetail: 0
       bones: []
       spriteID: ed0baca34e46caa45b02bd4c5868173e
@@ -215,16 +235,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Nurture_0: -6662996717001957106
-
-
-
-
-      Nurture_1: -28538333
-      Nurture_2: -176703941
-      Nurture_3: -2013065658
-
-
-
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
