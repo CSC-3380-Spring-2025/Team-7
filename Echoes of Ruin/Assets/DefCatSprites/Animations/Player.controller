@@ -1,13 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-8477232130358839216
+--- !u!1101 &-8589678114440676978
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Combat
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -1833866076366040569}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1102 &-8501492300941723550
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatBack
+  m_Name: RareAShortCombatRightanim
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +45,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5e5ac0410ad59ea49bc96fc2f5c39833, type: 2}
+  m_Motion: {fileID: 7400000, guid: fe5f8a04a1b375c4aabc7f655bca918f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -53,14 +78,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-8049736601544474742
+--- !u!1102 &-8113231281868661933
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseRightIdle
+  m_Name: LegCalicoCatCombatLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -73,20 +98,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a66f8e34ed1027048aed790891ca5647, type: 2}
+  m_Motion: {fileID: 7400000, guid: 46787e2a0a584bd42a9596ac17e675d9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-7666061710868395679
+--- !u!1102 &-7872673616667267255
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatLeft
+  m_Name: LegCalicoCatCombatBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -99,20 +124,67 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4123f86101fa88c4d98a8f2dffcf1397, type: 2}
+  m_Motion: {fileID: 7400000, guid: 371d5e1f3605ec64e8c962846ca2b565, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-7608569133902899761
+--- !u!206 &-7279891949368616341
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CombatTree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 54a477c04af60014ea7384f7b1dd6ee6, type: 2}
+    m_Threshold: 0
+    m_Position: {x: 0, y: -1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 8540379f5f49c4441ae91949c008b1c3, type: 2}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0, y: 1}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 3ed8b5a8c2b87b94e95ce1b0fae0fe36, type: 2}
+    m_Threshold: 0.6666667
+    m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 402db83f6569d8242bbbe03aa72c7691, type: 2}
+    m_Threshold: 1
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Horizontal
+    m_Mirror: 0
+  m_BlendParameter: Horizontal
+  m_BlendParameterY: Vertical
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 1
+--- !u!1102 &-7128577760909817438
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseFrontIdle
+  m_Name: RareAShortCombatBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -125,20 +197,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8fd66965839546140b5333483cc6c1f6, type: 2}
+  m_Motion: {fileID: 7400000, guid: 73d5ddc1fcc1f844da4e01a7042cd01b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-5517128370818215569
+--- !u!1102 &-6718939929803663991
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseLeft
+  m_Name: ComBlackRightIdle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -151,20 +223,47 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7daf3b7668571934185be6f5e699c5fc, type: 2}
+  m_Motion: {fileID: 7400000, guid: b2b4defd7c57e364fb862e099910fb5a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-5504097518485048088
+--- !u!1102 &-1833866076366040569
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatLeftIdle
+  m_Name: Combat
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -899266584311736778}
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: -7279891949368616341}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-1642184149052236241
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ComWhiteCombatRight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -177,20 +276,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9c768224d3b11bc44848d2a9ab7f109b, type: 2}
+  m_Motion: {fileID: 7400000, guid: 253c2c05c7a583f40bd2a648d417beac, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-4720711280541529465
+--- !u!1102 &-909592247848430972
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteBack
+  m_Name: ComWhiteCombatBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -203,142 +302,34 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: de60605aab83abd44b54d48c5bb74372, type: 2}
+  m_Motion: {fileID: 7400000, guid: e07773e10f3e3f5419a4e5f71a2447c3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2966951715353275781
-AnimatorState:
-  serializedVersion: 6
+--- !u!1101 &-899266584311736778
+AnimatorStateTransition:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatBackIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d82e11a17c0df11449c6cd3f98706585, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-989313733823798247
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteRightIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5102072fab2841d459c8097afa17b7ae, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-846979134445029106
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteRight
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: dec941b142263904aa291e122a8b5d05, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-795609442974358322
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseFront
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b62b904077a31534cbb1ac52ac21d5a1, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-681949935392686161
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortBack
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1816e8a1cd0b9c34a8371f3584bb7415, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 82316317878372694}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1107 &-188641032176761291
 AnimatorStateMachine:
   serializedVersion: 6
@@ -355,107 +346,69 @@ AnimatorStateMachine:
     m_State: {fileID: -8435132751164744934}
     m_Position: {x: 525.4643, y: 98.20737, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 578968396209927692}
-    m_Position: {x: 560.4643, y: 163.20737, z: 0}
+    m_State: {fileID: -1833866076366040569}
+    m_Position: {x: 283.1049, y: -10.779266, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 7973694098015673785}
-    m_Position: {x: 595.4643, y: 228.20737, z: 0}
+    m_State: {fileID: 2338608306943932176}
+    m_Position: {x: 318.1049, y: 54.220734, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 5684171226980723103}
-    m_Position: {x: 630.4643, y: 293.20737, z: 0}
+    m_State: {fileID: -1642184149052236241}
+    m_Position: {x: 353.1049, y: 119.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -4720711280541529465}
-    m_Position: {x: 665.4643, y: 358.20737, z: 0}
+    m_State: {fileID: 8127092505453211103}
+    m_Position: {x: 388.1049, y: 184.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 4987216852398304022}
-    m_Position: {x: 700.4643, y: 423.20737, z: 0}
+    m_State: {fileID: 3740431137745809159}
+    m_Position: {x: 423.1049, y: 249.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 7730195144158283681}
-    m_Position: {x: 735.4643, y: 488.20737, z: 0}
+    m_State: {fileID: -909592247848430972}
+    m_Position: {x: 458.1049, y: 314.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -989313733823798247}
-    m_Position: {x: 770.4643, y: 553.2074, z: 0}
+    m_State: {fileID: 3230742697346176793}
+    m_Position: {x: 493.1049, y: 379.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -846979134445029106}
-    m_Position: {x: 805.4643, y: 618.2074, z: 0}
+    m_State: {fileID: 6144743244012120013}
+    m_Position: {x: 528.10486, y: 444.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -7608569133902899761}
-    m_Position: {x: 840.4643, y: 683.2074, z: 0}
+    m_State: {fileID: 6002517226510211053}
+    m_Position: {x: 563.10486, y: 509.22073, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -795609442974358322}
-    m_Position: {x: 875.4643, y: 748.2074, z: 0}
+    m_State: {fileID: 8496493123823561862}
+    m_Position: {x: 598.10486, y: 574.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -8049736601544474742}
-    m_Position: {x: 910.4643, y: 813.2074, z: 0}
+    m_State: {fileID: -7128577760909817438}
+    m_Position: {x: 633.10486, y: 639.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8907768680820551400}
-    m_Position: {x: 945.4643, y: 878.2074, z: 0}
+    m_State: {fileID: 582506163391260510}
+    m_Position: {x: 668.10486, y: 704.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8491700243709381057}
-    m_Position: {x: 980.4643, y: 943.2074, z: 0}
+    m_State: {fileID: -8501492300941723550}
+    m_Position: {x: 703.10486, y: 769.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -5517128370818215569}
-    m_Position: {x: 1015.4643, y: 1008.2074, z: 0}
+    m_State: {fileID: 8150536035326772888}
+    m_Position: {x: 738.10486, y: 834.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 3311276247654825108}
-    m_Position: {x: 1050.4644, y: 1073.2074, z: 0}
+    m_State: {fileID: -7872673616667267255}
+    m_Position: {x: 773.10486, y: 899.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1717448631321102497}
-    m_Position: {x: 1085.4644, y: 1138.2074, z: 0}
+    m_State: {fileID: 5905916716092117447}
+    m_Position: {x: 808.10486, y: 964.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8141531314920616275}
-    m_Position: {x: 1120.4644, y: 1203.2074, z: 0}
+    m_State: {fileID: -8113231281868661933}
+    m_Position: {x: 843.10486, y: 1029.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 5079605750224675611}
-    m_Position: {x: 1155.4644, y: 1268.2074, z: 0}
+    m_State: {fileID: 5293669205127302967}
+    m_Position: {x: 878.10486, y: 1094.2207, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 2912765250189203699}
-    m_Position: {x: 1190.4644, y: 1333.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1887795236769828387}
-    m_Position: {x: 1225.4644, y: 1398.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 4738637337595118520}
-    m_Position: {x: 1260.4644, y: 1463.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 1083391207088913743}
-    m_Position: {x: 1295.4644, y: 1528.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 5161764687505588261}
-    m_Position: {x: 1330.4644, y: 1593.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -681949935392686161}
-    m_Position: {x: 1365.4644, y: 1658.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 3593300306287263683}
-    m_Position: {x: 1400.4644, y: 1723.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 5024036436586798328}
-    m_Position: {x: 1435.4644, y: 1788.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -5504097518485048088}
-    m_Position: {x: 1470.4644, y: 1853.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -7666061710868395679}
-    m_Position: {x: 1505.4644, y: 1918.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 802541436196142505}
-    m_Position: {x: 1540.4644, y: 1983.2074, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: 6325286809428721313}
-    m_Position: {x: 1575.4644, y: 2048.2075, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -2966951715353275781}
-    m_Position: {x: 1610.4644, y: 2113.2075, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -8477232130358839216}
-    m_Position: {x: 1645.4644, y: 2178.2075, z: 0}
+    m_State: {fileID: -6718939929803663991}
+    m_Position: {x: 913.10486, y: 1159.2207, z: 0}
   m_ChildStateMachines: []
-  m_AnyStateTransitions: []
+  m_AnyStateTransitions:
+  - {fileID: -8589678114440676978}
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_AnyStatePosition: {x: 40, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -483,6 +436,12 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   - m_Name: Speed
     m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: Combat
+    m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -527,14 +486,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &578968396209927692
+--- !u!1102 &582506163391260510
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteFrontIdle
+  m_Name: RareAShortCombatFromt
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -547,20 +506,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c50a6829ce6082c4685dbc1ec57fa4f0, type: 2}
+  m_Motion: {fileID: 7400000, guid: ce360f51d2c42574a9bcddb5f64aa084, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &802541436196142505
+--- !u!1102 &2338608306943932176
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatFrontIdle
+  m_Name: ComBlackCombatFront
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -573,20 +532,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 516295e2bbcd731468a7031f7dcb755c, type: 2}
+  m_Motion: {fileID: 7400000, guid: 009b8812913bb3c42885142c6e0e946c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1083391207088913743
+--- !u!1102 &3230742697346176793
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortLeft
+  m_Name: RareSiameseCombatFront
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -599,20 +558,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a2f2588a57561f540b40f028a8ee2fff, type: 2}
+  m_Motion: {fileID: 7400000, guid: d11cc577da2838942b7174e3c78bbb4e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1717448631321102497
+--- !u!1102 &3740431137745809159
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseBack
+  m_Name: ComWhiteCombatFront
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -625,111 +584,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 762d528d453e17249b53c5386062717e, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &1887795236769828387
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortRight
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 3dae28859263d214f826c33e7baff7f4, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &2912765250189203699
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortRightIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 36be5d7089b08e449894fc920ad5a61e, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &3311276247654825108
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseBackIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1976ae483f6256b45881ed7ca2f23454, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &3593300306287263683
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatRightIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cd289c5f8dc803149a50c8ccc3a95de4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 697051e68704d6b4b97d08f229c968e1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -854,14 +709,14 @@ BlendTree:
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 1
---- !u!1102 &4738637337595118520
+--- !u!1102 &5293669205127302967
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortLeftIdle
+  m_Name: LegCalicoCatCombatRight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -874,20 +729,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1b0ad7700b36ba0479f95bf807c5a01a, type: 2}
+  m_Motion: {fileID: 7400000, guid: ed68823d5a9cf7846a73db04d7669e2c, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &4987216852398304022
+--- !u!1102 &5905916716092117447
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteLeftIdle
+  m_Name: LegCalicoCatCombatFront
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -900,20 +755,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9ed6c1853d30f5d44a53c405978d59ef, type: 2}
+  m_Motion: {fileID: 7400000, guid: 32be4c2531befc647bee5794054582cf, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &5024036436586798328
+--- !u!1102 &6002517226510211053
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatRight
+  m_Name: RareSiameseCombatLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -926,20 +781,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 374c560cfcfcb6447ac49681b831a594, type: 2}
+  m_Motion: {fileID: 7400000, guid: 407b30a6862c85e4b822c591d8659e88, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &5079605750224675611
+--- !u!1102 &6144743244012120013
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortFront
+  m_Name: RareSiameseCombatRight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -952,20 +807,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6ab22046ec7ba8b4a8814b49440edfd2, type: 2}
+  m_Motion: {fileID: 7400000, guid: f94e79c705284c84eb9720498dd70ea8, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &5161764687505588261
+--- !u!1102 &8127092505453211103
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortBackIdle
+  m_Name: ComWhiteCombatLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -978,20 +833,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e49cacca0302eeb439b5abcf8c1af39e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9d2bdb71079d8ec479b0745b8e863b3d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &5684171226980723103
+--- !u!1102 &8150536035326772888
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteBackIdle
+  m_Name: RareAShortCombatLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1004,20 +859,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d7b25dcdaaf329f4ea55b13bcdc3b867, type: 2}
+  m_Motion: {fileID: 7400000, guid: 89afb30066a5de44d877f029f990bdd2, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &6325286809428721313
+--- !u!1102 &8496493123823561862
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LegCalicoCatFront
+  m_Name: RareSiameseCombatBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1030,111 +885,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e5c92fc4bbe2d03439584cd306f744fa, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &7730195144158283681
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteLeft
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2c02d859ada365449b0a1ca470bb004d, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &7973694098015673785
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: ComWhiteFront
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 10c85563875ffc34eb01bc8d62c24860, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &8141531314920616275
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareAShortFrontIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 34b7a319eaa86034dbfdf82f1e6a7568, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &8491700243709381057
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseLeftIdle
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e9f6542f25828ce4fb559ac8d7e856e3, type: 2}
+  m_Motion: {fileID: 7400000, guid: 081117b99b2d2eb488ed4ce9d33559cc, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -1165,29 +916,3 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &8907768680820551400
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RareSiameseRight
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bbc5ad15d31df0a44842f713e6138977, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
