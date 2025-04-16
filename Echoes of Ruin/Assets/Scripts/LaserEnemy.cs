@@ -82,6 +82,14 @@ public class LaserEnemy : MonoBehaviour
         shootCooldown = startShootCooldown;
         }
     }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Laser(Clone)")) {
+            Destroy(collision.gameObject);
+        }
+        
+    }
 }    
 
 
