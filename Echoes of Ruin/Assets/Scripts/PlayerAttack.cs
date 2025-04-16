@@ -33,12 +33,12 @@ public class PlayerAttack : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
             Attack1();
-            Audios.Instance.PlaySound("Woosh1");
+            //Audios.Instance.PlaySound("Woosh1");
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
             Attack2();
-            Audios.Instance.PlaySound("Woosh2");
+            //Audios.Instance.PlaySound("Woosh2");
         }
 
         if (melee)
