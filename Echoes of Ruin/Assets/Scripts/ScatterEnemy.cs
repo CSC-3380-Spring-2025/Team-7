@@ -15,11 +15,11 @@ public class ScatterEnemy : MonoBehaviour
     private float detectionRange = 5f;  
     [SerializeField]
     private EnemyData data;
-      [SerializeField]
+    [SerializeField]
     private int damage = 1;
     [SerializeField]
       private float speed = 1.5f;  
-     [SerializeField] private float stopDistance = 2f; // How close the enemy is allowed to get
+    [SerializeField] private float stopDistance = 2f; // How close the enemy is allowed to get
 
 
     void Start()
@@ -77,5 +77,6 @@ public class ScatterEnemy : MonoBehaviour
              Instantiate(scatter, transform.position, transform.rotation); // spawns bulltets at enemy location 
         }
     }
+
 }
 
