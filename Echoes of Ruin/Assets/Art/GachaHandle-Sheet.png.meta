@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,9 +116,9 @@ TextureImporter:
       name: GachaHandle-Sheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 109
         y: 0
-        width: 128
+        width: 19
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -144,14 +144,14 @@ TextureImporter:
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 109, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83665e1d72b315246b8e8b5c86bfda73
-      internalID: 1900836073
+      spriteID: 259fb1015093d1340b4762024e8feb91
+      internalID: -1788819117
       vertices: []
       indices: 
       edges: []
@@ -166,14 +166,14 @@ TextureImporter:
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 109, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7436796c0217534db948a03b0e625cd
-      internalID: 2035051480
+      spriteID: ccc5f84c50db5d64d83f799ebd4a2a2d
+      internalID: 772800051
       vertices: []
       indices: 
       edges: []
@@ -188,14 +188,14 @@ TextureImporter:
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 108, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5833f01c00ed7145850e572141e26fb
-      internalID: 1937928550
+      spriteID: 86c2c73c67eeb5343ad32322f908ee7b
+      internalID: -96399138
       vertices: []
       indices: 
       edges: []
@@ -210,14 +210,14 @@ TextureImporter:
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 108, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d8fd4feeaf2e7a4dbe3a9c7c05b6c7a
-      internalID: 1522513018
+      spriteID: 660b579f328ebf644890ef98cf4f2e50
+      internalID: -1267945547
       vertices: []
       indices: 
       edges: []
@@ -232,14 +232,14 @@ TextureImporter:
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 107, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1936b3f4827d999458155ec8ec45bd1f
-      internalID: -62983894
+      spriteID: 7e1adca4e953d4145b44432e2ffa864e
+      internalID: 2104637622
       vertices: []
       indices: 
       edges: []
@@ -254,14 +254,14 @@ TextureImporter:
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 108, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063806087422ca44db5222827efa9b9c
-      internalID: 616483177
+      spriteID: abe62d38e86a8124ba10b0c8abf73b99
+      internalID: 685569281
       vertices: []
       indices: 
       edges: []
@@ -270,9 +270,9 @@ TextureImporter:
       name: GachaHandle-Sheet_7
       rect:
         serializedVersion: 2
-        x: 896
+        x: 1006
         y: 0
-        width: 128
+        width: 18
         height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -282,8 +282,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 442901ab0cf57c34cab97e4cf12336c0
-      internalID: 1369598199
+      spriteID: f7afba497c4844e4f809cacc7bbaecc9
+      internalID: -5542120
       vertices: []
       indices: 
       edges: []
@@ -303,13 +303,13 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       GachaHandle-Sheet_0: 8208342178941145760
-      GachaHandle-Sheet_1: 1900836073
-      GachaHandle-Sheet_2: 2035051480
-      GachaHandle-Sheet_3: 1937928550
-      GachaHandle-Sheet_4: 1522513018
-      GachaHandle-Sheet_5: -62983894
-      GachaHandle-Sheet_6: 616483177
-      GachaHandle-Sheet_7: 1369598199
+      GachaHandle-Sheet_1: -1788819117
+      GachaHandle-Sheet_2: 772800051
+      GachaHandle-Sheet_3: -96399138
+      GachaHandle-Sheet_4: -1267945547
+      GachaHandle-Sheet_5: 2104637622
+      GachaHandle-Sheet_6: 685569281
+      GachaHandle-Sheet_7: -5542120
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
