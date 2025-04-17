@@ -123,13 +123,4 @@ public class GachaMachine : MonoBehaviour
         }
     }
 
-    // Displays the probability information for the gacha machine
-    public void ViewProbability()
-    {
-        showProbability.text = "Gacha Machine Probabilities:\n\n" +
-                  "- Rare Skin: 1 in 64 chance (1.56%)\n" +
-                  "- Super Rare Skin: 1 in 128 chance (0.78%)\n" + 
-                  "- Ultra Rare Skin: 1 in 256 chance (0.39%)\n" +
-                  "- No Prize: 97.27% chance";
-    }
 }
