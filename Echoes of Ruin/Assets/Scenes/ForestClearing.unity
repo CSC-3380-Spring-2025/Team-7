@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 85505238}
   m_Layer: 0
   m_Name: PlayerAttacks
-  m_TagString: PlayerCat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,7 +289,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-
 --- !u!114 &85505238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,7 +3092,7 @@ GameObject:
   - component: {fileID: 1494906422}
   m_Layer: 0
   m_Name: Aimer
-  m_TagString: PlayerCat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
