@@ -25,7 +25,7 @@ public class PlayerAttack : MonoBehaviour {
     //start is called before the first frame update
     void Start() {
         MeleeAttack = transform.GetChild(0).gameObject;
-        RangeAttack = transform.GetChild(1).gameObject;
+        //RangeAttack = transform.GetChild(1).gameObject;
     }
 
     //update is called once per frame
@@ -33,12 +33,12 @@ public class PlayerAttack : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
             Attack1();
-            Audios.Instance.PlaySound("Woosh1");
+            //Audios.Instance.PlaySound("Woosh1");
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
             Attack2();
-            Audios.Instance.PlaySound("Woosh2");
+            //Audios.Instance.PlaySound("Woosh2");
         }
 
         if (melee)

@@ -482,7 +482,7 @@ GameObject:
   - component: {fileID: 85505238}
   m_Layer: 0
   m_Name: PlayerAttacks
-  m_TagString: PlayerCat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4870,7 +4870,7 @@ GameObject:
   - component: {fileID: 1494906422}
   m_Layer: 0
   m_Name: Aimer
-  m_TagString: PlayerCat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
