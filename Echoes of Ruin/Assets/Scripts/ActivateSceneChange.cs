@@ -1,26 +1,22 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ActivatePopUp : MonoBehaviour
-{   public GameObject popup;
-    public GameObject instructions;
+public class ActivateSceneChange : MonoBehaviour
+{   public GameObject instructions;
+    public string sceneName = "";
     public bool test = false;
-    public bool key = false;
+    [SerializeField]private SceneManagerScript manag;
     
     void Start() {
-        popup.SetActive(false);
+       // manag =  GameObject.Find("Change").GetComponent<SceneManagerScript>();
         instructions.gameObject.SetActive(false);
     }
 
     void Update() {
-    if (Input.GetKeyDown(KeyCode.E)){
-        key = !key;
-    }
-    if (key == true && test == true)
-        { popup.SetActive(true); }
-    else
-        { popup.SetActive(false);}
+    if (Input.GetKeyDown(KeyCode.E) && test == true)
+        { manag.LoadScene(sceneName); }
   }
 
   void OnTriggerEnter2D(Collider2D collide) {
