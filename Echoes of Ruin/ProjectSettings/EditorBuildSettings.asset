@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestClearing.unity
     guid: 00106880925a9fe46acd0d6c37091d02
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 556a530cb04db4f478fda9a41a5ad517
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
