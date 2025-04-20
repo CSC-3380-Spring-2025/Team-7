@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ScatterEnemy : MonoBehaviour
 {
     public GameObject PlayerCat;  //refrense to player
-    public GameObject scatter; //scatter bullets
+    public GameObject Scatter; //scatter bullets
     public int bulletCount = 5; //Number of bullets per shot
     public float spreadAngle = 45f; //Total spread angle of bullets
     private float shootCooldown;
@@ -67,14 +67,14 @@ public class ScatterEnemy : MonoBehaviour
     void ShootBullets()
     {
         float angleStep = spreadAngle / (bulletCount - 1); // Angle between bullets 
-        float startAngle = -spreadAngle / 2; //Starting angle 
+        float startAngle = -spreadAngle / 2; //Starting angle
 
-        for(int i = 0; i < bulletCount; i++)
+        for (int i = 0; i < bulletCount; i++)
         {
             float bulletAngle = startAngle + (angleStep * i);
             Quaternion rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + bulletAngle);
 
-             Instantiate(scatter, transform.position, transform.rotation); // spawns bulltets at enemy location 
+             Instantiate(Scatter, transform.position, transform.rotation); // spawns bulltets at enemy location 
         }
     }
 
