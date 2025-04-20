@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class LaserEnemy : MonoBehaviour
 {
-     private GameObject PlayerCat;
-    public GameObject laser;
+    //  private GameObject PlayerCat;
+     private Transform PlayerCat;
+    public GameObject Laser;
      [SerializeField]
     private EnemyData data;
       [SerializeField]
@@ -26,13 +27,14 @@ public class LaserEnemy : MonoBehaviour
     void Start()
     {
         shootCooldown = startShootCooldown;
-        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        // PlayerCat = Transform.FindGameObjectWithTag("PlayerCat");
+        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat").transform;
         SetEnemyValues();
     }
 
     void Update()
     {
-        float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.position);
 
         if (distanceToPlayer <= shootingRange)
         {
@@ -78,18 +80,18 @@ public class LaserEnemy : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, 0, angle);
         // Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction); // 2D forward = Z axis
 
-        Instantiate(laser, transform.position, rotation);
+        Instantiate(Laser, transform.position, rotation);
         shootCooldown = startShootCooldown;
         }
     }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Laser(Clone)")) {
-            Destroy(collision.gameObject);
-        }
+    //     private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if(collision.gameObject.CompareTag("Laser(Clone)")) {
+    //         Destroy(collision.gameObject);
+    //     }
         
-    }
+    // }
 }    
 
 

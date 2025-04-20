@@ -10,11 +10,7 @@ public class Laser : MonoBehaviour
     [Range(1,10)]
     [SerializeField] 
     private float speed = 10f;
-
-    // [Range(1,10)]
-    // [SerializeField]
-    // private float lifeTime = 3f;
-
+    public GameObject impactEffect;
     private Rigidbody2D rb;
     private Vector2 moveDirection;
 
@@ -32,7 +28,30 @@ public class Laser : MonoBehaviour
 
     void Update ()
     {
-        // transform.Translate(Vector2.up * speed * Time.deltaTime);
+        // rb.linearVelocity = moveDirection * speed;
         rb.linearVelocity = transform.right * speed;
     }
-   }
+
+    //   private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.CompareTag("PlayerCat"))
+    //     {
+    //         if (impactEffect != null)
+    //         {
+    //             // Optionally instantiate effect
+    //             // GameObject effect = Instantiate(impactEffect, transform.position, transform.rotation);
+    //             // Destroy(effect, 1f);
+    //         }
+
+    //         Destroy(gameObject);
+    //     }
+    // }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "PlayerCat"){
+            Destroy(gameObject);
+        }
+    }
+
+}
