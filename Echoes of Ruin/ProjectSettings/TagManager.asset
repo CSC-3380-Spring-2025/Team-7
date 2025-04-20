@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerCat
   - Event
+  - Scene
   layers:
   - Default
   - TransparentFX
