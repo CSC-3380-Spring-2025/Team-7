@@ -16,14 +16,14 @@ public class MeleeEnemy : MonoBehaviour
     private EnemyData data;
     //want to make ememy follow player thats why palyer is defined
 
-    private GameObject CatPlayer;
+    private GameObject PlayerCat;
 
 
     //Start is called before the first frame update
     void Start()
     {
 
-        CatPlayer = GameObject.FindGameObjectWithTag("Player");
+        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
 
         SetEnemyValues();
     }
@@ -46,26 +46,12 @@ public class MeleeEnemy : MonoBehaviour
     private void Swarm()
     {
 
-        float distanceToPlayer = Vector2.Distance(transform.position, CatPlayer.transform.position);
+        float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
         if(distanceToPlayer <= detectionRange) {
 
              //Move towards the player if within detection range
-        transform.position = Vector2.MoveTowards(transform.position, CatPlayer.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, PlayerCat.transform.position, speed * Time.deltaTime);
 
         }
     }
-
-    
-    // private void OnTriggerEnter2D(Collider2D collider) 
-    // {
-    //     if(collider.CompareTag("Player"))
-    //     {
-    //         if(collider.GetComponent<Health>() != null) 
-    //         {
-    //             collider.GetComponent<Health>().Damage(damage);
-    //             this.GetComponent<Health>().Damage(10000);
-    //         }
-        // }
-
-    // }
 }

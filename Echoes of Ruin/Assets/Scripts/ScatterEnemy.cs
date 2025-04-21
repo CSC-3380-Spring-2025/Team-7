@@ -4,23 +4,39 @@ using System.Collections.Generic;
 
 public class ScatterEnemy : MonoBehaviour
 {
-    public Transform player;  //refrense to player
-    public GameObject scatter; //scatter bullets
+    public GameObject PlayerCat;  //refrense to player
+    public GameObject Scatter; //scatter bullets
     public int bulletCount = 5; //Number of bullets per shot
     public float spreadAngle = 45f; //Total spread angle of bullets
     private float shootCooldown;
     public float startShootCooldown = 2f;
 
+    //enemy movemment
+    private float detectionRange = 5f;  
+    [SerializeField]
+    private EnemyData data;
+    [SerializeField]
+    private int damage = 1;
+    [SerializeField]
+      private float speed = 1.5f;  
+    [SerializeField] private float stopDistance = 2f; // How close the enemy is allowed to get
+
+
     void Start()
     {
         shootCooldown = startShootCooldown;
-    }
+        PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        SetEnemyValues();
+        }
 
     //checks if cooldown is at 0 and shoots bullets if yes, if no then timer decreases  
     void Update()
     {
+      float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
+
        if (shootCooldown <= 0) 
        {
+        Swarm();
         ShootBullets();
         shootCooldown = startShootCooldown;
        } else {
@@ -28,18 +44,39 @@ public class ScatterEnemy : MonoBehaviour
        }
     }
 
+    private void Swarm()
+{
+    float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
+
+    if (distanceToPlayer <= detectionRange && distanceToPlayer > stopDistance)
+    {
+        // Move towards the player but stop when within 'stopDistance'
+        transform.position = Vector2.MoveTowards(transform.position, PlayerCat.transform.position, speed * Time.deltaTime);
+        
+    }
+    
+}
+
+ private void SetEnemyValues()
+    {
+        GetComponent<Health>().SetHearts(data.hp, data.hp);
+        damage = data.damage;
+        speed = data.speed;
+    }
+
     void ShootBullets()
     {
         float angleStep = spreadAngle / (bulletCount - 1); // Angle between bullets 
-        float startAngle = -spreadAngle / 2; //Starting angle 
+        float startAngle = -spreadAngle / 2; //Starting angle
 
-        for(int i = 0; i < bulletCount; i++)
+        for (int i = 0; i < bulletCount; i++)
         {
             float bulletAngle = startAngle + (angleStep * i);
             Quaternion rotation = Quaternion.Euler(0, 0, transform.eulerAngles.z + bulletAngle);
 
-             Instantiate(scatter, transform.position, transform.rotation); // spawns bulltets at enemy location 
+             Instantiate(Scatter, transform.position, transform.rotation); // spawns bulltets at enemy location 
         }
     }
+
 }
 
