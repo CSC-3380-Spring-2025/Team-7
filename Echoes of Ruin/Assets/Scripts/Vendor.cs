@@ -17,7 +17,7 @@ public class Vendor : MonoBehaviour {
 
 //have to have an event system thats tagged gamecontroller where currency script is stored
     void Start() {
-        script = GameObject.FindWithTag("PlayerCat").GetComponent<Currency>();
+        script = GameObject.FindWithTag("GameController").GetComponent<Currency>();
         //item IDs
         items[1, 1] = 1;
         items[1, 2] = 2;

@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-
 
 //Currency Script
 public class Currency : MonoBehaviour {
@@ -15,7 +13,6 @@ public class Currency : MonoBehaviour {
 //UI that displays amt to coins you have 
 
     GameObject currencyUI;
-    public TMP_Text CoinsTXT;
 
     //Finds game object thats called currency
     void Start() 
@@ -23,9 +20,11 @@ public class Currency : MonoBehaviour {
         currencyUI = GameObject.Find("Currency");
     }
     void Update () 
-    {   //currencyUI.GetComponent<Text>().text = "Coins: " + coin.ToString();
+    {
+        currencyUI.GetComponent<Text>().text = coin.ToString();
         if (coin < 0)
-        { coin = 0; }
-        CoinsTXT.text = "Coins: " + coin.ToString();
+        {
+            coin = 0;
+        }
     }
 }

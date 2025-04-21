@@ -33,6 +33,6 @@ public class Laser : MonoBehaviour
     void Update ()
     {
         // transform.Translate(Vector2.up * speed * Time.deltaTime);
-        rb.linearVelocity = transform.right * speed;
+        rb.linearVelocity = transform.up * speed;
     }
    }
