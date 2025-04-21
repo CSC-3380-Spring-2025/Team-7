@@ -27,10 +27,12 @@ public class Player : MonoBehaviour{
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         if (players.Length > 1){
             Destroy(gameObject); 
+            return;
         }
     }
 
     void Update(){
+        if (this != instance || playerTransform == null) return;
         KeepPosition();
     }
 
@@ -47,8 +49,12 @@ public class Player : MonoBehaviour{
 
     //Keep Position between scenes
     private void KeepPosition(){
-        xPos = playerTransform.position.x;
-        yPos = playerTransform.position.y;
+        if (playerTransform != null) {
+            xPos = playerTransform.position.x;
+            yPos = playerTransform.position.y;
+        }else{
+            return;
+        }
     
     }
 
@@ -63,6 +69,7 @@ public class Player : MonoBehaviour{
             }
             else{
                 Destroy(gameObject); 
+                return;
             }
         }
     }
@@ -91,7 +98,9 @@ public class Player : MonoBehaviour{
                 follow.SnapToTarget();
             }
         }
-        transform.position = new Vector3(xPos, yPos, transform.position.z);
+        if (this == instance) {
+            transform.position = new Vector3(xPos, yPos, transform.position.z);
+        }
     }
 }
 
