@@ -15,6 +15,9 @@ public class PlayerAttack : MonoBehaviour {
     private float timer1 = 0f;
     private float timer2 = 0f;
 
+//Animator
+    public Animator animator;
+
 //variables for range (hairball) attack
     public Transform Aimer;
     public float fireSpeed = 10f;
@@ -22,7 +25,7 @@ public class PlayerAttack : MonoBehaviour {
     //start is called before the first frame update
     void Start() {
         MeleeAttack = transform.GetChild(0).gameObject;
-        RangeAttack = transform.GetChild(1).gameObject;
+        //RangeAttack = transform.GetChild(1).gameObject;
     }
 
     //update is called once per frame
@@ -30,12 +33,12 @@ public class PlayerAttack : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
             Attack1();
-            Audios.Instance.PlaySound("Woosh1");
+            //Audios.Instance.PlaySound("Woosh1");
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
             Attack2();
-            Audios.Instance.PlaySound("Woosh2");
+            //Audios.Instance.PlaySound("Woosh2");
         }
 
         if (melee)
@@ -68,6 +71,8 @@ public class PlayerAttack : MonoBehaviour {
     void Attack1() {
         melee = true;
         MeleeAttack.SetActive(true);
+        //Trigger Animation Attack
+        animator.SetTrigger("Combat");
     }
 
     void Attack2() {
