@@ -62,7 +62,7 @@ public class Player : MonoBehaviour{
     
     string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         
-        if (currentScene != "MainMenu" && currentScene != "CharacterSelection"){
+        if (currentScene == "ForestClearing" ){
             if (instance == null){
                 instance = this;
                 DontDestroyOnLoad(gameObject);
