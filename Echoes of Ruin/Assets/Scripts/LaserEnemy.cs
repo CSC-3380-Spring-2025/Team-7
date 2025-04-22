@@ -37,9 +37,9 @@ public class LaserEnemy : MonoBehaviour
         if (distanceToPlayer <= shootingRange)
         {
             // AimAtPlayer();
-            Shoot();
             Swarm();
-            
+            Shoot();
+      
         }
 
         // Reduce cooldown timer
@@ -83,13 +83,6 @@ public class LaserEnemy : MonoBehaviour
         }
     }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("Laser(Clone)")) {
-            Destroy(collision.gameObject);
-        }
-        
-    }
 }    
 
 
