@@ -886,7 +886,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92477228}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bbdf2a133200014d91ad740bada4e6f, type: 3}
   m_Name: 
@@ -5751,7 +5751,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198049153}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d335a760b5f0bbb46a796d796e9b0980, type: 3}
   m_Name: 
@@ -5767,7 +5767,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198049153}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e182984538da1414caab6dabb43c8797, type: 3}
   m_Name: 
@@ -6309,13 +6309,14 @@ GameObject:
   - component: {fileID: 1405302888}
   - component: {fileID: 1405302887}
   - component: {fileID: 1405302886}
+  - component: {fileID: 1405302889}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1405302886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6405,6 +6406,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405302889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405302885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afe6a5ead2a7654ea8dc3b4a87ce974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 92477233}
+  offset: {x: 0, y: 0, z: -10}
+  smoothSpeed: 0
 --- !u!1 &1410051537
 GameObject:
   m_ObjectHideFlags: 0
