@@ -4721,9 +4721,6 @@ MonoBehaviour:
   characterDB: {fileID: 11400000, guid: 40261dd8e16db714cbcbf8be8ae5e9b1, type: 2}
   artworkSprite: {fileID: 1477786561}
   animator: {fileID: 1477786560}
-
-  playerTransform: {fileID: 0}
-
 --- !u!1 &1579526296
 GameObject:
   m_ObjectHideFlags: 0
