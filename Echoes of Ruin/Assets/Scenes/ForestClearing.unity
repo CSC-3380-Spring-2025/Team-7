@@ -4731,7 +4731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instructions: {fileID: 477383563}
-  sceneName: GachaScreen
+  sceneName: GachaScene
   test: 0
   manag: {fileID: 1002726089}
 --- !u!61 &774575059
