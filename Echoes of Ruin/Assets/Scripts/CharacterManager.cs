@@ -25,7 +25,6 @@ public class CharacterManager : MonoBehaviour{
             SelectedOption = 0;
         }
         UpdateCharacter(SelectedOption);
-        Save();
     }
 
     public void BackOption(){
@@ -34,13 +33,16 @@ public class CharacterManager : MonoBehaviour{
             SelectedOption = characterDB.characterCount -1;
         }
         UpdateCharacter(SelectedOption);
-        Save();
     }
 
     private void UpdateCharacter(int SelectedOption){
         Character character = characterDB.getCharacter(SelectedOption);
         artworkSprite.sprite = character.characterSprite;
         
+    }
+
+    public void ApplyCharacter(){
+        Save();
     }
 
     private void Load(){
