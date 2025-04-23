@@ -11,7 +11,12 @@ public class Player : MonoBehaviour {
     private float xPos;
     private float yPos;
 
+      private static Vector3 savedPosition;
+
     private static Player instance;
+
+     private static bool hasSavedPosition = false;
+
 
 
     private int SelectedOption = 0;
@@ -25,7 +30,7 @@ public class Player : MonoBehaviour {
         }
         UpdateCharacter(SelectedOption);
 
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerCat");
         if (players.Length > 1){
             Destroy(gameObject); 
             return;
@@ -35,7 +40,7 @@ public class Player : MonoBehaviour {
 
     void Update(){
         if (this != instance || playerTransform == null) return;
-        KeepPosition();
+        savedPosition = playerTransform.position;
     }
 
    private void UpdateCharacter(int SelectedOption){
@@ -64,7 +69,7 @@ public class Player : MonoBehaviour {
     
     string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         
-        if (currentScene != "MainMenu" && currentScene != "CharacterSelection"){
+        if (currentScene == "ForestClearing" ){
             if (instance == null){
                 instance = this;
                 DontDestroyOnLoad(gameObject);
@@ -85,6 +90,10 @@ public class Player : MonoBehaviour {
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+         if (scene.name == "TutorialScene"){
+            // Destroy(gameObject);
+            return;
+        }
         if(!PlayerPrefs.HasKey("SelectedOption")){
             SelectedOption = 0;
         }else{
@@ -100,8 +109,9 @@ public class Player : MonoBehaviour {
                 follow.SnapToTarget();
             }
         }
-        if (this == instance) {
-            transform.position = new Vector3(xPos, yPos, transform.position.z);
+      
+        if (this == instance && hasSavedPosition){
+            transform.position = new Vector3(savedPosition.x, savedPosition.y, transform.position.z);
         }
     }
     

@@ -9,6 +9,9 @@ public class CameraFollow : MonoBehaviour{
     //Updates based on position
     void LateUpdate(){
         if (target == null) return;
+        if (target != null) {
+            transform.position = target.position + offset; 
+         }
 
         Vector3 desiredPosition = target.position + offset;
         Vector3 smoothed = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
