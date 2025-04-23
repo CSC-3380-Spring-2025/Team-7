@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour{
+public class Player : MonoBehaviour {
     public CharacterDatabase characterDB;
     public SpriteRenderer artworkSprite;
     public Animator animator;
