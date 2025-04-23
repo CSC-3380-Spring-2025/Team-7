@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour{
+public class Player : MonoBehaviour {
     public CharacterDatabase characterDB;
     public SpriteRenderer artworkSprite;
     public Animator animator;
     public Transform playerTransform;
+    private Rigidbody2D rb;
 
     private float xPos;
     private float yPos;
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour{
             Destroy(gameObject); 
             return;
         }
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update(){
@@ -112,5 +114,6 @@ public class Player : MonoBehaviour{
             transform.position = new Vector3(savedPosition.x, savedPosition.y, transform.position.z);
         }
     }
+    
 }
 
