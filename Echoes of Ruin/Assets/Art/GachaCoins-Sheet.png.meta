@@ -1,46 +1,46 @@
 fileFormatVersion: 2
-guid: 2cc31004e5cb5344a8cfc0e2631edd10
+guid: 90da38e3a002dc84499c7b833ac5f0ea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5709623581134402327
-    second: GachaSnake-Sheet_0
+      213: -3362457343981779746
+    second: GachaCoins-Sheet_0
   - first:
-      213: -900371212454546035
-    second: GachaSnake-Sheet_1
+      213: -5352542206047076624
+    second: GachaCoins-Sheet_1
   - first:
-      213: 4962726953965065129
-    second: GachaSnake-Sheet_2
+      213: 1312479983152464823
+    second: GachaCoins-Sheet_2
   - first:
-      213: -5427749127870341248
-    second: GachaSnake-Sheet_3
+      213: 2363695671070155404
+    second: GachaCoins-Sheet_3
   - first:
-      213: 1304466915231146877
-    second: GachaSnake-Sheet_4
+      213: -7504030913109693511
+    second: GachaCoins-Sheet_4
   - first:
-      213: -551763297921000116
-    second: GachaSnake-Sheet_5
+      213: 5117982910463905309
+    second: GachaCoins-Sheet_5
   - first:
-      213: 6488044325073101891
-    second: GachaSnake-Sheet_6
+      213: -1550412944444616351
+    second: GachaCoins-Sheet_6
   - first:
-      213: 8115924470456605519
-    second: GachaSnake-Sheet_7
+      213: 3831074759746268346
+    second: GachaCoins-Sheet_7
   - first:
-      213: 8337253002104411980
-    second: GachaSnake-Sheet_8
+      213: 6998113325542952436
+    second: GachaCoins-Sheet_8
   - first:
-      213: 4494787228202720391
-    second: GachaSnake-Sheet_9
+      213: 4314502033855030070
+    second: GachaCoins-Sheet_9
   - first:
-      213: -8341540113321867833
-    second: GachaSnake-Sheet_10
+      213: -7694836782896403465
+    second: GachaCoins-Sheet_10
   - first:
-      213: 8657959443172624187
-    second: GachaSnake-Sheet_11
+      213: -6194628566151468420
+    second: GachaCoins-Sheet_11
   - first:
-      213: -3539123996922488738
-    second: GachaSnake-Sheet_12
+      213: 4479109897607390503
+    second: GachaCoins-Sheet_12
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -73,7 +73,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +87,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -111,7 +111,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GachaSnake-Sheet_0
+      name: GachaCoins-Sheet_0
       rect:
         serializedVersion: 2
         x: 6
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 713b5ba6568ac3f40800000000000000
-      internalID: 5709623581134402327
+      spriteID: ed400975cd62651d0800000000000000
+      internalID: -3362457343981779746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_1
+      name: GachaCoins-Sheet_1
       rect:
         serializedVersion: 2
         x: 134
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d85b8a3172d3183f0800000000000000
-      internalID: -900371212454546035
+      spriteID: 0fe374bf833f7b5b0800000000000000
+      internalID: -5352542206047076624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_2
+      name: GachaCoins-Sheet_2
       rect:
         serializedVersion: 2
         x: 262
@@ -195,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9a31858fed52fd440800000000000000
-      internalID: 4962726953965065129
+      spriteID: 7b30d92479dd63210800000000000000
+      internalID: 1312479983152464823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_3
+      name: GachaCoins-Sheet_3
       rect:
         serializedVersion: 2
         x: 390
@@ -217,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08f1a57fce2cca4b0800000000000000
-      internalID: -5427749127870341248
+      spriteID: c82e34f70b88dc020800000000000000
+      internalID: 2363695671070155404
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_4
+      name: GachaCoins-Sheet_4
       rect:
         serializedVersion: 2
         x: 518
@@ -239,14 +239,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d732a9f7fb56a1210800000000000000
-      internalID: 1304466915231146877
+      spriteID: 9bbeb8084a35cd790800000000000000
+      internalID: -7504030913109693511
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_5
+      name: GachaCoins-Sheet_5
       rect:
         serializedVersion: 2
         x: 646
@@ -261,14 +261,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4d1253343eb758f0800000000000000
-      internalID: -551763297921000116
+      spriteID: d1e88b0475ab60740800000000000000
+      internalID: 5117982910463905309
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_6
+      name: GachaCoins-Sheet_6
       rect:
         serializedVersion: 2
         x: 774
@@ -283,14 +283,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 344a8f240f92a0a50800000000000000
-      internalID: 6488044325073101891
+      spriteID: 161163734a3db7ae0800000000000000
+      internalID: -1550412944444616351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_7
+      name: GachaCoins-Sheet_7
       rect:
         serializedVersion: 2
         x: 902
@@ -305,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f4b577d4e4e81a070800000000000000
-      internalID: 8115924470456605519
+      spriteID: abc24a23236ba2530800000000000000
+      internalID: 3831074759746268346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_8
+      name: GachaCoins-Sheet_8
       rect:
         serializedVersion: 2
         x: 1030
@@ -327,14 +327,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c471ef8ce6fd3b370800000000000000
-      internalID: 8337253002104411980
+      spriteID: 4fd4ae2fdfa4e1160800000000000000
+      internalID: 6998113325542952436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_9
+      name: GachaCoins-Sheet_9
       rect:
         serializedVersion: 2
         x: 1158
@@ -349,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78c5cfd6b21b06e30800000000000000
-      internalID: 4494787228202720391
+      spriteID: 63321a69db030eb30800000000000000
+      internalID: 4314502033855030070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_10
+      name: GachaCoins-Sheet_10
       rect:
         serializedVersion: 2
         x: 1286
@@ -371,14 +371,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7c547c95675ec3c80800000000000000
-      internalID: -8341540113321867833
+      spriteID: 7fba9d607b2763590800000000000000
+      internalID: -7694836782896403465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_11
+      name: GachaCoins-Sheet_11
       rect:
         serializedVersion: 2
         x: 1414
@@ -393,14 +393,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b370b02ed30472870800000000000000
-      internalID: 8657959443172624187
+      spriteID: c7aed0fb322480aa0800000000000000
+      internalID: -6194628566151468420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GachaSnake-Sheet_12
+      name: GachaCoins-Sheet_12
       rect:
         serializedVersion: 2
         x: 1542
@@ -415,8 +415,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e58df53d97182eec0800000000000000
-      internalID: -3539123996922488738
+      spriteID: 72523d478bef82e30800000000000000
+      internalID: 4479109897607390503
       vertices: []
       indices: 
       edges: []
@@ -435,19 +435,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GachaSnake-Sheet_0: 5709623581134402327
-      GachaSnake-Sheet_1: -900371212454546035
-      GachaSnake-Sheet_10: -8341540113321867833
-      GachaSnake-Sheet_11: 8657959443172624187
-      GachaSnake-Sheet_12: -3539123996922488738
-      GachaSnake-Sheet_2: 4962726953965065129
-      GachaSnake-Sheet_3: -5427749127870341248
-      GachaSnake-Sheet_4: 1304466915231146877
-      GachaSnake-Sheet_5: -551763297921000116
-      GachaSnake-Sheet_6: 6488044325073101891
-      GachaSnake-Sheet_7: 8115924470456605519
-      GachaSnake-Sheet_8: 8337253002104411980
-      GachaSnake-Sheet_9: 4494787228202720391
+      GachaCoins-Sheet_0: -3362457343981779746
+      GachaCoins-Sheet_1: -5352542206047076624
+      GachaCoins-Sheet_10: -7694836782896403465
+      GachaCoins-Sheet_11: -6194628566151468420
+      GachaCoins-Sheet_12: 4479109897607390503
+      GachaCoins-Sheet_2: 1312479983152464823
+      GachaCoins-Sheet_3: 2363695671070155404
+      GachaCoins-Sheet_4: -7504030913109693511
+      GachaCoins-Sheet_5: 5117982910463905309
+      GachaCoins-Sheet_6: -1550412944444616351
+      GachaCoins-Sheet_7: 3831074759746268346
+      GachaCoins-Sheet_8: 6998113325542952436
+      GachaCoins-Sheet_9: 4314502033855030070
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
