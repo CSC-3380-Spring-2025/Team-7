@@ -96,8 +96,10 @@ public class Player : MonoBehaviour{
         UpdateCharacter(SelectedOption);
         
         Camera cam = Camera.main;
+         Debug.Log("Main Camera: " + cam);
         if (cam != null){
             CameraFollow follow = cam.GetComponent<CameraFollow>();
+             Debug.Log("CameraFollow Component: " + follow);
             if (follow != null){
                 follow.target = this.transform;
                 follow.SnapToTarget();
