@@ -19,7 +19,6 @@ public class LaserEnemy : MonoBehaviour
     [SerializeField] private float shootingRange = 10f; // Max distance to shoot
     [SerializeField] private LayerMask obstacleLayer;  // Layer for obstacles
     [SerializeField] private float stopDistance = 2f; // How close the enemy is allowed to get
-    Rigidbody2D rb;
 
 
     private float shootCooldown;
@@ -38,9 +37,9 @@ public class LaserEnemy : MonoBehaviour
         if (distanceToPlayer <= shootingRange)
         {
             // AimAtPlayer();
-            Swarm();
             Shoot();
-      
+            Swarm();
+            
         }
 
         // Reduce cooldown timer
@@ -84,6 +83,13 @@ public class LaserEnemy : MonoBehaviour
         }
     }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Laser(Clone)")) {
+            Destroy(collision.gameObject);
+        }
+        
+    }
 }    
 
 
