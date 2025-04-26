@@ -10,27 +10,29 @@ public class Player : MonoBehaviour{
     private float xPos;
     private float yPos;
 
-      private static Vector3 savedPosition;
+    private static Vector3 savedPosition;
 
     private static Player instance;
 
-     private static bool hasSavedPosition = false;
+    private static bool hasSavedPosition = false;
 
-    string currentSceneName = SceneManager.GetActiveScene().name;
+    string currentSceneName;
 
     private int SelectedOption = 0;
 
     // Loading in Character
     void Start(){
+        currentSceneName = SceneManager.GetActiveScene().name;
         if(!PlayerPrefs.HasKey("SelectedOption")){
             SelectedOption = 0;
         }else{
             Load();
         }
         UpdateCharacter(SelectedOption);
+        
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerCat");
-        if(currentSceneName == "Nurture" || currentSceneName == "CharacterSelection"){
+        if(currentSceneName == "CharacterSelection"){
             gameObject.SetActive(false);
         }
 
@@ -44,6 +46,7 @@ public class Player : MonoBehaviour{
     void Update(){
         if (this != instance || playerTransform == null) return;
         savedPosition = playerTransform.position;
+        hasSavedPosition = true;
     }
 
    private void UpdateCharacter(int SelectedOption){
@@ -75,7 +78,7 @@ public class Player : MonoBehaviour{
         if (currentScene == "ForestClearing" ){
             if (instance == null){
                 instance = this;
-                DontDestroyOnLoad(gameObject);
+               // DontDestroyOnLoad(gameObject);
             }
             else{
                 Destroy(gameObject); 

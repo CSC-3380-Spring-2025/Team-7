@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using static Codice.CM.Common.CmCallContext;
 
-public class LaserEnemy : MonoBehaviour
+public class LaserEnemy : MonoBehaviour, IDamageable
 {
      private GameObject PlayerCat;
     public GameObject laser;
@@ -22,12 +23,14 @@ public class LaserEnemy : MonoBehaviour
 
 
     private float shootCooldown;
+    private int currentHP;
 
     void Start()
     {
         shootCooldown = startShootCooldown;
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
         SetEnemyValues();
+        currentHP = data.hp;
     }
 
     void Update()
@@ -81,6 +84,22 @@ public class LaserEnemy : MonoBehaviour
         Instantiate(laser, transform.position, rotation);
         shootCooldown = startShootCooldown;
         }
+    }
+
+    public void TakeDamage(int dmg)
+    {
+        currentHP -= dmg;
+        Debug.Log($"{gameObject.name} took {dmg} damage. HP: {currentHP}");
+
+        if (currentHP <= 0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 
 }    
