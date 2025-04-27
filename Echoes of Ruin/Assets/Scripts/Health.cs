@@ -49,7 +49,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    /*public void UpdateHP()
+   public void UpdateHP()
     {   if (playerHP <= 0){
           SceneManager.LoadScene("GameOver"); 
           }else{
@@ -58,8 +58,7 @@ public class Health : MonoBehaviour
             }
           } 
         
-    }*/
-
+    }
     public void Heal(int amount) {
 
          if (amount < 0){

@@ -8,7 +8,7 @@ public class ButtonInfo : MonoBehaviour
     public TMP_Text QuantTXT;
     public GameObject vend;
     
-    void Start()
+    void Update()
     {   CostTXT.text = "Price:\n" + vend.GetComponent<Vendor>().items[2, ItemID].ToString();
         QuantTXT.text = "Quantity:\n" + vend.GetComponent<Vendor>().items[3, ItemID].ToString();
     }
