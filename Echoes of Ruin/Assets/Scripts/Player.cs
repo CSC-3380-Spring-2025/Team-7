@@ -16,7 +16,7 @@ public class Player : MonoBehaviour{
 
      private static bool hasSavedPosition = false;
 
-    string currentSceneName = SceneManager.GetActiveScene().name;
+
 
     private int SelectedOption = 0;
 
@@ -30,13 +30,8 @@ public class Player : MonoBehaviour{
         UpdateCharacter(SelectedOption);
 
         GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerCat");
-        if(currentSceneName == "Nurture" || currentSceneName == "CharacterSelection"){
-            gameObject.SetActive(false);
-        }
-
         if (players.Length > 1){
-            Debug.Log("BIAFUWFHI");
-            //Destroy(gameObject); 
+            Destroy(gameObject); 
             return;
         }
     }
@@ -70,7 +65,7 @@ public class Player : MonoBehaviour{
 
    void Awake(){
     
-    string currentScene = SceneManager.GetActiveScene().name;
+    string currentScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         
         if (currentScene == "ForestClearing" ){
             if (instance == null){
@@ -79,6 +74,7 @@ public class Player : MonoBehaviour{
             }
             else{
                 Destroy(gameObject); 
+                return;
             }
         }
     }
@@ -92,12 +88,6 @@ public class Player : MonoBehaviour{
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
-        if (scene.name == "TutorialScene"){
-            if (this == instance){
-                Destroy(gameObject);  
-            }
-        return;
-        }
         if(!PlayerPrefs.HasKey("SelectedOption")){
             SelectedOption = 0;
         }else{
@@ -113,10 +103,10 @@ public class Player : MonoBehaviour{
                 follow.SnapToTarget();
             }
         }
+      
         if (this == instance && hasSavedPosition){
             transform.position = new Vector3(savedPosition.x, savedPosition.y, transform.position.z);
         }
     }
-         
-   }
+}
 

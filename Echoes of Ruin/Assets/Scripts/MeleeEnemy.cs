@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using static Codice.CM.Common.CmCallContext;
 
-public class MeleeEnemy : MonoBehaviour, IDamageable
+public class MeleeEnemy : MonoBehaviour
 {
 
     // Radius within which the enemy detects the player
@@ -18,7 +17,6 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     //want to make ememy follow player thats why palyer is defined
 
     private GameObject PlayerCat;
-    private int currentHP;
 
 
     //Start is called before the first frame update
@@ -28,7 +26,6 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
 
         SetEnemyValues();
-        currentHP = data.hp;
     }
 
     //Update is called once per frame, allows for continous upadating
@@ -56,21 +53,5 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         transform.position = Vector2.MoveTowards(transform.position, PlayerCat.transform.position, speed * Time.deltaTime);
 
         }
-    }
-
-    public void TakeDamage(int dmg)
-    {
-        currentHP -= dmg;
-        Debug.Log($"{gameObject.name} took {dmg} damage. HP: {currentHP}");
-
-        if (currentHP <= 0)
-        {
-            Death();
-        }
-    }
-
-    private void Death()
-    {
-        Destroy(gameObject);
     }
 }

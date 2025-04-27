@@ -20,11 +20,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: 556a530cb04db4f478fda9a41a5ad517
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 6f8977368dac38f42b83c923118249a0
-  - enabled: 1
-    path: Assets/Scenes/GachaScene.unity
-    guid: 99c68def2cd084ea6ac1803d8214e429
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
