@@ -6,9 +6,9 @@ public class SceneTransition : MonoBehaviour
 {
     public int sceneBuildIndex;
 
-    private void OnTriggerEnter2D(Collider2D obj)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(obj.gameObject.tag == "PlayerCat"){
+        if(other.tag == "PlayerCat"){
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
     }
