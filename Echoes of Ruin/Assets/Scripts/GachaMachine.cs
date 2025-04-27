@@ -6,6 +6,7 @@ using TMPro;
 
 public class GachaMachine : MonoBehaviour
 {
+    
     [Header("Skin Sprites")]
     public Sprite spriteDefault; 
     public Sprite spriteRare1;
@@ -13,8 +14,9 @@ public class GachaMachine : MonoBehaviour
     public Sprite spriteSuperRare1;
     public Sprite spriteSuperRare2;
     public Sprite spriteUltraRare1;
+    
 
-
+    
     [Header("Skin Names By Rarity")]
     [SerializeField]
     private List<string> rareSkins = new List<string> { "Rare1", "Rare2" }; 
@@ -22,186 +24,149 @@ public class GachaMachine : MonoBehaviour
     private List<string> superRareSkins = new List<string> { "SuperRare1", "SuperRare2" }; 
     [SerializeField]
     private List<string> ultraSkins = new List<string> { "UltraRare1" }; 
-
-    // Player Owned Skins
-    public HashSet<string> mySkins = new HashSet<string>() { "Default" };
-
+  
+    public HashSet<string> mySkins = new HashSet<string>() { "Default" }; 
+    
     public Dictionary<string, Sprite> skinSprites = new Dictionary<string, Sprite>();
 
+   
     [Header("Visual Symbol Objects")]
     public GameObject pawsVisualObject;  
-    public GameObject coinsVisualObject; 
-    public GameObject snakeVisualObject;
-    public List<GameObject> noMatchVisualVariants;
+    public GameObject coinsVisualObject;  
+    public GameObject snakeVisualObject;  
+    public GameObject noMatchVisualObject; 
 
-    [Header("Result Display")]
-    [SerializeField] private TextMeshProUGUI resultText;
-    [SerializeField] private Image skinDisplay;
-    [SerializeField] private float winDisplayDelay = 1.5f; 
-
-    // --- Initialization ---
+    
     private void Awake()
     {
         InitializeSkinDictionary();
-        HideAllVisuals();
-        if (resultText != null) resultText.text = "";
-        if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
+        HideAllVisuals(); 
     }
 
     private void InitializeSkinDictionary()
     {
+       
         skinSprites.Clear();
 
-        // Add assigned sprites to dictionary - NAMES MUST MATCH LISTS EXACTLY
-        if (spriteRare1 != null) skinSprites.Add("Rare1", spriteRare1); else Debug.LogError("SpriteRare1 not assigned!");
-        if (spriteRare2 != null) skinSprites.Add("Rare2", spriteRare2); else Debug.LogError("SpriteRare2 not assigned!");
-        if (spriteSuperRare1 != null) skinSprites.Add("SuperRare1", spriteSuperRare1); else Debug.LogError("SpriteSuperRare1 not assigned!");
-        if (spriteSuperRare2 != null) skinSprites.Add("SuperRare2", spriteSuperRare2); else Debug.LogError("SpriteSuperRare2 not assigned!");
-        if (spriteUltraRare1 != null) skinSprites.Add("UltraRare1", spriteUltraRare1); else Debug.LogError("SpriteUltraRare1 not assigned!");
-    
+        skinSprites.Add("Rare1", spriteRare1);
+        skinSprites.Add("Rare2", spriteRare2);
+        skinSprites.Add("SuperRare1", spriteSuperRare1);
+        skinSprites.Add("SuperRare2", spriteSuperRare2);
+        skinSprites.Add("UltraRare1", spriteUltraRare1);
     }
 
-    // --- Hides all potential visual outcomes ---
     private void HideAllVisuals()
     {
         if (pawsVisualObject != null) pawsVisualObject.SetActive(false);
         if (coinsVisualObject != null) coinsVisualObject.SetActive(false);
         if (snakeVisualObject != null) snakeVisualObject.SetActive(false);
-
-        if (noMatchVisualVariants != null)
-        {
-            foreach (GameObject variant in noMatchVisualVariants)
-            {
-                if (variant != null) variant.SetActive(false);
-            }
-        }
+        if (noMatchVisualObject != null) noMatchVisualObject.SetActive(false);
     }
 
-    // --- Public function to start the sequence (call this from Button/Input) ---
     public void StartGachaSequence()
     {
+        
         StopAllCoroutines();
         StartCoroutine(GachaRollCoroutine());
     }
 
-    // --- The Main Gacha Coroutine ---
+   
     private IEnumerator GachaRollCoroutine()
     {
         Debug.Log("Gacha Sequence Started...");
 
+        
         HideAllVisuals();
-        if (resultText != null) resultText.text = "";
-        if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
+        // if (resultText != null) resultText.text = ""; // Hide previous text if added
+        // if (skinDisplay != null) skinDisplay.gameObject.SetActive(false); // Hide previous skin if added
 
-        int roll = UnityEngine.Random.Range(1, 3001); // Range 1 to 3000
-
-        GameObject visualToActivate = null;
+        // --- Optional: Trigger spinning animations here ---
+        // PlaySpinAnimation(); 
+        // yield return new WaitForSeconds(spinDuration); // Wait for spinning
+  
+        int roll = UnityEngine.Random.Range(1, 2097153);
+ 
+        GameObject visualToActivate = noMatchVisualObject; 
         bool wonNewSkin = false;
         string debugOutcome = "Loss/Duplicate";
-        string skinWonName = null; 
-        // --- Check Tiers (Highest rarity first) ---
-        // (1/30 chance)
-        if (roll <= 100)
+        // string skinWonName = ""; // To store for future display
+
+    
+        
+        if (roll <= 8192) 
         {
-            debugOutcome = "Rolled Ultra Rare";
             int uRoll = UnityEngine.Random.Range(0, ultraSkins.Count);
             string selectedSkin = ultraSkins[uRoll];
-            if (!mySkins.Contains(selectedSkin)) {
-                mySkins.Add(selectedSkin);
-                visualToActivate = snakeVisualObject;
+            if (!mySkins.Contains(selectedSkin)) 
+            {
+                mySkins.Add(selectedSkin);          
+                visualToActivate = snakeVisualObject; 
                 wonNewSkin = true;
-                skinWonName = selectedSkin; // Store the name
                 debugOutcome = "NEW Ultra Rare Win!";
-            } else { debugOutcome = "Duplicate Ultra Rare."; }
+                // skinWonName = selectedSkin;
+            } else { debugOutcome = "Duplicate Ultra Rare."; } 
         }
-        // (1/25 chance)
-        else if (roll <= 100 + 120)
+        
+        else if (roll <= 8192 + 16384) 
         {
-            debugOutcome = "Rolled Super Rare";
             int srRoll = UnityEngine.Random.Range(0, superRareSkins.Count);
             string selectedSkin = superRareSkins[srRoll];
-            if (!mySkins.Contains(selectedSkin)) {
+            if (!mySkins.Contains(selectedSkin)) 
+            {
                 mySkins.Add(selectedSkin);
-                visualToActivate = coinsVisualObject;
+                visualToActivate = coinsVisualObject; 
                 wonNewSkin = true;
-                skinWonName = selectedSkin;
                 debugOutcome = "NEW Super Rare Win!";
-            } else { debugOutcome = "Duplicate Super Rare."; }
+                // skinWonName = selectedSkin;
+            } else { debugOutcome = "Duplicate Super Rare."; } 
         }
-        // (1/10 chance)
-        else if (roll <= 100 + 120 + 300)
+        
+        else if (roll <= 8192 + 16384 + 32768) 
         {
-            debugOutcome = "Rolled Rare";
             int rRoll = UnityEngine.Random.Range(0, rareSkins.Count);
             string selectedSkin = rareSkins[rRoll];
-            if (!mySkins.Contains(selectedSkin)) {
+            if (!mySkins.Contains(selectedSkin)) 
+            {
                 mySkins.Add(selectedSkin);
-                visualToActivate = pawsVisualObject;
+                visualToActivate = pawsVisualObject;  
                 wonNewSkin = true;
-                skinWonName = selectedSkin; 
                 debugOutcome = "NEW Rare Win!";
-            } else { debugOutcome = "Duplicate Rare."; }
+                // skinWonName = selectedSkin;
+            } else { debugOutcome = "Duplicate Rare."; } 
         }
-        // LOSS Range
-        else {
-            debugOutcome = "Loss (No Win).";
-        }
-
-        // --- If no NEW skin was won (Loss OR Duplicate), pick a NoMatch variant ---
-        if (!wonNewSkin)
+        
+        else
         {
-            if (noMatchVisualVariants != null && noMatchVisualVariants.Count > 0) {
-                int randomIndex = Random.Range(0, noMatchVisualVariants.Count);
-                visualToActivate = noMatchVisualVariants[randomIndex];
-            } else {
-                Debug.LogError("No Match Visual Variants list is empty or not assigned!");
-            }
+            debugOutcome = "Loss (No Win).";
+           
         }
 
         Debug.Log($"Outcome: {debugOutcome}");
 
+        
         if (visualToActivate != null)
         {
             Debug.Log($"Activating visual: {visualToActivate.name}");
             visualToActivate.SetActive(true);
-        } else {
-            Debug.LogWarning($"No visual object could be determined for outcome: {debugOutcome}");
-        }
-
-        
-        yield return new WaitForSeconds(winDisplayDelay);
-
-        
-        Debug.Log("Displaying final result...");
-
-        // Display Text
-        if (resultText != null)
-        {
-            if (wonNewSkin && skinWonName != null) {
-                resultText.text = $"You won {skinWonName}!";
-            } else {
-                resultText.text = "Try Again!";
-            }
-        } else { Debug.LogWarning("ResultText UI element not assigned!"); }
-
-        // Display Sprite Image (Only if a NEW skin was won)
-        if (wonNewSkin && skinWonName != null)
-        {
-            if (skinDisplay != null) {
-                if (skinSprites.ContainsKey(skinWonName)) {
-                    skinDisplay.sprite = skinSprites[skinWonName]; 
-                    skinDisplay.gameObject.SetActive(true);       
-                } else {
-                    Debug.LogError($"Sprite key '{skinWonName}' not found in skinSprites dictionary! Cannot display sprite.");
-                    skinDisplay.gameObject.SetActive(false);
-                }
-            } else { Debug.LogWarning("SkinDisplay Image UI element not assigned!"); }
+            // --- Optional: Trigger a "Landing" animation on the specific visual ---
+            // Animator visualAnimator = visualToActivate.GetComponent<Animator>();
+            // if (visualAnimator != null) visualAnimator.SetTrigger("Land");
         }
         else
         {
-             if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
+            Debug.LogWarning("The visual object to activate is not assigned or is null!");
         }
 
-        Debug.Log("Gacha Sequence Complete.");
+        // --- FUTURE: Display specific skin/text after a delay ---
+        // if (wonNewSkin) {
+        //    yield return new WaitForSeconds(symbolDisplayDelay);
+        //    if (resultText != null) { /* Set Win Text */ }
+        //    if (skinDisplay != null) { /* Set Sprite & Activate */ }
+        // } else {
+        //    yield return new WaitForSeconds(symbolDisplayDelay * 0.5f); // Shorter delay for loss?
+        //    if (resultText != null) { /* Set Try Again Text */ }
+        // }
+
+        yield return null;
     }
 }
