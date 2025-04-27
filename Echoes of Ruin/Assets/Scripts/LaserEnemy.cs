@@ -25,6 +25,10 @@ public class LaserEnemy : MonoBehaviour, IDamageable
     private float shootCooldown;
     private int currentHP;
 
+    //Loottable for dropped items
+    [Header("Loot")]
+    public List<LootItem> LootTable = new List<LootItem>();
+
     void Start()
     {
         shootCooldown = startShootCooldown;
@@ -99,7 +103,20 @@ public class LaserEnemy : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        //Spawn Item dropped
+        foreach(LootItem LootItem in LootTable) {
+            if(Random.Range(0f,100f) <= LootItem.DropChance) {
+                InstantiateLoot(LootItem.ItemPrefab);
+            }
+            break;
+        }
         Destroy(gameObject);
     }
 
+    //Uses the prefab to make the item
+    void InstantiateLoot(GameObject loot) {
+        if(loot){
+            GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
+        }
+    }
 }    
