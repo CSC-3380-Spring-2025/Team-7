@@ -3,69 +3,65 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CharacterManager : MonoBehaviour{
-
-    public CharacterDatabase characterDB;
-    public SpriteRenderer artworkSprite;
+    // Parameters for the Skin Selector Sprite
+    public CharacterDatabase CharacterDB;
+    public SpriteRenderer ArtworkSprite;
    
-    private int SelectedOption = 0;
+    private int selectedOption = 0;
 
+    //Loads in the Skin selected
     void Start(){
 
         if(!PlayerPrefs.HasKey("SelectedOption")){
-            SelectedOption = 0;
+            selectedOption = 0;
         }else{
             Load();
         }
-        UpdateCharacter(SelectedOption);
+        UpdateCharacter(selectedOption);
     }
 
+    //Updates sprite to the next skin
     public void NextOption(){
-        SelectedOption++;
-        if(SelectedOption >= characterDB.characterCount){
-            SelectedOption = 0;
+        selectedOption++;
+        if(selectedOption >= CharacterDB.CharacterCount){
+            selectedOption = 0;
         }
-        
-        UpdateCharacter(SelectedOption);
+        UpdateCharacter(selectedOption);
     }
 
+    //Update sprite to the previous skin
     public void BackOption(){
-        SelectedOption--;
-        if(SelectedOption < 0){
-            SelectedOption = characterDB.characterCount -1;
+        selectedOption--;
+        if(selectedOption < 0){
+            selectedOption = CharacterDB.CharacterCount -1;
         }
-        UpdateCharacter(SelectedOption);
+        UpdateCharacter(selectedOption);
     }
 
-    private void UpdateCharacter(int SelectedOption){
-        Character character = characterDB.getCharacter(SelectedOption);
-        artworkSprite.sprite = character.characterSprite;
-        
+    //Updates the Skin based on the database
+    private void UpdateCharacter(int selectedOption){
+        Character Character = CharacterDB.GetCharacter(selectedOption);
+        ArtworkSprite.sprite = Character.CharacterSprite;
     }
 
+    //Saves skin selected
     public void ApplyCharacter(){
         Save();
-        /*
-        PlayerPrefs.SetInt("SelectedOption", selectedIndex);
-        PlayerPrefs.Save();
-
-        if (PlayerManager.Instance != null){
-            PlayerManager.Instance.SetSelectedCharacter(selectedIndex);
-        }
-    SceneManager.LoadScene("ForestClearing");
-    */
     }
 
+    //Loads skin saved in player prefs
     private void Load(){
-        SelectedOption = PlayerPrefs.GetInt("SelectedOption");
+        selectedOption = PlayerPrefs.GetInt("SelectedOption");
     }
 
+    //Save skin in player prefs
     private void Save(){
-        PlayerPrefs.SetInt("SelectedOption",SelectedOption);
+        PlayerPrefs.SetInt("SelectedOption",selectedOption);
     }
    
+   //Changes scene
     public void ChangeScene(int scenceID){
         SceneManager.LoadScene(scenceID);
     }
 
-  
 }

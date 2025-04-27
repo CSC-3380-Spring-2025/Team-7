@@ -1,54 +1,46 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeSkins : MonoBehaviour{
+public class ChangeSkins : MonoBehaviour {
 
-    public AnimatorOverrideController defCat;
-    public AnimatorOverrideController blackCat;
-    public AnimatorOverrideController whiteCat;
-    public AnimatorOverrideController siameseCat;
-    public AnimatorOverrideController ashortCat;
-    public AnimatorOverrideController calicoCat;
+    //All the cat override animators
+    public AnimatorOverrideController DefCatAnimator;
+    public AnimatorOverrideController BlackCatAnimator;
+    public AnimatorOverrideController WhiteCatAnimator;
+    public AnimatorOverrideController SiameseCatAnimator;
+    public AnimatorOverrideController AshortCatAniamtor;
+    public AnimatorOverrideController CalicoCatAnimator;
 
-    public CharacterDatabase characterDB;
-    public Animator animator;
-    public RuntimeAnimatorController newAnimator;
+    //parameters for the player
+    public CharacterDatabase CharacterDB;
+    public Animator Animator;
+    public RuntimeAnimatorController NewAnimator;
 
-    private int SelectedOption;
-/*
-    void Start(){
-      SelectedOption = PlayerPrefs.GetInt("SelectedOption",0);
-      Character character = characterDB.getCharacter(SelectedOption);
+    private int selectedOption;
 
-
-      if(animator != null ){
-        animator.runtimeAnimatorController = newAnimator;
-      }
-    }
-*/
-
-    public void DefCat(){
-        GetComponent<Animator>().runtimeAnimatorController = defCat as RuntimeAnimatorController;
+    //Animator Methods
+    public void DefCat() {
+        GetComponent<Animator>().runtimeAnimatorController = DefCatAnimator as RuntimeAnimatorController;
     }
 
-     public void BlackCat(){
-        GetComponent<Animator>().runtimeAnimatorController = blackCat as RuntimeAnimatorController;
+     public void BlackCat() {
+        GetComponent<Animator>().runtimeAnimatorController = BlackCatAnimator as RuntimeAnimatorController;
     }
 
-     public void WhiteCat(){
-        GetComponent<Animator>().runtimeAnimatorController = whiteCat as RuntimeAnimatorController;
+     public void WhiteCat() {
+        GetComponent<Animator>().runtimeAnimatorController = WhiteCatAnimator as RuntimeAnimatorController;
     }
     
-      public void SiameseCat(){
-        GetComponent<Animator>().runtimeAnimatorController = siameseCat as RuntimeAnimatorController;
+      public void SiameseCat() {
+        GetComponent<Animator>().runtimeAnimatorController = SiameseCatAnimator as RuntimeAnimatorController;
     }
 
-     public void AShortCat(){
-        GetComponent<Animator>().runtimeAnimatorController = ashortCat as RuntimeAnimatorController;
+     public void AShortCat() {
+        GetComponent<Animator>().runtimeAnimatorController = AshortCatAniamtor as RuntimeAnimatorController;
     }
 
-     public void CalicoCat(){
-        GetComponent<Animator>().runtimeAnimatorController = calicoCat as RuntimeAnimatorController;
+     public void CalicoCat() {
+        GetComponent<Animator>().runtimeAnimatorController = CalicoCatAnimator as RuntimeAnimatorController;
     }
 
 }
