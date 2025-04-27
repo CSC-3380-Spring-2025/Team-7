@@ -10,7 +10,7 @@ public class PlayerManager : MonoBehaviour{
 
     public CharacterDatabase characterDB;
 
-
+/*
     private int SelectedOption;
 
     private void Awake() {
@@ -81,15 +81,15 @@ public class PlayerManager : MonoBehaviour{
     }
 
      private void UpdateCharacter(int SelectedOption){
-        Character character = characterDB.getCharacter(SelectedOption);
+        Character character = characterDB.GetCharacter(SelectedOption);
         if (character == null || currentPlayer == null) return;
         SpriteRenderer sprite = currentPlayer.GetComponentInChildren<SpriteRenderer>();
         Animator animator = currentPlayer.GetComponentInChildren<Animator>();
-        if (sprite != null && character.characterSprite != null){
-        sprite.sprite = character.characterSprite;
+        if (sprite != null && character.CharacterSprite != null){
+        sprite.sprite = character.CharacterSprite;
         }
-        if (animator != null && character.animatorOverride != null){
-        animator.runtimeAnimatorController = character.animatorOverride;
+        if (animator != null && character.AnimatorOverride != null){
+        animator.runtimeAnimatorController = character.AnimatorOverride;
         }
     }
 
@@ -102,4 +102,5 @@ public class PlayerManager : MonoBehaviour{
 
   
     }
+    */
 }

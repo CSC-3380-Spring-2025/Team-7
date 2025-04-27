@@ -2,7 +2,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Character{
-    public string characterName;
-    public Sprite characterSprite;
-    public RuntimeAnimatorController animatorOverride;
+    //Parameters for the Player
+    public string CharacterName;
+    public Sprite CharacterSprite;
+    public RuntimeAnimatorController AnimatorOverride;
 }

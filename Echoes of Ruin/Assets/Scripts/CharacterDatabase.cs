@@ -2,16 +2,17 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class CharacterDatabase : ScriptableObject{
-    public Character[] character;
+    public Character[] Character;
 
-    public int characterCount{
+    // Gets the length of the character name
+    public int CharacterCount{
         get{
-            return character.Length;
+            return Character.Length;
         }
-
     }
-
-    public Character getCharacter(int index){
-        return character[index];
+    
+    // Gets character from the database
+    public Character GetCharacter(int index){
+        return Character[index];
     }
 }
