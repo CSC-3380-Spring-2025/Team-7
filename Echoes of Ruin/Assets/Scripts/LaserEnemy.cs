@@ -1,9 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using static Codice.CM.Common.CmCallContext;
 
-public class LaserEnemy : MonoBehaviour, IDamageable
+public class LaserEnemy : MonoBehaviour
 {
      private GameObject PlayerCat;
     public GameObject laser;
@@ -23,14 +22,12 @@ public class LaserEnemy : MonoBehaviour, IDamageable
 
 
     private float shootCooldown;
-    private int currentHP;
 
     void Start()
     {
         shootCooldown = startShootCooldown;
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
         SetEnemyValues();
-        currentHP = data.hp;
     }
 
     void Update()
@@ -40,9 +37,9 @@ public class LaserEnemy : MonoBehaviour, IDamageable
         if (distanceToPlayer <= shootingRange)
         {
             // AimAtPlayer();
-            Swarm();
             Shoot();
-      
+            Swarm();
+            
         }
 
         // Reduce cooldown timer
@@ -86,20 +83,14 @@ public class LaserEnemy : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(int dmg)
+        private void OnTriggerEnter2D(Collider2D collision)
     {
-        currentHP -= dmg;
-        Debug.Log($"{gameObject.name} took {dmg} damage. HP: {currentHP}");
-
-        if (currentHP <= 0)
-        {
-            Death();
+        if(collision.gameObject.CompareTag("Laser(Clone)")) {
+            Destroy(collision.gameObject);
         }
+        
     }
-
-    private void Death()
-    {
-        Destroy(gameObject);
-    }
-
 }    
+
+
+  

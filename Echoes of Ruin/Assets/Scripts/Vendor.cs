@@ -11,17 +11,13 @@ public class Vendor : MonoBehaviour {
 
 //allows for purchasing items including equipable items  
     public GameObject vendorUI;
-    public GameObject noMoney;
 
     public int cost;
     public int[,] items = new int[4, 4];
 
 //have to have an event system thats tagged gamecontroller where currency script is stored
     void Start() {
-        script = GameObject.Find("PlayerCat").GetComponent<Currency>();
-
-        noMoney.SetActive(false);
-
+        script = GameObject.FindWithTag("PlayerCat").GetComponent<Currency>();
         //item IDs
         items[1, 1] = 1;
         items[1, 2] = 2;
@@ -40,7 +36,6 @@ public class Vendor : MonoBehaviour {
         //makes vendor appear
         vendorUI.SetActive(true);
         Cursor.visible = true;  
-        noMoney.SetActive(false);
     }
 
     //Updaate is called once per frame
@@ -48,19 +43,16 @@ public class Vendor : MonoBehaviour {
 
         vendorUI.SetActive(false);
         Cursor.visible = false;
-        noMoney.SetActive(false);
     } 
 
     public void BuyItem(){
-        GameObject ShopButton = GameObject.Find("EventSystem").GetComponent<EventSystem>().currentSelectedGameObject;
+        GameObject ShopButton = GameObject.FindGameObjectWithTag("Event").GetComponent<EventSystem>().currentSelectedGameObject;
+        
         cost = items[2, ShopButton.GetComponent<ButtonInfo>().ItemID];
         if (script.coin >= cost) {
+
             script.coin -= cost;
             items[3, ShopButton.GetComponent<ButtonInfo>().ItemID]++;
-            noMoney.SetActive(false);
-        }
-        else if (script.coin < cost) {
-            noMoney.SetActive(true);
         }
     }
 
