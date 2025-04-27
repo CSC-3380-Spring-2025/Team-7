@@ -7,8 +7,6 @@ TagManager:
   - PlayerCat
   - Event
   - Scene
-  - Untagged --- !u!224 &298633617
-  - Enemy
   layers:
   - Default
   - TransparentFX

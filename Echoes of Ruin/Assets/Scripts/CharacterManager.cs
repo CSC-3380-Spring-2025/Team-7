@@ -24,7 +24,6 @@ public class CharacterManager : MonoBehaviour{
         if(SelectedOption >= characterDB.characterCount){
             SelectedOption = 0;
         }
-        
         UpdateCharacter(SelectedOption);
     }
 
@@ -44,15 +43,6 @@ public class CharacterManager : MonoBehaviour{
 
     public void ApplyCharacter(){
         Save();
-        /*
-        PlayerPrefs.SetInt("SelectedOption", selectedIndex);
-        PlayerPrefs.Save();
-
-        if (PlayerManager.Instance != null){
-            PlayerManager.Instance.SetSelectedCharacter(selectedIndex);
-        }
-    SceneManager.LoadScene("ForestClearing");
-    */
     }
 
     private void Load(){
