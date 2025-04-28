@@ -95,11 +95,19 @@ public class Player : MonoBehaviour{
 
     //On Scene Load it applys the skin, position, destorys dups, and reassigns the camera
     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+        //Deletes dups in tutortialscene and resets position
         if (scene.name == "TutorialScene"){
             if (this == instance){
                 Destroy(gameObject);  
             }
+            savedPosition.x = 0;
+            savedPosition.y = 0;
         return;
+        }
+        //Resets Position if scene changes to HomeScreen
+        if(scene.name == "HomeScreen"){ 
+            savedPosition.x = 0;
+            savedPosition.y = 0;
         }
         if(!PlayerPrefs.HasKey("SelectedOption")){
             selectedOption = 0;
@@ -119,6 +127,7 @@ public class Player : MonoBehaviour{
         if (this == instance && hasSavedPosition){
             transform.position = new Vector3(savedPosition.x, savedPosition.y, transform.position.z);
         }
+
     }
 }
 
