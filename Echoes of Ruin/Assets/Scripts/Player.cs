@@ -102,10 +102,9 @@ public class Player : MonoBehaviour{
             }
             savedPosition.x = 0;
             savedPosition.y = 0;
-        return;
         }
         //Resets Position if scene changes to HomeScreen
-        if(scene.name == "HomeScreen"){ 
+        if(scene.name == "Homescreen"){ 
             savedPosition.x = 0;
             savedPosition.y = 0;
         }
