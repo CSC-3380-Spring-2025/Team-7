@@ -8,11 +8,11 @@ public class GachaMachine : MonoBehaviour
 {
     [Header("Skin Sprites")]
     public Sprite spriteDefault; 
-    public Sprite spriteRare1;
-    public Sprite spriteRare2;
-    public Sprite spriteSuperRare1;
-    public Sprite spriteSuperRare2;
-    public Sprite spriteUltraRare1;
+    public Sprite WhiteCat;
+    public Sprite BlackCat;
+    public Sprite ShortCat;
+    public Sprite SiameseCat;
+    public Sprite CalicoCat;
     
 
     [Header("Skin Names By Rarity")]
@@ -51,11 +51,11 @@ public class GachaMachine : MonoBehaviour
     {
         skinSprites.Clear(); 
 
-        if (spriteRare1 != null) skinSprites.Add("Rare1", spriteRare1); else Debug.LogError("SpriteRare1 not assigned!");
-        if (spriteRare2 != null) skinSprites.Add("Rare2", spriteRare2); else Debug.LogError("SpriteRare2 not assigned!");
-        if (spriteSuperRare1 != null) skinSprites.Add("SuperRare1", spriteSuperRare1); else Debug.LogError("SpriteSuperRare1 not assigned!");
-        if (spriteSuperRare2 != null) skinSprites.Add("SuperRare2", spriteSuperRare2); else Debug.LogError("SpriteSuperRare2 not assigned!");
-        if (spriteUltraRare1 != null) skinSprites.Add("UltraRare1", spriteUltraRare1); else Debug.LogError("SpriteUltraRare1 not assigned!");
+        if (WhiteCat != null) skinSprites.Add("Rare1", WhiteCat); else Debug.LogError("SpriteRare1 not assigned!");
+        if (BlackCat != null) skinSprites.Add("Rare2", BlackCat); else Debug.LogError("SpriteRare2 not assigned!");
+        if (ShortCat != null) skinSprites.Add("SuperRare1", ShortCat); else Debug.LogError("SpriteSuperRare1 not assigned!");
+        if (SiameseCat != null) skinSprites.Add("SuperRare2", SiameseCat); else Debug.LogError("SpriteSuperRare2 not assigned!");
+        if (CalicoCat != null) skinSprites.Add("UltraRare1", CalicoCat); else Debug.LogError("SpriteUltraRare1 not assigned!");
     }
 
     // --- Hides all potential visual outcomes ---
