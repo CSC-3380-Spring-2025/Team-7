@@ -17,11 +17,11 @@ public class GachaMachine : MonoBehaviour
 
     [Header("Skin Names By Rarity")]
     [SerializeField]
-    private List<string> rareSkins = new List<string> { "Rare1", "Rare2" }; 
+    private List<string> rareSkins = new List<string> { "WhiteCat", "BlackCat" }; 
     [SerializeField]
-    private List<string> superRareSkins = new List<string> { "SuperRare1", "SuperRare2" }; 
+    private List<string> superRareSkins = new List<string> { "ShortCat", "SiameseCat" }; 
     [SerializeField]
-    private List<string> ultraSkins = new List<string> { "UltraRare1" }; 
+    private List<string> ultraSkins = new List<string> { "CalicoCat" }; 
 
     public HashSet<string> mySkins = new HashSet<string>() { "Default" };
 
@@ -51,11 +51,11 @@ public class GachaMachine : MonoBehaviour
     {
         skinSprites.Clear(); 
 
-        if (WhiteCat != null) skinSprites.Add("Rare1", WhiteCat); else Debug.LogError("SpriteRare1 not assigned!");
-        if (BlackCat != null) skinSprites.Add("Rare2", BlackCat); else Debug.LogError("SpriteRare2 not assigned!");
-        if (ShortCat != null) skinSprites.Add("SuperRare1", ShortCat); else Debug.LogError("SpriteSuperRare1 not assigned!");
-        if (SiameseCat != null) skinSprites.Add("SuperRare2", SiameseCat); else Debug.LogError("SpriteSuperRare2 not assigned!");
-        if (CalicoCat != null) skinSprites.Add("UltraRare1", CalicoCat); else Debug.LogError("SpriteUltraRare1 not assigned!");
+        if (WhiteCat != null) skinSprites.Add("WhiteCat", WhiteCat); else Debug.LogError("SpriteRare1 not assigned!");
+        if (BlackCat != null) skinSprites.Add("BlackCat", BlackCat); else Debug.LogError("SpriteRare2 not assigned!");
+        if (ShortCat != null) skinSprites.Add("ShortCat", ShortCat); else Debug.LogError("SpriteSuperRare1 not assigned!");
+        if (SiameseCat != null) skinSprites.Add("SiameseCat", SiameseCat); else Debug.LogError("SpriteSuperRare2 not assigned!");
+        if (CalicoCat != null) skinSprites.Add("CalicoCat", CalicoCat); else Debug.LogError("SpriteUltraRare1 not assigned!");
     }
 
     // --- Hides all potential visual outcomes ---
