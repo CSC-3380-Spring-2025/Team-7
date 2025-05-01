@@ -9,6 +9,7 @@ TagManager:
   - Scene
   - Untagged --- !u!224 &298633617
   - Enemy
+  - NoMatchVisual
   layers:
   - Default
   - TransparentFX
