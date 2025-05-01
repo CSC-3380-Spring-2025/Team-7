@@ -1,201 +1,301 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;     
-using TMPro;             
+using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GachaMachine : MonoBehaviour
 {
+    public static GachaMachine Instance { get; private set; }
+
     [Header("Skin Sprites")]
-    public Sprite spriteDefault; 
+    public Sprite defaultSprite;
     public Sprite WhiteCat;
     public Sprite BlackCat;
     public Sprite ShortCat;
     public Sprite SiameseCat;
     public Sprite CalicoCat;
-    
 
     [Header("Skin Names By Rarity")]
-    [SerializeField]
-    private List<string> rareSkins = new List<string> { "WhiteCat", "BlackCat" }; 
-    [SerializeField]
-    private List<string> superRareSkins = new List<string> { "ShortCat", "SiameseCat" }; 
-    [SerializeField]
-    private List<string> ultraSkins = new List<string> { "CalicoCat" }; 
+    [SerializeField] private List<string> rareSkins = new List<string> { "WhiteCat", "BlackCat" };
+    [SerializeField] private List<string> superRareSkins = new List<string> { "ShortCat", "SiameseCat" };
+    [SerializeField] private List<string> ultraSkins = new List<string> { "CalicoCat" };
 
     public HashSet<string> mySkins = new HashSet<string>() { "Default" };
-
     public Dictionary<string, Sprite> skinSprites = new Dictionary<string, Sprite>();
 
-    [Header("Visual Symbol Objects")]
-    public GameObject pawsVisualObject;   
-    public GameObject coinsVisualObject;  
-    public GameObject snakeVisualObject; 
-    public List<GameObject> noMatchVisualVariants; 
+    private GameObject pawsVisualObject;
+    private GameObject coinsVisualObject;
+    private GameObject snakeVisualObject;
+    private List<GameObject> noMatchVisualVariants = new List<GameObject>();
+    private TextMeshProUGUI resultText;
+    private Image skinDisplay;
 
-    [Header("Result Display")]
-    [SerializeField] private TextMeshProUGUI resultText; 
-    [SerializeField] private Image skinDisplay; 
-    [SerializeField] private float winDisplayDelay = 1.5f; 
+    [Header("Result Display Settings")]
+    [SerializeField] private float winDisplayDelay = 1.5f;
 
-    // --- Initialization ---
+    [Header("Scene Configuration")]
+    [Tooltip("The exact name of the scene file containing the Gacha UI and visuals.")]
+    [SerializeField] private string gachaSceneName = "GachaScene";
+
+    [Tooltip("The name of the GameObject that is the parent of the Result Text and Skin Display (likely the Canvas).")]
+    [SerializeField] private string uiParentName = "LeverScreen";
+
+    [Tooltip("The name of the GameObject that is the parent of Paws, Coins, Snake, and NoMatch visuals.")]
+    [SerializeField] private string visualParentName = "LeverScreen";
+
+    [Tooltip("The exact name of the child GameObject holding the Result Text component.")]
+    [SerializeField] private string resultTextObjectName = "ResultText";
+
+    [Tooltip("The exact name of the child GameObject holding the Skin Display Image component.")]
+    [SerializeField] private string skinDisplayObjectName = "SkinDisplay";
+
+    [Header("No Match Variant Setup")]
+    [Tooltip("The Tag assigned to all 'No Match' visual variant GameObjects.")]
+    [SerializeField] private string noMatchVisualTag = "NoMatchVisual";
+
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        PlayerPrefs.DeleteKey("LastSelectedSkin");
+        PlayerPrefs.Save();
+
         InitializeSkinDictionary();
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == gachaSceneName)
+        {
+            FindSceneReferences();
+            ResetGachaState();
+        }
+        else
+        {
+            ClearSceneReferences();
+        }
+    }
+
+    void FindSceneReferences()
+    {
+        bool allFound = true;
+
+        GameObject uiParentObject = GameObject.Find(uiParentName);
+        if (uiParentObject != null)
+        {
+            Transform uiParentTransform = uiParentObject.transform;
+
+            Transform resultTextTransform = uiParentTransform.Find(resultTextObjectName);
+            if (resultTextTransform != null)
+            {
+                resultText = resultTextTransform.GetComponent<TextMeshProUGUI>();
+                if (resultText == null) { allFound = false; }
+            }
+            else { resultText = null; allFound = false; }
+
+            Transform skinDisplayTransform = uiParentTransform.Find(skinDisplayObjectName);
+            if (skinDisplayTransform != null)
+            {
+                skinDisplay = skinDisplayTransform.GetComponent<Image>();
+                if (skinDisplay == null) { allFound = false; }
+            }
+            else { skinDisplay = null; allFound = false; }
+        }
+        else
+        {
+            resultText = null;
+            skinDisplay = null;
+            allFound = false;
+        }
+
+        GameObject visualParentObject = GameObject.Find(visualParentName);
+        if (visualParentObject != null)
+        {
+            Transform visualParentTransform = visualParentObject.transform;
+
+            pawsVisualObject = visualParentTransform.Find("Paws")?.gameObject;
+            coinsVisualObject = visualParentTransform.Find("Coins")?.gameObject;
+            snakeVisualObject = visualParentTransform.Find("Snake")?.gameObject;
+
+            if (pawsVisualObject == null) { allFound = false; }
+            if (coinsVisualObject == null) { allFound = false; }
+            if (snakeVisualObject == null) { allFound = false; }
+
+            noMatchVisualVariants.Clear();
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(noMatchVisualTag);
+            foreach (GameObject taggedObj in taggedObjects)
+            {
+                if (taggedObj != null && taggedObj.transform.IsChildOf(visualParentTransform))
+                {
+                    noMatchVisualVariants.Add(taggedObj);
+                }
+                else if (taggedObj != null) { /* Warning removed */ }
+            }
+            if (noMatchVisualVariants.Count == 0) { allFound = false; }
+        }
+        else
+        {
+            pawsVisualObject = null;
+            coinsVisualObject = null;
+            snakeVisualObject = null;
+            noMatchVisualVariants.Clear();
+            allFound = false;
+        }
+
+        if (!allFound) { /* Error log removed */ }
+    }
+
+    void ClearSceneReferences()
+    {
+        pawsVisualObject = null;
+        coinsVisualObject = null;
+        snakeVisualObject = null;
+        noMatchVisualVariants.Clear();
+        resultText = null;
+        skinDisplay = null;
+    }
+
+    private void ResetGachaState()
+    {
         HideAllVisuals();
-        if (resultText != null) resultText.text = "";
-        if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
+        if (resultText != null) resultText.text = ""; else { /* Warning removed */ }
+        if (skinDisplay != null) skinDisplay.gameObject.SetActive(false); else { /* Warning removed */ }
     }
 
     private void InitializeSkinDictionary()
     {
-        skinSprites.Clear(); 
-
-        if (WhiteCat != null) skinSprites.Add("WhiteCat", WhiteCat); else Debug.LogError("SpriteRare1 not assigned!");
-        if (BlackCat != null) skinSprites.Add("BlackCat", BlackCat); else Debug.LogError("SpriteRare2 not assigned!");
-        if (ShortCat != null) skinSprites.Add("ShortCat", ShortCat); else Debug.LogError("SpriteSuperRare1 not assigned!");
-        if (SiameseCat != null) skinSprites.Add("SiameseCat", SiameseCat); else Debug.LogError("SpriteSuperRare2 not assigned!");
-        if (CalicoCat != null) skinSprites.Add("CalicoCat", CalicoCat); else Debug.LogError("SpriteUltraRare1 not assigned!");
+        skinSprites.Clear();
+        if (defaultSprite != null) skinSprites.Add("Default", defaultSprite); else { /* Error removed */ }
+        if (WhiteCat != null) skinSprites.Add("WhiteCat", WhiteCat); else { /* Error removed */ }
+        if (BlackCat != null) skinSprites.Add("BlackCat", BlackCat); else { /* Error removed */ }
+        if (ShortCat != null) skinSprites.Add("ShortCat", ShortCat); else { /* Error removed */ }
+        if (SiameseCat != null) skinSprites.Add("SiameseCat", SiameseCat); else { /* Error removed */ }
+        if (CalicoCat != null) skinSprites.Add("CalicoCat", CalicoCat); else { /* Error removed */ }
     }
 
-    // --- Hides all potential visual outcomes ---
     private void HideAllVisuals()
     {
-        if (pawsVisualObject != null) pawsVisualObject.SetActive(false);
-        if (coinsVisualObject != null) coinsVisualObject.SetActive(false);
-        if (snakeVisualObject != null) snakeVisualObject.SetActive(false);
-
+        pawsVisualObject?.SetActive(false);
+        coinsVisualObject?.SetActive(false);
+        snakeVisualObject?.SetActive(false);
         if (noMatchVisualVariants != null)
         {
             foreach (GameObject variant in noMatchVisualVariants)
             {
-                if (variant != null) variant.SetActive(false);
+                variant?.SetActive(false);
             }
         }
     }
 
-    // --- Public function to start the sequence (call this from Button/Input) ---
     public void StartGachaSequence()
     {
+        if (resultText == null || skinDisplay == null || pawsVisualObject == null || coinsVisualObject == null || snakeVisualObject == null || noMatchVisualVariants == null)
+        {
+            if (resultText != null) resultText.text = "Gacha Error!";
+            return;
+        }
+        if (noMatchVisualVariants.Count == 0) { /* Warning removed */ }
+
         StopAllCoroutines();
         StartCoroutine(GachaRollCoroutine());
     }
 
-    // --- The Main Gacha Coroutine ---
     private IEnumerator GachaRollCoroutine()
     {
-        Debug.Log("Gacha Sequence Started...");
-
         HideAllVisuals();
         if (resultText != null) resultText.text = "";
         if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
 
-        int roll = UnityEngine.Random.Range(1, 3001); // Range 1 to 3000
-
+        int roll = UnityEngine.Random.Range(1, 3001);
         GameObject visualToActivate = null;
         bool wonNewSkin = false;
-        string debugOutcome = "Loss/Duplicate";
-        string skinWonName = null; 
+        string skinWonName = null;
 
-       
-        // ULTRA RARE 1/30 chance
-        if (roll <= 100)
+        if (roll <= 100 && ultraSkins.Count > 0)
         {
-            debugOutcome = "Rolled Ultra Rare";
-            int uRoll = UnityEngine.Random.Range(0, ultraSkins.Count);
-            string selectedSkin = ultraSkins[uRoll];
-            if (!mySkins.Contains(selectedSkin)) {
-                mySkins.Add(selectedSkin);
+            string selectedSkin = ultraSkins[UnityEngine.Random.Range(0, ultraSkins.Count)];
+            if (mySkins.Add(selectedSkin))
+            {
                 visualToActivate = snakeVisualObject;
                 wonNewSkin = true;
                 skinWonName = selectedSkin;
-                debugOutcome = "NEW Ultra Rare Win!";
-            } else { debugOutcome = "Duplicate Ultra Rare."; }
+            }
         }
-        // SUPER RARE 1/25 chance
-        else if (roll <= 100 + 120) // Up to 220
+        else if (roll <= 220 && superRareSkins.Count > 0)
         {
-            debugOutcome = "Rolled Super Rare";
-            int srRoll = UnityEngine.Random.Range(0, superRareSkins.Count);
-            string selectedSkin = superRareSkins[srRoll];
-            if (!mySkins.Contains(selectedSkin)) {
-                mySkins.Add(selectedSkin);
+            string selectedSkin = superRareSkins[UnityEngine.Random.Range(0, superRareSkins.Count)];
+            if (mySkins.Add(selectedSkin))
+            {
                 visualToActivate = coinsVisualObject;
                 wonNewSkin = true;
                 skinWonName = selectedSkin;
-                debugOutcome = "NEW Super Rare Win!";
-            } else { debugOutcome = "Duplicate Super Rare."; }
+            }
         }
-        // RARE 1/10 chance
-        else if (roll <= 100 + 120 + 300) // Up to 520
+        else if (roll <= 520 && rareSkins.Count > 0)
         {
-            debugOutcome = "Rolled Rare";
-            int rRoll = UnityEngine.Random.Range(0, rareSkins.Count);
-            string selectedSkin = rareSkins[rRoll];
-            if (!mySkins.Contains(selectedSkin)) {
-                mySkins.Add(selectedSkin);
+            string selectedSkin = rareSkins[UnityEngine.Random.Range(0, rareSkins.Count)];
+            if (mySkins.Add(selectedSkin))
+            {
                 visualToActivate = pawsVisualObject;
                 wonNewSkin = true;
-                skinWonName = selectedSkin; 
-                debugOutcome = "NEW Rare Win!";
-            } else { debugOutcome = "Duplicate Rare."; }
-        }
-        // LOSS Range
-        else {
-            debugOutcome = "Loss (No Win).";
-        }
-
-        
-        if (!wonNewSkin)
-        {
-            if (noMatchVisualVariants != null && noMatchVisualVariants.Count > 0) {
-                int randomIndex = Random.Range(0, noMatchVisualVariants.Count);
-                visualToActivate = noMatchVisualVariants[randomIndex];
-            } else {
-                Debug.LogError("No Match Visual Variants list is empty or not assigned!");
+                skinWonName = selectedSkin;
             }
         }
 
-        Debug.Log($"Outcome: {debugOutcome}");
+        if (!wonNewSkin)
+        {
+            if (noMatchVisualVariants != null && noMatchVisualVariants.Count > 0)
+            {
+                visualToActivate = noMatchVisualVariants[Random.Range(0, noMatchVisualVariants.Count)];
+            }
+        }
 
         if (visualToActivate != null)
         {
-            Debug.Log($"Activating visual: {visualToActivate.name}");
             visualToActivate.SetActive(true);
-        } else {
-            Debug.LogWarning($"No visual object could be determined for outcome: {debugOutcome}");
         }
+    
 
         yield return new WaitForSeconds(winDisplayDelay);
 
-        Debug.Log("Displaying final result...");
-
-        // Display Text
         if (resultText != null)
         {
-            if (wonNewSkin && skinWonName != null) {
-                resultText.text = $"You won {skinWonName}!";
-            } else {
-                resultText.text = "Try Again!";
-            }
-        } else { Debug.LogWarning("ResultText UI element not assigned!"); }
+            resultText.text = (wonNewSkin && skinWonName != null) ? $"You won {skinWonName}!" : "Try Again!";
+        }
 
         if (wonNewSkin && skinWonName != null)
         {
-            if (skinDisplay != null) {
-                if (skinSprites.ContainsKey(skinWonName)) {
-                    skinDisplay.sprite = skinSprites[skinWonName]; 
-                    skinDisplay.gameObject.SetActive(true); 
-                } else {
-                    Debug.LogError($"Sprite key '{skinWonName}' not found in skinSprites dictionary! Cannot display sprite.");
+            if (skinDisplay != null)
+            {
+                if (skinSprites.TryGetValue(skinWonName, out Sprite spriteToShow))
+                {
+                    skinDisplay.sprite = spriteToShow;
+                    skinDisplay.gameObject.SetActive(true);
+                }
+                else
+                {
                     skinDisplay.gameObject.SetActive(false);
                 }
-            } else { Debug.LogWarning("SkinDisplay Image UI element not assigned!"); }
+            }
         }
         else
         {
-             if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
+            if (skinDisplay != null) skinDisplay.gameObject.SetActive(false);
         }
-        Debug.Log("Gacha Sequence Complete.");
     }
 }
