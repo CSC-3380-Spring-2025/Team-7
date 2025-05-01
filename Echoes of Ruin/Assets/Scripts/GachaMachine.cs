@@ -144,7 +144,6 @@ public class GachaMachine : MonoBehaviour
                 {
                     noMatchVisualVariants.Add(taggedObj);
                 }
-                else if (taggedObj != null) { /* Warning removed */ }
             }
             if (noMatchVisualVariants.Count == 0) { allFound = false; }
         }
@@ -156,8 +155,6 @@ public class GachaMachine : MonoBehaviour
             noMatchVisualVariants.Clear();
             allFound = false;
         }
-
-        if (!allFound) { /* Error log removed */ }
     }
 
     void ClearSceneReferences()
@@ -173,19 +170,19 @@ public class GachaMachine : MonoBehaviour
     private void ResetGachaState()
     {
         HideAllVisuals();
-        if (resultText != null) resultText.text = ""; else { /* Warning removed */ }
-        if (skinDisplay != null) skinDisplay.gameObject.SetActive(false); else { /* Warning removed */ }
+        if (resultText != null) resultText.text = ""; 
+        if (skinDisplay != null) skinDisplay.gameObject.SetActive(false); 
     }
 
     private void InitializeSkinDictionary()
     {
         skinSprites.Clear();
-        if (defaultSprite != null) skinSprites.Add("Default", defaultSprite); else { /* Error removed */ }
-        if (WhiteCat != null) skinSprites.Add("WhiteCat", WhiteCat); else { /* Error removed */ }
-        if (BlackCat != null) skinSprites.Add("BlackCat", BlackCat); else { /* Error removed */ }
-        if (ShortCat != null) skinSprites.Add("ShortCat", ShortCat); else { /* Error removed */ }
-        if (SiameseCat != null) skinSprites.Add("SiameseCat", SiameseCat); else { /* Error removed */ }
-        if (CalicoCat != null) skinSprites.Add("CalicoCat", CalicoCat); else { /* Error removed */ }
+        if (defaultSprite != null) skinSprites.Add("Default", defaultSprite); 
+        if (WhiteCat != null) skinSprites.Add("WhiteCat", WhiteCat); 
+        if (BlackCat != null) skinSprites.Add("BlackCat", BlackCat); 
+        if (ShortCat != null) skinSprites.Add("ShortCat", ShortCat);
+        if (SiameseCat != null) skinSprites.Add("SiameseCat", SiameseCat);
+        if (CalicoCat != null) skinSprites.Add("CalicoCat", CalicoCat); 
     }
 
     private void HideAllVisuals()
@@ -209,7 +206,7 @@ public class GachaMachine : MonoBehaviour
             if (resultText != null) resultText.text = "Gacha Error!";
             return;
         }
-        if (noMatchVisualVariants.Count == 0) { /* Warning removed */ }
+        if (noMatchVisualVariants.Count == 0) 
 
         StopAllCoroutines();
         StartCoroutine(GachaRollCoroutine());
