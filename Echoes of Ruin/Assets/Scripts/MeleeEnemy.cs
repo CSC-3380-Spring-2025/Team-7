@@ -9,8 +9,8 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     // Radius within which the enemy detects the player
     [SerializeField]
     private float detectionRange = 5f;
-    [SerializeField]
-    private int damage = 1;
+    // [SerializeField]
+    // private int damage = 1;
     [SerializeField]
     private float speed = 1.5f;
     [SerializeField]
@@ -44,9 +44,9 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     private void SetEnemyValues()
     {
         currentHP = data.hp;
-        GetComponent<Health>().SetHearts(currentHP, currentHP);
-        damage = data.damage;
-        speed = data.speed;
+        // GetComponent<Health>().SetHearts(currentHP, currentHP);
+        // damage = data.damage;
+        // speed = data.speed;
     }
 
 //makes object move toward player

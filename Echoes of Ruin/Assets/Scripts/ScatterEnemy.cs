@@ -17,8 +17,8 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
     [SerializeField]
     private EnemyData data;
     [SerializeField]
-    private int damage = 1;
-    [SerializeField]
+    // private int damage = 1;
+    // [SerializeField]
       private float speed = 1.5f;  
     [SerializeField] private float stopDistance = 2f; // How close the enemy is allowed to get
 
@@ -66,9 +66,9 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
  private void SetEnemyValues()
     {
         currentHP = data.hp;
-        GetComponent<Health>().SetHearts(currentHP, currentHP);
-        damage = data.damage;
-        speed = data.speed;
+        // GetComponent<Health>().SetHearts(currentHP, currentHP);
+        // damage = data.damage;
+        // speed = data.speed;
 
     }
 
