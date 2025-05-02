@@ -11,15 +11,17 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {   UpdateHP(); }
 
-    public void UpdateHP()
-    {   scene = SceneManager.GetActiveScene();
+    public void Update() 
+    { scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
         if (sceneName == "TutorialScene")
         { healthUI.SetActive(true);}
         else 
         { healthUI.SetActive(false);}
-      
-      if (playerHP <= 0){
+      }
+
+    public void UpdateHP()
+    {  if (playerHP <= 0){
           SceneManager.LoadScene("GameOver");
           Audios.Instance.PlayMusic("GameOver"); 
           }else{
