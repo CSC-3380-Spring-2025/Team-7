@@ -64,8 +64,7 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     bool IsSceneExcluded(string sceneName)
     {
         return sceneName == "CharacterSelection" ||
-               sceneName == "Homescreen" ||
-               sceneName == "TutorialScene";
+               sceneName == "Homescreen";
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -87,18 +86,23 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
         DataCharacterEntry characterData = characterDB.GetCharacterByName(savedSkinName);
 
         if (characterData != null)
-        {
+        {   
+            Debug.Log("1");
             if (targetSpriteRenderer != null)
             {
                 targetSpriteRenderer.sprite = characterData.characterDisplaySprite;
+                Debug.Log("2");
             } else { return; }
 
             if (targetAnimator != null)
             {
+                Debug.Log("3");
                  if(characterData.animatorController != null)
                  {
+                    Debug.Log("4");
                      if(targetAnimator.runtimeAnimatorController != characterData.animatorController)
                      {
+                        Debug.Log("5");
                          targetAnimator.runtimeAnimatorController = characterData.animatorController;
                      }
                  }
@@ -117,9 +121,13 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
 
          DataCharacterEntry defaultData = characterDB.GetCharacterByName("Default");
             if (defaultData != null) {
+                Debug.Log("6");
                  if(targetSpriteRenderer != null) targetSpriteRenderer.sprite = defaultData.characterDisplaySprite;
+
                  if (targetAnimator != null && defaultData.animatorController != null) {
+                    Debug.Log("7");
                       if(targetAnimator.runtimeAnimatorController != defaultData.animatorController) {
+                        Debug.Log("8");
                            targetAnimator.runtimeAnimatorController = defaultData.animatorController;
                       }
                  }
