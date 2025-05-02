@@ -1,10 +1,11 @@
-# [Name of the Project] : [Team Number]
+# Echoes of Ruin : Group 7
 # Members
-Project Manager: [Name] ([GitHub Name])\
-Communications Lead: [Name] ([GitHub Name])\
-Git Master: [Name] ([GitHub Name])\
-Design Lead: [Name] ([GitHub Name])\
-Quality Assurance Tester: [Name] ([GitHub Name])
+Project Manager: Amber Gill ([agill32](https://github.com/agill32))\
+Communications Lead: Renee Vo ([vrenee0](https://github.com/vrenee0))\
+Git Master: Steven Tan ([stanlsu](https://github.com/stanlsu))\
+Design Lead: Amy Tran ([Froggie](https://github.com/Froggie-A))\
+Quality Assurance Tester: Kashvi Teli ([kashvii](https://github.com/kashvii-1))\
+Quality Assurance Tester: Jalen Neverdon ([JJoestar4](https://github.com/JJoestar4))
 
 # About Our Software
 
@@ -16,7 +17,7 @@ Describe a little about what the project is about here.
 - Linux
 - Windows
 # Important Links
-Kanban Board: [link]\
+Kanban Board: [[link]](https://github.com/orgs/CSC-3380-Spring-2025/projects/15)\
 Designs: [link]\
 Styles Guide(s): [link]
 
