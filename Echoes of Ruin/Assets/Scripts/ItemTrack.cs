@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class ItemTrack : MonoBehaviour
 {
-    public int[,] itemNum;
+    public int ball;
+    public int bisc;
+    public int brush;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    { itemNum[1, 1] = 0;
-      itemNum[1, 2] = 0;
-      itemNum[1, 3] = 0;
+    { ball = 0;
+      bisc = 0;
+      brush = 0;
         
     }
 }

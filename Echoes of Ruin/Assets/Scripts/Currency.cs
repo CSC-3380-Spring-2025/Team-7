@@ -11,7 +11,6 @@ using TMPro;
 public class Currency : MonoBehaviour {
 
 //public because we want it to be accesible to Item_Pickup
-
     public int coin;
     string sceneName;
     Scene scene;

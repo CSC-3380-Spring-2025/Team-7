@@ -5,13 +5,24 @@ using TMPro;
 public class NurtureItemsText : MonoBehaviour
 {   public int ItemID;
     public TMP_Text QuantityTXT;
-    public GameObject items;
+    ItemTrack items;
     
     void Start() {
-      items = GameObject.Find("HeartsAndCoinsOverlay");
+      items = GameObject.Find("HeartsAndCoinsOverlay").GetComponent<ItemTrack>();
     }
 
     void Update() {
-       QuantityTXT.text = "x" + items.GetComponent<ItemTrack>().itemNum[1, ItemID].ToString();
+     
+      switch(ItemID)
+      { case(1):
+         QuantityTXT.text = "x" + items.ball;
+         break;
+        case(2):
+         QuantityTXT.text = "x" + items.bisc;
+         break;
+        case(3):
+         QuantityTXT.text = "x" + items.brush;
+         break;
+            }
     }
 }

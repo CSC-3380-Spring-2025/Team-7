@@ -2417,7 +2417,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &176428029
 RectTransform:
@@ -2462,6 +2462,7 @@ MonoBehaviour:
   vendorUI: {fileID: 176428025}
   noMoney: {fileID: 891746277}
   cost: 0
+  ID: 0
 --- !u!1 &179978404
 GameObject:
   m_ObjectHideFlags: 0
@@ -13853,7 +13854,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1765477267
 RectTransform:
@@ -13903,6 +13904,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b11fcd3b98a57141abb3fc527804d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ball: 0
+  bisc: 0
+  brush: 0
 --- !u!1 &1776284848
 GameObject:
   m_ObjectHideFlags: 0
