@@ -15696,6 +15696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCat
       objectReference: {fileID: 0}
+    - target: {fileID: 6647403218535657031, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7535623470422534827, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
       propertyPath: CoinsTXT
       value: 

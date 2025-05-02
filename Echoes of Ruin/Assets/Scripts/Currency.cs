@@ -22,7 +22,7 @@ public class Currency : MonoBehaviour {
     //Finds game object thats called currency
     void Start() 
     {  
-         DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
     public void Update () 
     {   scene = SceneManager.GetActiveScene();
