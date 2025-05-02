@@ -223,7 +223,7 @@ public class GachaMachine : MonoBehaviour
         bool wonNewSkin = false;
         string skinWonName = null;
 
-        if (roll <= 100 && ultraSkins.Count > 0)
+        if (roll <= 100)
         {
             string selectedSkin = ultraSkins[UnityEngine.Random.Range(0, ultraSkins.Count)];
             if (mySkins.Add(selectedSkin))
@@ -233,7 +233,7 @@ public class GachaMachine : MonoBehaviour
                 skinWonName = selectedSkin;
             }
         }
-        else if (roll <= 220 && superRareSkins.Count > 0)
+        else if (roll <= 220)
         {
             string selectedSkin = superRareSkins[UnityEngine.Random.Range(0, superRareSkins.Count)];
             if (mySkins.Add(selectedSkin))
@@ -243,7 +243,7 @@ public class GachaMachine : MonoBehaviour
                 skinWonName = selectedSkin;
             }
         }
-        else if (roll <= 520 && rareSkins.Count > 0)
+        else if (roll <= 520)
         {
             string selectedSkin = rareSkins[UnityEngine.Random.Range(0, rareSkins.Count)];
             if (mySkins.Add(selectedSkin))
@@ -272,7 +272,14 @@ public class GachaMachine : MonoBehaviour
 
         if (resultText != null)
         {
-            resultText.text = (wonNewSkin && skinWonName != null) ? $"You won {skinWonName}!" : "Try Again!";
+            if (wonNewSkin && skinWonName != null) 
+            {
+                resultText.text = $"You won {skinWonName}!";
+            }
+            else
+            {
+                resultText.text = "Try Again!";
+            }
         }
 
         if (wonNewSkin && skinWonName != null)
