@@ -28,12 +28,12 @@ public class Player : MonoBehaviour{
    // Loading in Player with skin selected.
    void Start(){
        currentSceneName = SceneManager.GetActiveScene().name;
-       if(!PlayerPrefs.HasKey("SelectedOption")){
-           selectedOption = 0;
-       }else{
-           Load();
-       }
-       UpdateCharacter(selectedOption);
+       //if(!PlayerPrefs.HasKey("SelectedOption")){
+       //    selectedOption = 0;
+       //}else{
+           //Load();
+       //}
+       //UpdateCharacter(selectedOption);
 
 
        GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerCat");
@@ -58,17 +58,17 @@ public class Player : MonoBehaviour{
 
 
    //Updates player skin and animator
-   private void UpdateCharacter(int selectedOption){
-       Character character = CharacterDB.GetCharacter(selectedOption);
-       ArtworkSprite.sprite = character.CharacterSprite;
-       Animator.runtimeAnimatorController = character.AnimatorOverride;
-   }
+   //private void UpdateCharacter(int selectedOption){
+   //    Character character = CharacterDB.GetCharacter(selectedOption);
+   //    ArtworkSprite.sprite = character.CharacterSprite;
+   //    Animator.runtimeAnimatorController = character.AnimatorOverride;
+   //}
 
 
    //Loads player pref skin
-   private void Load(){
-       selectedOption = PlayerPrefs.GetInt("SelectedOption");
-   }
+   //private void Load(){
+   //    selectedOption = PlayerPrefs.GetInt("SelectedOption");
+   //}
 
 
    //Keep Position between scenes
@@ -123,12 +123,12 @@ public class Player : MonoBehaviour{
            savedPosition.x = 0;
            savedPosition.y = 0;
        }
-       if(!PlayerPrefs.HasKey("SelectedOption")){
-           selectedOption = 0;
-       }else{
-           Load();
-       }
-       UpdateCharacter(selectedOption);
+       //if(!PlayerPrefs.HasKey("SelectedOption")){
+       //    selectedOption = 0;
+       //}else{
+           //Load();
+       //}
+       //UpdateCharacter(selectedOption);
       
        Camera cam = Camera.main;
        if (cam != null){

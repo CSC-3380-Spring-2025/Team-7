@@ -28355,6 +28355,7 @@ GameObject:
   - component: {fileID: 1088849800}
   - component: {fileID: 1088849808}
   - component: {fileID: 1088849809}
+  - component: {fileID: 1088849810}
   m_Layer: 0
   m_Name: PlayerCat
   m_TagString: PlayerCat
@@ -28408,9 +28409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5552fd0cea04ed04fab03d55f45cad64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDB: {fileID: 0}
+  CharacterDB: {fileID: 0}
   ArtworkSprite: {fileID: 1088849804}
   Animator: {fileID: 1088849803}
+  PlayerTransform: {fileID: 0}
 --- !u!95 &1088849803
 Animator:
   serializedVersion: 7
@@ -28625,6 +28627,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.1
+--- !u!114 &1088849810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088849799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e5a2d65d40b444fa26e028f8050976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDB: {fileID: 11400000, guid: 7bbff5b81168b469dbfcd68294ccc346, type: 2}
+  targetSpriteRenderer: {fileID: 1088849804}
+  targetAnimator: {fileID: 1088849803}
 --- !u!1 &1134448246
 GameObject:
   m_ObjectHideFlags: 0

@@ -5143,9 +5143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5552fd0cea04ed04fab03d55f45cad64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDB: {fileID: 0}
+  CharacterDB: {fileID: 0}
   ArtworkSprite: {fileID: 1477786561}
   Animator: {fileID: 1477786560}
+  PlayerTransform: {fileID: 0}
 --- !u!1 &1579526296
 GameObject:
   m_ObjectHideFlags: 0
