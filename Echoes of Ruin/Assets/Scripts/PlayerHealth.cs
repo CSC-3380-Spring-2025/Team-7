@@ -29,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
             for (int i =0; i <hearts.Length; i++){
                 hearts[i].SetActive(i < playerHP);
             }
+            Update();
           }
         
         

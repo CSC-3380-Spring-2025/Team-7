@@ -45,7 +45,7 @@ public class Health : MonoBehaviour
         player.UpdateHP();
 
         if (currentHearts <= 0)
-        {
+        {   
             currentHearts = 0;
             player.UpdateHP();  // Call when health is zero
         }
@@ -54,11 +54,12 @@ public class Health : MonoBehaviour
    public void UpdateHP()
     {   
         if (playerHP <= 0){
+          playerHP = 5;
+          player.playerHP = 5;
           SceneManager.LoadScene("GameOver"); 
           Destroy(player);
           }else{
             for (int i = 0; i <hearts.Length; i++){
-                
                 hearts[i].SetActive(i < playerHP);
             }
           } 
@@ -70,14 +71,14 @@ public class Health : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");           
         }
 
-        if (currentHearts > maxHearts)
+        if (playerHP > maxHearts)
         {
-            currentHearts = maxHearts;
+            playerHP = maxHearts;
         }
         else {
             playerHP += amount;
-            playerHP = Mathf.Clamp(playerHP, 0, maxHearts);
             UpdateHP();
+            player.UpdateHP();
         }
         
     }

@@ -3000,6 +3000,7 @@ MonoBehaviour:
   speed: 1.5
   data: {fileID: 11400000, guid: b9f0a07e3bcb0a64a93eff7cbb6fecd6, type: 2}
   LootTable: []
+  hpDeductTime: 1
 --- !u!61 &302453034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13829,7 +13830,7 @@ GameObject:
   - component: {fileID: 1765477270}
   m_Layer: 5
   m_Name: HeartsAndCoinsOverlay
-  m_TagString: Untagged
+  m_TagString: HeartsCoins
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13981,8 +13982,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHearts: 5
-  currentHearts: 0
-  playerHP: 0
+  currentHearts: 5
+  playerHP: 5
   hearts:
   - {fileID: 1554760031}
   - {fileID: 1676454046}

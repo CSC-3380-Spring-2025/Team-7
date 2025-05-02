@@ -47,6 +47,9 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
 //value of enemy health same as max
     private void SetEnemyValues()
     {
+        if(data.hp == 0){
+            return;
+            }
         GetComponent<Health>().SetHearts(data.hp, data.hp);
         damage = data.damage;
         speed = data.speed;
@@ -85,7 +88,9 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
 
             if (currentTime >= nextHPDeductTime) {
                 if (collision.CompareTag("PlayerCat")) {
-                    Health health = collision.GetComponent<Health>();
+                    GameObject HeartsCoinsUI; 
+                    HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
+                    Health health = HeartsCoinsUI.GetComponent<Health>();
                     if (health != null) {
                         health.Damage(damage);
                         nextHPDeductTime = currentTime + hpDeductTime;
@@ -94,7 +99,7 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         }          
     }
 
-    private void Death()
+    void Death()
     {
         //Spawn Item dropped
         foreach(LootItem LootItem in LootTable) {

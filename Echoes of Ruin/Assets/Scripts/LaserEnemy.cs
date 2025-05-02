@@ -70,6 +70,9 @@ public class LaserEnemy : MonoBehaviour, IDamageable
 
      private void SetEnemyValues()
     {
+        if(data.hp == 0){
+            return;
+            }
         GetComponent<Health>().SetHearts(data.hp, data.hp);
         damage = data.damage;
         speed = data.speed;

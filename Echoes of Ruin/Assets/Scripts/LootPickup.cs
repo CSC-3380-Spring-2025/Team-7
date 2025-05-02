@@ -5,13 +5,14 @@ using UnityEngine.UI;
 public class LootPickup : MonoBehaviour {
     public Currency Currency;
     public Health Health;
+    public GameObject HeartsCoinsUI; 
 
 
     void Start() {
-        GameObject player = GameObject.FindGameObjectWithTag("PlayerCat");
-        if (player != null) {
-            Currency = player.GetComponent<Currency>();
-            Health = player.GetComponent<Health>();
+        HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
+        if (HeartsCoinsUI != null) {
+            Currency = HeartsCoinsUI.GetComponent<Currency>();
+            Health = HeartsCoinsUI.GetComponent<Health>();
         }
     }
 
@@ -23,13 +24,15 @@ public class LootPickup : MonoBehaviour {
                 Currency.coin++;
                 Currency.CoinsTXT.text = "Coins: " + Currency.coin;
                 Currency.UpdateUI();
+                Destroy(gameObject); 
             }
             
             if(gameObject.name.Contains("Heart")) {
                 Health.Heal(1);
+                Destroy(gameObject); 
             }
-
             Destroy(gameObject); 
+            
         }
     }
 }
