@@ -3962,7 +3962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCat: {fileID: 92477228}
-  Scatter: {fileID: 194863190}
+  Scatter: {fileID: 0}
   bulletCount: 5
   spreadAngle: 45
   startShootCooldown: 2
