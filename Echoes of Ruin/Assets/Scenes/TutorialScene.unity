@@ -27375,6 +27375,7 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 7462782858364287626, guid: 98417b86cf531564bb7d819a1b4d8728, type: 3}
   - {fileID: 4812231760588450593, guid: 314c308e3e68f5b479bc86e9f34850d2, type: 3}
+  - {fileID: 34443264969214060, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
   spawnInterval: 3
 --- !u!4 &902940291
 Transform:
@@ -27738,6 +27739,75 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &956471249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1942129061}
+    m_Modifications:
+    - target: {fileID: 34443264969214060, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_Name
+      value: ScatterRobot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649332587814866083, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: PlayerCat
+      value: 
+      objectReference: {fileID: 1088849799}
+    - target: {fileID: 8713387036864649750, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: Scatter
+      value: 
+      objectReference: {fileID: 5131401005239377676, guid: 8412e682a49626048a55ae6cb5e75d10, type: 3}
+    - target: {fileID: 8713387036864649750, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: PlayerCat
+      value: 
+      objectReference: {fileID: 1088849799}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
 --- !u!1 &970295051
 GameObject:
   m_ObjectHideFlags: 0
@@ -28203,6 +28273,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071268103}
   m_CullTransparentMesh: 1
+--- !u!4 &1080970420 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+  m_PrefabInstance: {fileID: 956471249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1086565418
 GameObject:
   m_ObjectHideFlags: 0
@@ -32409,6 +32484,7 @@ Transform:
   m_Children:
   - {fileID: 1107137987919653468}
   - {fileID: 9073737310705195951}
+  - {fileID: 1080970420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944603977
