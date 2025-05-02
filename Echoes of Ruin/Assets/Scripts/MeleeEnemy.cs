@@ -24,6 +24,10 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     [Header("Loot")]
     public List<LootItem> LootTable = new List<LootItem>();
 
+    //Timer for Health Deduction for player
+    [SerializeField] private float hpDeductTime = 1f;
+    private float nextHPDeductTime = 0f;
+
     //Start is called before the first frame update
     void Start()
     {
@@ -60,6 +64,7 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         transform.position = Vector2.MoveTowards(transform.position, PlayerCat.transform.position, speed * Time.deltaTime);
 
         }
+       
     }
 
     public void TakeDamage(int dmg)
@@ -73,7 +78,26 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         }
     }
 
-    private void Death()
+    //Player takes damage within a certain range
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        //Timer for health deduction
+        float currentTime = Time.time;
+
+            if (currentTime >= nextHPDeductTime) {
+                if (collision.CompareTag("PlayerCat")) {
+                    GameObject HeartsCoinsUI; 
+                    HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
+                    Health health = HeartsCoinsUI.GetComponent<Health>();
+                    if (health != null) {
+                        health.Damage(damage);
+                        nextHPDeductTime = currentTime + hpDeductTime;
+                    }  
+                }
+        }          
+    }
+
+    void Death()
     {
         //Spawn Item dropped
         foreach(LootItem LootItem in LootTable) {
@@ -91,4 +115,5 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
             GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
         }
     }
+
 }

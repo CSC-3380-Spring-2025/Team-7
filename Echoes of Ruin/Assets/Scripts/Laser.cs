@@ -24,6 +24,11 @@ public class Laser : MonoBehaviour
     private Vector2 moveDirection;
     private Collider2D myCollider;
 
+    //Timer for Health Deduction for player
+    [SerializeField] private float hpDeductTime = 1f;
+    private float nextHPDeductTime = 0f;
+
+
      void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,23 +48,32 @@ public class Laser : MonoBehaviour
         }
     }
 
+    //Player takes damage on collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
-        if(collision.CompareTag ("PlayerCat"))
-        {
-            Health health = collision.GetComponent<Health>();
-            if (health != null) 
+        GameObject HeartsCoinsUI; 
+        HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
+
+        float currentTime = Time.time;
+
+        if (currentTime >= nextHPDeductTime) {
+            if(collision.CompareTag ("PlayerCat"))
             {
-                health.Damage(damage);
-                Debug.Log("Player hit, applying damage.");
+                Destroy(gameObject);
+                Health health = HeartsCoinsUI.GetComponent<Health>();
+                if (health != null) 
+                {
+                    health.Damage(damage);
+                    nextHPDeductTime = currentTime + hpDeductTime;
+                }
+                
+                Destroy(gameObject);
             }
-            
-            Destroy(gameObject);
         }
         else if (!collision.isTrigger)
         {
              Destroy(gameObject);
         }
+         
     }
 }

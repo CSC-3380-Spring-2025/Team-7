@@ -21,8 +21,10 @@ public class Currency : MonoBehaviour {
 
     //Finds game object thats called currency
     void Start() 
-    {  DontDestroyOnLoad(this.gameObject); }
-    void Update () 
+    {  
+        DontDestroyOnLoad(this.gameObject);
+    }
+    public void Update () 
     {   scene = SceneManager.GetActiveScene();
         sceneName = scene.name;
         if (sceneName == "ForestClearing" || sceneName == "GachaScene" || sceneName == "TutorialScene")
@@ -30,8 +32,13 @@ public class Currency : MonoBehaviour {
         else 
         { currencyUI.SetActive(false);}
         
-        if (coin < 0)
-        { coin = 0; }
-        CoinsTXT.text = "Coins: " + coin.ToString();
+        UpdateUI();
+    }
+
+    public void UpdateUI()  {
+    if (coin < 0) coin = 0;
+
+    if (CoinsTXT != null)
+        CoinsTXT.text = "Coins: " + coin;
     }
 }

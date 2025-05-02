@@ -8,13 +8,14 @@ public class Health : MonoBehaviour
 
 {
     [SerializeField] private int maxHearts = 5; // maximum number of hearts
-    [SerializeField] private int heartValue =20; // hp per heart
     [SerializeField] public int currentHearts; // current hearts
 
     // PlayerHealth player = new PlayerHealth();
     PlayerHealth player;
     public int playerHP;
     public GameObject[] hearts;
+
+    public GameObject HeartsUI;
     
 
     //Update is called once per frame
@@ -23,6 +24,10 @@ public class Health : MonoBehaviour
         currentHearts = maxHearts;  // Start with full hearts
         player = GetComponent<PlayerHealth>();
           // Get PlayerHealth from the same GameObject
+    }
+
+    void Update() {
+
     }
 
    public void SetHearts(int maxHearts, int hearts)
@@ -39,23 +44,27 @@ public class Health : MonoBehaviour
         }
 
 //converting hp damage into number of hearts lost
-        int heartsToLose = amount / heartValue;
-        currentHearts -= heartsToLose;
+
+        playerHP -=1;
+        player.playerHP -=1;
+        UpdateHP();
+        player.UpdateHP();
 
         if (currentHearts <= 0)
-        {
+        {   
             currentHearts = 0;
             player.UpdateHP();  // Call when health is zero
         }
     }
 
    public void UpdateHP()
-    {   if (playerHP <= 0){
+    {   
+        if (playerHP <= 0){
           SceneManager.LoadScene("GameOver"); 
-          }else{
-            for (int i =0; i <hearts.Length; i++){
+          Destroy(player);
+          }
+            for (int i = 0; i <hearts.Length; i++){
                 hearts[i].SetActive(i < playerHP);
-            }
           } 
         
     }
@@ -64,16 +73,34 @@ public class Health : MonoBehaviour
          if (amount < 0){
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");           
         }
-
-         int heartsToGain = amount / heartValue;
-        currentHearts += heartsToGain;
-
-        if (currentHearts > maxHearts)
+        playerHP += amount;
+        player.playerHP += amount;
+        if (playerHP > maxHearts)
         {
-            currentHearts = maxHearts;
-
+            playerHP = maxHearts;
         }
+            UpdateHP();
         
     }
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+
+     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+        if(scene.name == "ForestClearing" || scene.name == "Homescreen") {
+            playerHP = 5;
+            player.playerHP = 5;
+        }
+        if(scene.name == "GameOver"){
+            GameObject HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
+            GameObject HeartsUI = HeartsCoinsUI.transform.Find("HeartsUI")?.gameObject;
+            HeartsUI.SetActive(false);
+        }
+     }
 
   }

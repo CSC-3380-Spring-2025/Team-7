@@ -9,7 +9,15 @@ public class PlayerHealth : MonoBehaviour
     public GameObject[] hearts; //Array of heart GameObjects
 
     private void Start()
-    {   UpdateHP(); }
+    { 
+      scene = SceneManager.GetActiveScene();
+      if (scene.name == "GameOver") {
+        gameObject.SetActive(false); 
+        return;
+    }
+      DontDestroyOnLoad(gameObject) ;
+      UpdateHP(); 
+      }
 
     public void Update() 
     { scene = SceneManager.GetActiveScene();
@@ -17,7 +25,8 @@ public class PlayerHealth : MonoBehaviour
         if (sceneName == "TutorialScene")
         { healthUI.SetActive(true);}
         else 
-        { healthUI.SetActive(false);}
+        { healthUI.SetActive(false);
+        }
       }
 
     public void UpdateHP()
