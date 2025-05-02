@@ -3,14 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {   public int playerHP;
+    Scene scene;
+    string sceneName;
+    public GameObject healthUI;
     public GameObject[] hearts; //Array of heart GameObjects
 
     private void Start()
-    {   UpdateHP();
-    }
+    {   UpdateHP(); }
 
     public void UpdateHP()
-    {   if (playerHP <= 0){
+    {   scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+        if (sceneName == "TutorialScene")
+        { healthUI.SetActive(true);}
+        else 
+        { healthUI.SetActive(false);}
+      
+      if (playerHP <= 0){
           SceneManager.LoadScene("GameOver");
           Audios.Instance.PlayMusic("GameOver"); 
           }else{

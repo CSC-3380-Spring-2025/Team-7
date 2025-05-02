@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 
@@ -9,21 +11,25 @@ using TMPro;
 public class Currency : MonoBehaviour {
 
 //public because we want it to be accesible to Item_Pickup
-
     public int coin;
-
+    string sceneName;
+    Scene scene;
 //UI that displays amt to coins you have 
 
-    GameObject currencyUI;
+    public GameObject currencyUI;
     public TMP_Text CoinsTXT;
 
     //Finds game object thats called currency
     void Start() 
-    {
-        currencyUI = GameObject.Find("Currency");
-    }
+    {  DontDestroyOnLoad(this.gameObject); }
     void Update () 
-    {   //currencyUI.GetComponent<Text>().text = "Coins: " + coin.ToString();
+    {   scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+        if (sceneName == "ForestClearing" || sceneName == "GachaScene" || sceneName == "TutorialScene")
+        { currencyUI.SetActive(true);}
+        else 
+        { currencyUI.SetActive(false);}
+        
         if (coin < 0)
         { coin = 0; }
         CoinsTXT.text = "Coins: " + coin.ToString();
