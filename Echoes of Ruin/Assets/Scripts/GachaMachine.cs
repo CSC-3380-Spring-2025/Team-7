@@ -31,7 +31,7 @@ public class GachaMachine : MonoBehaviour
     private Image skinDisplay;
     private int GACHA_COST = 2;
 
-    [SerializeField] private float winDisplayDelay = 1.5f;
+    [SerializeField] private float winDisplayDelay = 1.0f;
 
     [SerializeField] private string gachaSceneName = "GachaScene";
 
@@ -204,9 +204,39 @@ public class GachaMachine : MonoBehaviour
         }
     }
 
-   public void StartGachaSequence()
+       public void StartGachaSequence()
     {
-    StartCoroutine(GachaRollCoroutine());
+        Currency currencyComponent = null;
+        GameObject currencyHolderObject = GameObject.Find("HeartsAndCoinsOverlay");
+
+        if (currencyHolderObject != null)
+        {
+            currencyComponent = currencyHolderObject.GetComponent<Currency>();
+            if (currencyComponent == null)
+            {
+                if (resultText != null) resultText.text = "Currency Setup Error!";
+                return;
+            }
+        }
+        else
+        {
+            if (resultText != null) resultText.text = "Currency System Error!";
+            return;
+        }
+
+        if (currencyComponent.coin >= GACHA_COST)
+        {
+            currencyComponent.coin -= GACHA_COST;
+            StartCoroutine(GachaRollCoroutine());
+        }
+        else
+        {
+            if (resultText != null)
+            {
+                resultText.text = $"Need {GACHA_COST} Coins!";
+            }
+            return;
+        }
     }
 
 
