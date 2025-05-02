@@ -9,7 +9,6 @@ public class GachaMachine : MonoBehaviour
 {
     public static GachaMachine Instance { get; private set; }
 
-    [Header("Skin Sprites")]
     public Sprite defaultSprite;
     public Sprite WhiteCat;
     public Sprite BlackCat;
@@ -17,7 +16,6 @@ public class GachaMachine : MonoBehaviour
     public Sprite SiameseCat;
     public Sprite CalicoCat;
 
-    [Header("Skin Names By Rarity")]
     [SerializeField] private List<string> rareSkins = new List<string> { "WhiteCat", "BlackCat" };
     [SerializeField] private List<string> superRareSkins = new List<string> { "ShortCat", "SiameseCat" };
     [SerializeField] private List<string> ultraSkins = new List<string> { "CalicoCat" };
@@ -31,28 +29,20 @@ public class GachaMachine : MonoBehaviour
     private List<GameObject> noMatchVisualVariants = new List<GameObject>();
     private TextMeshProUGUI resultText;
     private Image skinDisplay;
+    private int GACHA_COST = 2;
 
-    [Header("Result Display Settings")]
     [SerializeField] private float winDisplayDelay = 1.5f;
 
-    [Header("Scene Configuration")]
-    [Tooltip("The exact name of the scene file containing the Gacha UI and visuals.")]
     [SerializeField] private string gachaSceneName = "GachaScene";
 
-    [Tooltip("The name of the GameObject that is the parent of the Result Text and Skin Display (likely the Canvas).")]
     [SerializeField] private string uiParentName = "LeverScreen";
 
-    [Tooltip("The name of the GameObject that is the parent of Paws, Coins, Snake, and NoMatch visuals.")]
     [SerializeField] private string visualParentName = "LeverScreen";
 
-    [Tooltip("The exact name of the child GameObject holding the Result Text component.")]
     [SerializeField] private string resultTextObjectName = "ResultText";
 
-    [Tooltip("The exact name of the child GameObject holding the Skin Display Image component.")]
     [SerializeField] private string skinDisplayObjectName = "SkinDisplay";
 
-    [Header("No Match Variant Setup")]
-    [Tooltip("The Tag assigned to all 'No Match' visual variant GameObjects.")]
     [SerializeField] private string noMatchVisualTag = "NoMatchVisual";
 
     private void Awake()
@@ -185,32 +175,40 @@ public class GachaMachine : MonoBehaviour
         if (CalicoCat != null) skinSprites.Add("CalicoCat", CalicoCat); 
     }
 
-    private void HideAllVisuals()
+   private void HideAllVisuals()
     {
-        pawsVisualObject?.SetActive(false);
-        coinsVisualObject?.SetActive(false);
-        snakeVisualObject?.SetActive(false);
+        {
+            pawsVisualObject.SetActive(false);
+        }
+
+        if (coinsVisualObject != null)
+        {
+            coinsVisualObject.SetActive(false);
+        }
+
+        if (snakeVisualObject != null)
+        {
+            snakeVisualObject.SetActive(false);
+        }
+
+        
         if (noMatchVisualVariants != null)
         {
             foreach (GameObject variant in noMatchVisualVariants)
             {
-                variant?.SetActive(false);
+                if (variant != null)
+                {
+                    variant.SetActive(false);
+                }
             }
         }
     }
 
-    public void StartGachaSequence()
+   public void StartGachaSequence()
     {
-        if (resultText == null || skinDisplay == null || pawsVisualObject == null || coinsVisualObject == null || snakeVisualObject == null || noMatchVisualVariants == null)
-        {
-            if (resultText != null) resultText.text = "Gacha Error!";
-            return;
-        }
-        if (noMatchVisualVariants.Count == 0) 
-
-        StopAllCoroutines();
-        StartCoroutine(GachaRollCoroutine());
+    StartCoroutine(GachaRollCoroutine());
     }
+
 
     private IEnumerator GachaRollCoroutine()
     {
