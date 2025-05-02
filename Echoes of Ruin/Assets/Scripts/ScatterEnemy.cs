@@ -28,8 +28,8 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
         shootCooldown = startShootCooldown;
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
         SetEnemyValues();
-        currentHP = data.hp;
-        }
+        //currentHP = data.hp;
+    }
 
     //checks if cooldown is at 0 and shoots bullets if yes, if no then timer decreases  
     void Update()
@@ -65,9 +65,11 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
 
  private void SetEnemyValues()
     {
-        GetComponent<Health>().SetHearts(data.hp, data.hp);
+        currentHP = data.hp;
+        GetComponent<Health>().SetHearts(currentHP, currentHP);
         damage = data.damage;
         speed = data.speed;
+
     }
 
     void ShootBullets()

@@ -26148,7 +26148,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.02641511, g: 0.00074759295, b: 0.00074759295, a: 0.5294118}
+  m_Color: {r: 1, g: 0.91132075, b: 0.91132075, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28353,7 +28353,6 @@ GameObject:
   - component: {fileID: 1088849802}
   - component: {fileID: 1088849801}
   - component: {fileID: 1088849800}
-  - component: {fileID: 1088849808}
   - component: {fileID: 1088849809}
   m_Layer: 0
   m_Name: PlayerCat
@@ -28408,9 +28407,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5552fd0cea04ed04fab03d55f45cad64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterDB: {fileID: 0}
+  CharacterDB: {fileID: 0}
   ArtworkSprite: {fileID: 1088849804}
   Animator: {fileID: 1088849803}
+  PlayerTransform: {fileID: 0}
 --- !u!95 &1088849803
 Animator:
   serializedVersion: 7
@@ -28577,18 +28577,6 @@ Transform:
   - {fileID: 334778903}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1088849808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1088849799}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27595472449e137409024efcb3421675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &1088849809
 CircleCollider2D:
   m_ObjectHideFlags: 0

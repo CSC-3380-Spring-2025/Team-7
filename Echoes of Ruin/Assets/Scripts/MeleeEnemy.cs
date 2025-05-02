@@ -31,7 +31,7 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
 
         SetEnemyValues();
-        currentHP = data.hp;
+        //currentHP = data.hp;
     }
 
     //Update is called once per frame, allows for continous upadating
@@ -43,7 +43,8 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
 //value of enemy health same as max
     private void SetEnemyValues()
     {
-        GetComponent<Health>().SetHearts(data.hp, data.hp);
+        currentHP = data.hp;
+        GetComponent<Health>().SetHearts(currentHP, currentHP);
         damage = data.damage;
         speed = data.speed;
     }
