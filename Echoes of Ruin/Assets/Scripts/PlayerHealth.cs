@@ -17,7 +17,8 @@ public class PlayerHealth : MonoBehaviour
         if (sceneName == "TutorialScene")
         { healthUI.SetActive(true);}
         else 
-        { healthUI.SetActive(false);}
+        { healthUI.SetActive(false);
+        }
       }
 
     public void UpdateHP()

@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
 
 {
     [SerializeField] private int maxHearts = 5; // maximum number of hearts
-    [SerializeField] private int heartValue =20; // hp per heart
     [SerializeField] public int currentHearts; // current hearts
 
     // PlayerHealth player = new PlayerHealth();
@@ -39,8 +38,11 @@ public class Health : MonoBehaviour
         }
 
 //converting hp damage into number of hearts lost
-        int heartsToLose = amount / heartValue;
-        currentHearts -= heartsToLose;
+
+        playerHP -=1;
+        player.playerHP -=1;
+        UpdateHP();
+        player.UpdateHP();
 
         if (currentHearts <= 0)
         {
@@ -50,10 +52,12 @@ public class Health : MonoBehaviour
     }
 
    public void UpdateHP()
-    {   if (playerHP <= 0){
+    {   
+        if (playerHP <= 0){
           SceneManager.LoadScene("GameOver"); 
           }else{
-            for (int i =0; i <hearts.Length; i++){
+            for (int i = 0; i <hearts.Length; i++){
+                
                 hearts[i].SetActive(i < playerHP);
             }
           } 
@@ -64,9 +68,6 @@ public class Health : MonoBehaviour
          if (amount < 0){
             throw new System.ArgumentOutOfRangeException("Cannot have negative healing");           
         }
-
-         int heartsToGain = amount / heartValue;
-        currentHearts += heartsToGain;
 
         if (currentHearts > maxHearts)
         {
