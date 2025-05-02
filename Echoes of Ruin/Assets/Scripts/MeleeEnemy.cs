@@ -10,7 +10,7 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     [SerializeField]
     private float detectionRange = 5f;
     // [SerializeField]
-    // private int damage = 1;
+    private int damage = 1;
     [SerializeField]
     private float speed = 1.5f;
     [SerializeField]
@@ -67,10 +67,10 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
        
     }
 
-    public void TakeDamage(int dmg)
+    public void TakeDamage(int damage)
     {
-        currentHP -= dmg;
-        Debug.Log($"{gameObject.name} took {dmg} damage. HP: {currentHP}");
+        currentHP -= damage;
+        Debug.Log($"{gameObject.name} took {damage} damage. HP: {currentHP}");
 
         if (currentHP <= 0)
         {
