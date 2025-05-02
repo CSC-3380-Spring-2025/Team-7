@@ -15608,6 +15608,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4531435857218622387, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
       propertyPath: m_Name
       value: PlayerCat
