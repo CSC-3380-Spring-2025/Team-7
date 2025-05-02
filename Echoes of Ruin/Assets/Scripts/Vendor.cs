@@ -8,6 +8,7 @@ public class Vendor : MonoBehaviour {
 
 //takes refrence frpm currency script
     Currency script;
+    //ItemTrack track;
 
 //allows for purchasing items including equipable items  
     public GameObject vendorUI;
@@ -30,7 +31,7 @@ public class Vendor : MonoBehaviour {
         items[2, 1] = 3;
         items[2, 2] = 3;
         items[2, 3] = 3;
-        // item quantitiesquantity
+        // item quantities
         items[3, 1] = 0;
         items[3, 2] = 0;
         items[3, 3] = 0;
@@ -57,6 +58,7 @@ public class Vendor : MonoBehaviour {
         if (script.coin >= cost) {
             script.coin -= cost;
             items[3, ShopButton.GetComponent<ButtonInfo>().ItemID]++;
+            //track.itemNum[1, ShopButton.GetComponent<ButtonInfo>().ItemID]++;
             noMoney.SetActive(false);
         }
         else if (script.coin < cost) {

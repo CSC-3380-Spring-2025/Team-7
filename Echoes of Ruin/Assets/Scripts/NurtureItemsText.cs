@@ -3,15 +3,15 @@ using UnityEngine.UI;
 using TMPro;
 
 public class NurtureItemsText : MonoBehaviour
-{   /*public int ItemID;
+{   public int ItemID;
     public TMP_Text QuantityTXT;
-    public GameObject vend;
+    public GameObject items;
     
     void Start() {
-       vend = GameObject.Find("ShopPopUp");
+      items = GameObject.Find("HeartsAndCoinsOverlay");
     }
 
     void Update() {
-       QuantityTXT.text = "x" + vend.GetComponent<Vendor>().items[3, ItemID].ToString();
-    }*/
+       QuantityTXT.text = "x" + items.GetComponent<ItemTrack>().itemNum[1, ItemID].ToString();
+    }
 }
