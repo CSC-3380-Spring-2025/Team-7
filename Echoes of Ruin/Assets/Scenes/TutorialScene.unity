@@ -274,7 +274,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 1
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &7264521
 RectTransform:
@@ -26934,7 +26934,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &784095374
 RectTransform:
@@ -29444,7 +29444,7 @@ MonoBehaviour:
   CharacterDB: {fileID: 11400000, guid: 40261dd8e16db714cbcbf8be8ae5e9b1, type: 2}
   ArtworkSprite: {fileID: 1088849804}
   Animator: {fileID: 1088849803}
-  PlayerTransform: {fileID: 0}
+  PlayerTransform: {fileID: 1088849807}
 --- !u!95 &1088849803
 Animator:
   serializedVersion: 7
@@ -29707,7 +29707,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088849799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 304f2d33e6fbdc84787359b48f79aabb, type: 3}
   m_Name: 
@@ -29957,7 +29957,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 1134448246}
-  Hearts: {fileID: 1911629751}
 --- !u!114 &1141236164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30019,7 +30018,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1141236167
 RectTransform:

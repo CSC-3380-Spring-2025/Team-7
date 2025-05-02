@@ -5,7 +5,6 @@ public class MainMenuScript : MonoBehaviour{
 
      public GameObject MainMenu;
      private bool isVisible;
-     public GameObject Hearts;
 
     // sets main menu to invisble upon loadup
     void Start(){
@@ -20,7 +19,6 @@ public class MainMenuScript : MonoBehaviour{
              if (MainMenu != null){
                 isVisible = !isVisible;
                 MainMenu.SetActive(isVisible);
-                Hearts.SetActive(!isVisible);
              }
         }
     }

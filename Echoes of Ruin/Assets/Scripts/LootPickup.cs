@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class LootPickup : MonoBehaviour {
     public Currency Currency;
     public Health Health;
-    public GameObject[] Hearts;
+
 
     void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("PlayerCat");
