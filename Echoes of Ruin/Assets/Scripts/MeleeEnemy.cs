@@ -50,9 +50,9 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
         if(data.hp == 0){
             return;
             }
-        GetComponent<Health>().SetHearts(data.hp, data.hp);
-        damage = data.damage;
-        speed = data.speed;
+        // GetComponent<Health>().SetHearts(data.hp, data.hp);
+        // damage = data.damage;
+        // speed = data.speed;
     }
 
 //makes object move toward player
