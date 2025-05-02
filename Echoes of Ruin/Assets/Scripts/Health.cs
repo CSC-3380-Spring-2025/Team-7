@@ -55,6 +55,7 @@ public class Health : MonoBehaviour
     {   
         if (playerHP <= 0){
           SceneManager.LoadScene("GameOver"); 
+          Destroy(player);
           }else{
             for (int i = 0; i <hearts.Length; i++){
                 
@@ -72,7 +73,11 @@ public class Health : MonoBehaviour
         if (currentHearts > maxHearts)
         {
             currentHearts = maxHearts;
-
+        }
+        else {
+            playerHP += amount;
+            playerHP = Mathf.Clamp(playerHP, 0, maxHearts);
+            UpdateHP();
         }
         
     }

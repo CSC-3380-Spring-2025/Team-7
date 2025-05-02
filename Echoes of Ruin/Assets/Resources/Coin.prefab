@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d47c43d248d70147828f16977bc1ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Currency: {fileID: 0}
+  Health: {fileID: 0}
+  Hearts: []
 --- !u!58 &6650068669090330486
 CircleCollider2D:
   m_ObjectHideFlags: 0

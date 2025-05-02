@@ -29387,6 +29387,7 @@ GameObject:
   - component: {fileID: 1088849809}
   - component: {fileID: 1088849811}
   - component: {fileID: 1088849810}
+  - component: {fileID: 1088849812}
   m_Layer: 0
   m_Name: PlayerCat
   m_TagString: PlayerCat
@@ -29699,6 +29700,21 @@ MonoBehaviour:
   - {fileID: 1470469552}
   - {fileID: 2131561972}
   - {fileID: 2060164809}
+--- !u!114 &1088849812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088849799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304f2d33e6fbdc84787359b48f79aabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: 15
+  currencyUI: {fileID: 467187126}
+  CoinsTXT: {fileID: 797290498}
 --- !u!1 &1134448246
 GameObject:
   m_ObjectHideFlags: 0
@@ -29941,6 +29957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenu: {fileID: 1134448246}
+  Hearts: {fileID: 1911629751}
 --- !u!114 &1141236164
 MonoBehaviour:
   m_ObjectHideFlags: 0

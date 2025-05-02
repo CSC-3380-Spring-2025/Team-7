@@ -46,7 +46,6 @@ public class Laser : MonoBehaviour
     //Player takes damage on collision
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected with: " + collision.gameObject.name);
         if(collision.CompareTag ("PlayerCat"))
         {
             Destroy(gameObject);
