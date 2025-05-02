@@ -28486,9 +28486,7 @@ MonoBehaviour:
   CharacterDB: {fileID: 0}
   ArtworkSprite: {fileID: 1088849804}
   Animator: {fileID: 1088849803}
-
-  PlayerTransform: {fileID: 1088849807}
-
+  PlayerTransform: {fileID: 0}
 --- !u!95 &1088849803
 Animator:
   serializedVersion: 7
