@@ -13695,12 +13695,11 @@ GameObject:
   - component: {fileID: 1765477266}
   - component: {fileID: 1765477265}
   - component: {fileID: 1765477264}
-  - component: {fileID: 1765477263}
   - component: {fileID: 1765477268}
+  - component: {fileID: 1765477263}
   - component: {fileID: 1765477269}
   - component: {fileID: 1765477270}
   - component: {fileID: 1765477272}
-  - component: {fileID: 1765477271}
   m_Layer: 5
   m_Name: HeartsAndCoinsOverlay
   m_TagString: HeartsCoins
@@ -13723,11 +13722,11 @@ MonoBehaviour:
   playerHP: 5
   healthUI: {fileID: 2145646822}
   hearts:
-  - {fileID: 1554760031}
-  - {fileID: 1676454046}
-  - {fileID: 1311661961}
-  - {fileID: 1760436413}
   - {fileID: 137019790}
+  - {fileID: 1760436413}
+  - {fileID: 1311661961}
+  - {fileID: 1676454046}
+  - {fileID: 1554760031}
 --- !u!114 &1765477264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13894,6 +13893,9 @@ MonoBehaviour:
   stepCount: 0
   attackCount: 0
   damageCount: 0
+  m_Script: {fileID: 11500000, guid: 5e01e6496e9474b4281783a239391a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1776284848
 GameObject:
   m_ObjectHideFlags: 0
