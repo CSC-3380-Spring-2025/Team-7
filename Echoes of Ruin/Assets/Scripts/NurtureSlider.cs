@@ -23,16 +23,51 @@ public class NurtureSlider : MonoBehaviour
     public Slider hungerSlider;
 
     public Text statText;
+    StatsTracking tracking;
 
     void Start()
-    {   cleanAmount = 100 - (stepCount / 3);
-        cleanAmount = Mathf.Clamp(cleanAmount, 0, 100);
+    {   tracking = GameObject.Find("HeartsAndCoinsOverlay").GetComponent<StatsTracking>();
+        totalSlider.maxValue = 100.0f;
+        playSlider.maxValue = 100.0f;
+        cleanSlider.maxValue = 100.0f;
+        hungerSlider.maxValue = 100.0f;
 
-        playAmount = 100 - (3 * damageCount);
-        playAmount = Mathf.Clamp(playAmount, 0, 100);
+        totalSlider.value = 100.0f;
+        playSlider.value = 100.0f;
+        cleanSlider.value = 100.0f;
+        hungerSlider.value = 100.0f;
 
-        hungerAmount = 100 - attackCount;
-        hungerAmount = Mathf.Clamp(hungerAmount, 0, 100);
+        totalStat = 100.0f;
+        playAmount = 100.0f;
+        cleanAmount = 100.0f;
+        hungerAmount = 100.0f;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {   stepCount = tracking.stepCount;
+        attackCount = tracking.attackCount;
+        
+        if (attackCount != 0)
+        {   cleanAmount = cleanAmount - (stepCount / 3);
+            cleanAmount = Mathf.Clamp(cleanAmount, 0, 100);
+            stepCount = 0;
+            tracking.stepCount = 0;
+        }
+
+        if (attackCount != 0)
+        {   playAmount = playAmount - (3 * damageCount);
+            playAmount = Mathf.Clamp(playAmount, 0, 100);
+            damageCount = 0;
+            tracking.damageCount = 0;
+        }
+
+        if (attackCount != 0)
+        {   hungerAmount = hungerAmount - attackCount;
+            hungerAmount = Mathf.Clamp(hungerAmount, 0, 100);
+            attackCount = 0;
+            tracking.attackCount = 0;
+        }
 
         totalStat = (playAmount + cleanAmount + hungerAmount) / 3; //average of the 3 bars
 
@@ -51,11 +86,6 @@ public class NurtureSlider : MonoBehaviour
         hungerSlider.value = hungerAmount;
 
         statText.text = "+" + statBonus.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {   
 
     }
 }

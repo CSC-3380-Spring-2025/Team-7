@@ -23,6 +23,6 @@ public class NurtureItemsText : MonoBehaviour
         case(3):
          QuantityTXT.text = "x" + items.brush;
          break;
-            }
+      }
     }
 }
