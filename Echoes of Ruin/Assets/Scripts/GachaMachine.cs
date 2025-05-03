@@ -237,7 +237,7 @@ public class GachaMachine : MonoBehaviour
         GameObject visualToActivate = null;
         wonNewSkin = false;
         string skinWonName = null;
-        string rarity = "Common";
+        string rarity = "Start";
 
         if (roll <= 100) {
             string selectedSkin = ultraSkins[UnityEngine.Random.Range(0, ultraSkins.Count)];
@@ -262,7 +262,6 @@ public class GachaMachine : MonoBehaviour
              if (noMatchVisualVariants != null && noMatchVisualVariants.Count > 0) {
                 visualToActivate = noMatchVisualVariants[UnityEngine.Random.Range(0, noMatchVisualVariants.Count)];
             }
-             rarity = "Common";
         }
 
         if (visualToActivate != null) { visualToActivate.SetActive(true); }
