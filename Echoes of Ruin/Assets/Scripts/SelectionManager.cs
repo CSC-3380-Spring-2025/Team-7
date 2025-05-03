@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-
 public class CharacterSelector : MonoBehaviour
 {
 
@@ -93,9 +92,7 @@ public class CharacterSelector : MonoBehaviour
         string skinToApply = currentlyDisplayedCharacter.characterName;
 
         if (!gachaMachine.mySkins.Contains(skinToApply)) { return; }
- 
         PlayerSkinApplierFromSave.SelectSkinForSession(skinToApply);
-        
-   
+        Debug.Log($"[CharacterSelector] Selected skin for session: {skinToApply}");
     }
 }
