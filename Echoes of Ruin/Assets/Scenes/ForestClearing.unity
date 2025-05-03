@@ -269,7 +269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 6415723777379175193, guid: 9ca87475df8ede84fb09302ee8ab20e5, type: 3}
   data: {fileID: 11400000, guid: 0b03e3ca6fba92d47ab691f24d4cdf2a, type: 2}
-  damage: 1
   speed: 1.5
   detectionRange: 5
   startShootCooldown: 2
@@ -712,7 +711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e5a2d65d40b444fa26e028f8050976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSprite: {fileID: 92477239}
+  characterDB: {fileID: 0}
+  targetSpriteRenderer: {fileID: 0}
+  targetAnimator: {fileID: 0}
 --- !u!114 &92477248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +755,7 @@ MonoBehaviour:
   - {fileID: 1311661961}
   - {fileID: 1760436413}
   - {fileID: 137019790}
+  HeartsUI: {fileID: 0}
 --- !u!4 &95894851
 Transform:
   m_ObjectHideFlags: 0
@@ -2867,7 +2869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRange: 5
-  damage: 1
   speed: 1.5
   data: {fileID: 11400000, guid: b9f0a07e3bcb0a64a93eff7cbb6fecd6, type: 2}
   LootTable: []
@@ -3967,7 +3968,6 @@ MonoBehaviour:
   spreadAngle: 45
   startShootCooldown: 2
   data: {fileID: 11400000, guid: 270fa3f2501d7ff449eafec5c3ff68d4, type: 2}
-  damage: 1
   speed: 1.5
   stopDistance: 2
 --- !u!61 &526749465
@@ -13699,6 +13699,8 @@ GameObject:
   - component: {fileID: 1765477268}
   - component: {fileID: 1765477269}
   - component: {fileID: 1765477270}
+  - component: {fileID: 1765477272}
+  - component: {fileID: 1765477271}
   m_Layer: 5
   m_Name: HeartsAndCoinsOverlay
   m_TagString: HeartsCoins
@@ -13861,6 +13863,37 @@ MonoBehaviour:
   - {fileID: 1311661961}
   - {fileID: 1760436413}
   - {fileID: 137019790}
+  HeartsUI: {fileID: 0}
+--- !u!114 &1765477271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765477262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1968ce0db8e6ea147a2510b406f4b6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepCount: 0
+  attackCount: 0
+  damageCount: 0
+--- !u!114 &1765477272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765477262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1968ce0db8e6ea147a2510b406f4b6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepCount: 0
+  attackCount: 0
+  damageCount: 0
 --- !u!1 &1776284848
 GameObject:
   m_ObjectHideFlags: 0
@@ -15784,13 +15817,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 92477240}
-    - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 92477249}
     - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 92477248}
+    - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 92477246}
   m_SourcePrefab: {fileID: 100100000, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
 --- !u!1001 &7481513031625689381
 PrefabInstance:
@@ -15893,3 +15926,4 @@ SceneRoots:
   - {fileID: 1687206736}
   - {fileID: 1097689179}
   - {fileID: 1776284849}
+  - {fileID: 526749462}

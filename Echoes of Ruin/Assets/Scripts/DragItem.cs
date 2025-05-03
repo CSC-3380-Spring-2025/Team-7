@@ -33,19 +33,20 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             {   case(1):
                     if (items.ball > 0)
                     { items.ball--;
-                      sliders.playAmount = sliders.playAmount + 10; 
+                      sliders.playAmount = sliders.playAmount + 15; 
                     }
                     break;
                 case(2):
                     if (items.bisc > 0)
                     { items.bisc--; 
-                      sliders.hungerAmount = sliders.hungerAmount + 10; 
+                      sliders.hungerAmount = sliders.hungerAmount + 15; 
+                      sliders.hungerAmount = Mathf.Clamp(sliders.hungerAmount, 0, 100);
                     }
                     break;
                 case(3):
                     if (items.brush > 0)
                     { items.brush--; 
-                      sliders.cleanAmount = sliders.cleanAmount + 10;
+                      sliders.cleanAmount = sliders.cleanAmount + 15;
                     }
                     break;
             }
