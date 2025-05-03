@@ -97,7 +97,9 @@ public class Health : MonoBehaviour
         
         if(scene.name == "ForestClearing" || scene.name == "Homescreen") {
             playerHP = 5; 
+            //if (player.playerHP != null || player.playerHP != 5) {
             player.playerHP = 5;
+           // }
         }
         if(scene.name == "GameOver"){
             HeartsUI.SetActive(false); 

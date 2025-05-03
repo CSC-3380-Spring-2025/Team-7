@@ -32,11 +32,12 @@ public class PlayerHealth : MonoBehaviour
     {  if (playerHP <= 0){
           SceneManager.LoadScene("GameOver");
           Audios.Instance.PlayMusic("GameOver"); 
-          }else{
-            for (int i =0; i <hearts.Length; i++){
-                hearts[i].SetActive(i < playerHP);
-            }
           }
+       else {
+          for (int i = 0; i <hearts.Length; i++){
+          hearts[i].SetActive(i < playerHP);
+          }
+        }
         
         
     }
