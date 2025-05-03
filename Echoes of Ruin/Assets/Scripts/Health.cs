@@ -61,7 +61,7 @@ public class Health : MonoBehaviour
     {   
         if (playerHP <= 0){
           SceneManager.LoadScene("GameOver"); 
-          Destroy(player);
+          player.healthUI.SetActive(false);
           }
             for (int i = 0; i <hearts.Length; i++){
                 hearts[i].SetActive(i < playerHP);
@@ -92,15 +92,20 @@ public class Health : MonoBehaviour
 
 
      void OnSceneLoaded(Scene scene, LoadSceneMode mode){
+        GameObject HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
+        GameObject HeartsUI = HeartsCoinsUI.transform.Find("HeartsUI")?.gameObject;
+        
         if(scene.name == "ForestClearing" || scene.name == "Homescreen") {
-            playerHP = 5;
+            playerHP = 5; 
             player.playerHP = 5;
         }
         if(scene.name == "GameOver"){
-            GameObject HeartsCoinsUI = GameObject.FindGameObjectWithTag("HeartsCoins");
-            GameObject HeartsUI = HeartsCoinsUI.transform.Find("HeartsUI")?.gameObject;
-            HeartsUI.SetActive(false);
+            HeartsUI.SetActive(false); 
         }
+        else if (scene.name == "TutorialScene"){
+            HeartsUI.SetActive(true); 
+        }
+
      }
 
   }

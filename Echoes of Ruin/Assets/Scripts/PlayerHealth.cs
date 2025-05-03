@@ -15,7 +15,6 @@ public class PlayerHealth : MonoBehaviour
         gameObject.SetActive(false); 
         return;
     }
-      DontDestroyOnLoad(gameObject) ;
       UpdateHP(); 
       }
 
@@ -24,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
         sceneName = scene.name;
         if (sceneName == "TutorialScene")
         { healthUI.SetActive(true);}
-        else 
+        else if (sceneName != "ForestClearing")
         { healthUI.SetActive(false);
         }
       }
