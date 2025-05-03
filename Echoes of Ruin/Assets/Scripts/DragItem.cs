@@ -3,10 +3,18 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-{   
+{   public int itemID;
     Transform afterDrag;
     Vector3 temp;
+    Vector3 mousePos;
+    ItemTrack items;
+    NurtureSlider sliders;
 
+    void Start() 
+    {   items = GameObject.Find("HeartsAndCoinsOverlay").GetComponent<ItemTrack>();
+        sliders = GameObject.Find("SliderCanvas").GetComponent<NurtureSlider>();
+    }
+    
     public void OnBeginDrag(PointerEventData eventData)
     {   temp = transform.position;  //sets current position so it can snap back later
         afterDrag = transform.parent;
@@ -18,12 +26,36 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {   transform.position = Input.mousePosition; }
 
     public void OnEndDrag(PointerEventData eventData)
-    {  transform.SetParent(afterDrag);
-       transform.position = temp; //snaps back to original position
+    {   mousePos = Input.mousePosition;
+        transform.SetParent(afterDrag);
+        if (mousePos.x > 354 && mousePos.x < 700 && mousePos.y > 227 && mousePos.y < 600)
+        {   switch(itemID)
+            {   case(1):
+                    if (items.ball > 0)
+                    { items.ball--;
+                      sliders.playAmount = sliders.playAmount + 15; 
+                    }
+                    break;
+                case(2):
+                    if (items.bisc > 0)
+                    { items.bisc--; 
+                      sliders.hungerAmount = sliders.hungerAmount + 15; 
+                      sliders.hungerAmount = Mathf.Clamp(sliders.hungerAmount, 0, 100);
+                    }
+                    break;
+                case(3):
+                    if (items.brush > 0)
+                    { items.brush--; 
+                      sliders.cleanAmount = sliders.cleanAmount + 15;
+                    }
+                    break;
+            }
+        }
+        transform.position = temp; //snaps back to original position
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {   if (other.tag == "CatPlayer")
-        { Debug.Log("over sprite"); }
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+  //  {   if (other.tag == "CatPlayer")
+    //    { Debug.Log("over sprite"); }
+   // }
 }
