@@ -6,6 +6,7 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 {   
     Transform afterDrag;
     Vector3 temp;
+    Vector3 mousePos;
 
     public void OnBeginDrag(PointerEventData eventData)
     {   temp = transform.position;  //sets current position so it can snap back later
@@ -18,12 +19,17 @@ public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {   transform.position = Input.mousePosition; }
 
     public void OnEndDrag(PointerEventData eventData)
-    {  transform.SetParent(afterDrag);
-       transform.position = temp; //snaps back to original position
+    {   mousePos = Input.mousePosition;
+        transform.SetParent(afterDrag);
+        if (mousePos.x > 354 && mousePos.x < 700 && mousePos.y > 227 && mousePos.y < 600)
+        {   
+           
+        }
+        transform.position = temp; //snaps back to original position
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {   if (other.tag == "CatPlayer")
-        { Debug.Log("over sprite"); }
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+  //  {   if (other.tag == "CatPlayer")
+    //    { Debug.Log("over sprite"); }
+   // }
 }
