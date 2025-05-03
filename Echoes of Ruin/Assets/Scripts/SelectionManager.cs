@@ -4,26 +4,13 @@ using TMPro;
 
 public class CharacterSelector : MonoBehaviour
 {
-    [Header("Data & Dependencies")]
-    [Tooltip("Assign your 'MainCharacterDataAsset' (DataCharacters type) Scriptable Object here.")]
     public DataCharacters characterDB;
-
-
-    [Tooltip("Assign the GameObject that has the PlayerSkinApplier script (likely SelectionManager itself).")]
     public PlayerSkinApplier playerSkinApplier;
-
     private GachaMachine gachaMachine;
-
-    [Header("UI Elements")]
-    [Tooltip("Assign the UI Image component that displays the current character sprite (e.g., from 'SelectedCharacter' GameObject).")]
     public Image selectedCharacterDisplay;
-    [Tooltip("Assign the 'Apply' Button GameObject.")]
     public Button applyButton;
-    [Tooltip("Assign the 'Next' Button GameObject.")]
     public Button nextButton;
-    [Tooltip("Assign the 'Previous' Button GameObject.")]
     public Button prevButton;
-
     private int currentSelectionIndex = 0;
     private DataCharacterEntry currentlyDisplayedCharacter;
 
