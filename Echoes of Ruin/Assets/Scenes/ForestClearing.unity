@@ -714,7 +714,6 @@ MonoBehaviour:
   characterDB: {fileID: 11400000, guid: 7bbff5b81168b469dbfcd68294ccc346, type: 2}
   targetSpriteRenderer: {fileID: 92477239}
   targetAnimator: {fileID: 92477238}
-
 --- !u!114 &92477248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13887,11 +13886,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765477262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-
   m_Script: {fileID: 11500000, guid: 8653ca60e40334a19aaaf5b747d7436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
 --- !u!114 &1765477272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13901,7 +13898,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765477262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-
   m_Script: {fileID: 11500000, guid: 950fb191dd74744b087b90da37b3cee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -13937,10 +13933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbf95bd39f5714dfea10e31420dfc0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiBaseUrl: http://localhost:5007/api/GameData
-  currentPlayerId: player123
-  currencyScript: {fileID: 1765477268}
-  itemTrackScript: {fileID: 1765477269}
+  ApiBaseUrl: http://localhost:5007/api/GameData
+  CurrentPlayerId: player123
+  CurrencyScript: {fileID: 1765477268}
+  ItemTrackScript: {fileID: 1765477269}
 --- !u!4 &1775363321
 Transform:
   m_ObjectHideFlags: 0
@@ -13956,7 +13952,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
 --- !u!1 &1776284848
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
 public class PlayerSkinApplierFromSave : MonoBehaviour
 {
     public DataCharacters characterDB;
@@ -28,7 +29,6 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
              Debug.Log($"[PlayerSkinApplier] Session skin choice updated to: {sessionSelectedSkinName}");
         }
     }
-    // --- END NEW ---
 
     // Applies visuals for a specific skin name to this instance. Called internally.
     public void SetCurrentSkin(string skinName)
@@ -48,7 +48,6 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
                 { targetAnimator.runtimeAnimatorController = characterData.animatorController; }
             }
             else if (targetAnimator == null) { return; }
-
             currentAppliedSkinName = skinName;
         }
         else
@@ -69,7 +68,6 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
             targetAnimator = GetComponent<Animator>();
             if (targetAnimator == null) { this.enabled = false; return; }
         }
-
         isInitialized = true;
         ApplyDefaultSkin();
     }
@@ -102,7 +100,7 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (!IsSceneExcluded(currentScene.name))
         {
-            LoadAndApplySessionSkin();
+            LoadAndApplySessionSkin(); 
         }
     }
 
@@ -112,17 +110,16 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
         return sceneName == "CharacterSelection" || sceneName == "Homescreen";
     }
 
-    // Applies the session's chosen skin on scene load if applicable.
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (this.enabled && isInitialized && !IsSceneExcluded(scene.name))
         {
-            LoadAndApplySessionSkin();
+            LoadAndApplySessionSkin(); 
         }
     }
 
     // Reads the session's chosen skin name and applies it visually.
-    void LoadAndApplySessionSkin()
+    void LoadAndApplySessionSkin() 
     {
         if (!isInitialized || !this.enabled) { return; }
         string skinToApply = sessionSelectedSkinName;
