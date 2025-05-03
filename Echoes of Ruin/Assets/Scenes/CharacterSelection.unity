@@ -2174,6 +2174,7 @@ GameObject:
   - component: {fileID: 1770517619}
   - component: {fileID: 1770517620}
   - component: {fileID: 1770517621}
+  - component: {fileID: 1770517622}
   m_Layer: 0
   m_Name: SelectionManager
   m_TagString: Untagged
@@ -2232,6 +2233,22 @@ MonoBehaviour:
   rareSiameseCatObject: {fileID: 1339333738}
   rareAshortCatObject: {fileID: 1971969631}
   legCalicoCatObject: {fileID: 1668119294}
+--- !u!114 &1770517622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770517618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5552fd0cea04ed04fab03d55f45cad64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterDB: {fileID: 0}
+  ArtworkSprite: {fileID: 0}
+  Animator: {fileID: 0}
+  PlayerTransform: {fileID: 0}
 --- !u!1 &1922733522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2341,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1463325590}
+        m_TargetAssemblyTypeName: SceneManagerScript, ScriptsAssembly
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: ForestClearing
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1922733525

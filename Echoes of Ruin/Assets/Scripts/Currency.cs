@@ -22,7 +22,13 @@ public class Currency : MonoBehaviour {
     //Finds game object thats called currency
     void Start() 
     {  
-        
+        GameObject[] overlays = GameObject.FindGameObjectsWithTag("HeartsCoins");
+
+        if (overlays.Length > 1) {
+        Destroy(gameObject);
+        return;
+    }
+        DontDestroyOnLoad(gameObject);
     }
     public void Update () 
     {   scene = SceneManager.GetActiveScene();
@@ -40,5 +46,16 @@ public class Currency : MonoBehaviour {
 
     if (CoinsTXT != null)
         CoinsTXT.text = "Coins: " + coin;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+        if (sceneName == "ForestClearing" || sceneName == "GachaScene" || sceneName == "TutorialScene")
+        { currencyUI.SetActive(true);}
+        else 
+        { currencyUI.SetActive(false);}
+        
+        UpdateUI();
     }
 }

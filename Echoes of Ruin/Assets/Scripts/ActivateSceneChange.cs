@@ -24,7 +24,12 @@ public class ActivateSceneChange : MonoBehaviour
     test = true;
   }
   void OnTriggerExit2D(Collider2D collide) {
+    if(instructions == null){
+      return;
+    }else{
     instructions.gameObject.SetActive(false);
     test = false;
+    }
   }
+  
 }
