@@ -5150,7 +5150,7 @@ MonoBehaviour:
   CharacterDB: {fileID: 0}
   ArtworkSprite: {fileID: 1477786561}
   Animator: {fileID: 1477786560}
-  PlayerTransform: {fileID: 0}
+  PlayerTransform: {fileID: 1477786564}
 --- !u!114 &1477786566
 MonoBehaviour:
   m_ObjectHideFlags: 0
