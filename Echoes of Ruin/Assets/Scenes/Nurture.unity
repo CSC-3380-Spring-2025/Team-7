@@ -2435,7 +2435,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.614
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3343,6 +3343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f50e75285f7f140bc87e28969cbc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 2
 --- !u!114 &719910453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3877,6 +3878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f50e75285f7f140bc87e28969cbc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 3
 --- !u!114 &914563788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4462,6 +4464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f50e75285f7f140bc87e28969cbc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemID: 1
 --- !u!114 &1219351575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5178,7 +5181,7 @@ GameObject:
   - component: {fileID: 1579526301}
   - component: {fileID: 1579526302}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: SliderCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
