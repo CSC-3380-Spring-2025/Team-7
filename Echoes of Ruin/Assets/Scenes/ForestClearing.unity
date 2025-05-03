@@ -711,7 +711,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e5a2d65d40b444fa26e028f8050976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   characterDB: {fileID: 11400000, guid: 7bbff5b81168b469dbfcd68294ccc346, type: 2}
   targetSpriteRenderer: {fileID: 92477239}
   targetAnimator: {fileID: 92477238}
@@ -13715,6 +13714,7 @@ GameObject:
   - component: {fileID: 1765477270}
   - component: {fileID: 1765477271}
   - component: {fileID: 1765477272}
+  - component: {fileID: 1765477271}
   m_Layer: 5
   m_Name: HeartsAndCoinsOverlay
   m_TagString: HeartsCoins
@@ -13737,11 +13737,11 @@ MonoBehaviour:
   playerHP: 5
   healthUI: {fileID: 2145646822}
   hearts:
-  - {fileID: 137019790}
-  - {fileID: 1760436413}
-  - {fileID: 1311661961}
-  - {fileID: 1676454046}
   - {fileID: 1554760031}
+  - {fileID: 1676454046}
+  - {fileID: 1311661961}
+  - {fileID: 1760436413}
+  - {fileID: 137019790}
 --- !u!114 &1765477264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13877,7 +13877,7 @@ MonoBehaviour:
   - {fileID: 1311661961}
   - {fileID: 1760436413}
   - {fileID: 137019790}
-  HeartsUI: {fileID: 0}
+  HeartsUI: {fileID: 2145646822}
 --- !u!114 &1765477271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13905,6 +13905,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950fb191dd74744b087b90da37b3cee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepCount: 0
+  attackCount: 0
+  damageCount: 0
 --- !u!1 &1775363319
 GameObject:
   m_ObjectHideFlags: 0
@@ -15818,6 +15821,10 @@ PrefabInstance:
       propertyPath: CoinsTXT
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7535623470422534827, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
+      propertyPath: currencyUI
+      value: 
+      objectReference: {fileID: 1385836982}
     - target: {fileID: 8223328778556164587, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
       propertyPath: Animator
       value: 
@@ -15887,12 +15894,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 92477249}
-    - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 92477248}
     - targetCorrespondingSourceObject: {fileID: 5507803753114446166, guid: 351470c203ea88845bcf3e79f576ad6a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 92477246}

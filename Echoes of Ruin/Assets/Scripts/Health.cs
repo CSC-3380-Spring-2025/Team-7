@@ -21,6 +21,7 @@ public class Health : MonoBehaviour
     //Update is called once per frame
      void Start()
     {
+        HeartsUI.SetActive(false);
         currentHearts = maxHearts;  // Start with full hearts
         player = GetComponent<PlayerHealth>();
           // Get PlayerHealth from the same GameObject
@@ -97,14 +98,18 @@ public class Health : MonoBehaviour
         
         if(scene.name == "ForestClearing" || scene.name == "Homescreen") {
             playerHP = 5; 
-            //if (player.playerHP != null || player.playerHP != 5) {
+            if(player == null){
+                return;
+            }else{
             player.playerHP = 5;
-           // }
+            }
+            HeartsUI.SetActive(false);
         }
         if(scene.name == "GameOver"){
             HeartsUI.SetActive(false); 
         }
         else if (scene.name == "TutorialScene"){
+            UpdateHP();
             HeartsUI.SetActive(true); 
         }
 

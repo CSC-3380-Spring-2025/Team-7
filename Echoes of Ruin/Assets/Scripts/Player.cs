@@ -85,6 +85,7 @@ public class Player : MonoBehaviour{
    //On awake it checks if there are dups of the cat player
    void Awake(){
    string currentScene = SceneManager.GetActiveScene().name;
+   
        if (currentScene == "ForestClearing" ){
            if (instance == null){
                instance = this;
@@ -138,7 +139,8 @@ public class Player : MonoBehaviour{
                follow.SnapToTarget();
            }
        }
-       if (this == instance && hasSavedPosition){
+       
+       if (instance == this && hasSavedPosition){
            transform.position = new Vector3(savedPosition.x, savedPosition.y, transform.position.z);
        }
 
