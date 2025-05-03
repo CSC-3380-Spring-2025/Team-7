@@ -3,95 +3,129 @@ using UnityEngine.Networking;
 using System.Text;
 using System.Collections;
 using System.Collections.Generic;
-using System;
+using System; 
 
 public class MongoDBSaveLoadManager : MonoBehaviour
 {
-    public string apiBaseUrl = "http://localhost:5007/api/GameData";
+    // Base URL for the game data API endpoint.
+    public string ApiBaseUrl = "http://localhost:5007/api/GameData";
+    // Identifier for the current player's data.
+    public string CurrentPlayerId = "player123";
 
-    [Header("Configuration")]
-    public string currentPlayerId = "player123";
+    [Header("Persistent References")]
+    // Reference to the Currency script component.
+    public Currency CurrencyScript;
+    // Reference to the ItemTrack script component.
+    public ItemTrack ItemTrackScript;
 
-    [Header("Script References")]
-    public Currency currencyScript;
-    public GachaMachine gachaMachineScript;
-    public SkinChanger skinChangerScript; 
+    // Stores the list of owned skins names fetched during the last load operation.
+    private List<string> lastLoadedOwnedSkins = null;
 
-    public void SaveGame()
+    // Singleton instance for easy access.
+    public static MongoDBSaveLoadManager Instance { get; private set; }
+
+    private void Awake()
     {
-        Debug.Log("Gathering current game data for saving...");
-        PlayerData dataToSave = GetCurrentPlayerData();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
 
-        string jsonData = JsonUtility.ToJson(dataToSave, true);
-        Debug.Log($"Data to be saved (JSON):\n{jsonData}");
-
-        Debug.Log("Starting save coroutine (API call ENABLED)...");
-        StartCoroutine(SaveRequestCoroutine(dataToSave));
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void LoadGame()
-    {
-        Debug.Log($"Attempting to load game data for player: {currentPlayerId}...");
-        Debug.Log("Starting load coroutine (API call ENABLED)...");
-        StartCoroutine(LoadRequestCoroutine(currentPlayerId));
-    }
-
-
+    // Gathers current player data from various game components into a PlayerData object.
     private PlayerData GetCurrentPlayerData()
     {
         PlayerData data = new PlayerData();
-        data.PlayerId = this.currentPlayerId;
+        data.playerId = this.CurrentPlayerId;
 
-        // Get Currency
-        if (currencyScript != null) { data.Currency = currencyScript.coin; }
-        else { Debug.LogWarning("Currency script reference not set."); }
+        if (CurrencyScript != null) { data.currency = CurrencyScript.coin; }
+        else { data.currency = 0; }
 
-        // Get Owned Skins from GachaMachine
-        if (gachaMachineScript != null) { data.OwnedSkins = new List<string>(gachaMachineScript.mySkins); }
-        else { Debug.LogWarning("GachaMachine script reference not set."); }
+        if (GachaMachine.Instance != null)
+        { data.ownedSkins = new List<string>(GachaMachine.Instance.mySkins); }
+        else
+        { data.ownedSkins = new List<string>(); }
 
-        
-        if (skinChangerScript != null) { data.CurrentSkin = skinChangerScript.GetCurrentSkinName(); } 
-        else { data.CurrentSkin = "Default"; Debug.LogWarning("SkinChanger script reference not set. Saving 'Default' skin."); }
+        PlayerSkinApplierFromSave skinApplier = GameObject.FindFirstObjectByType<PlayerSkinApplierFromSave>();
+        if (skinApplier != null) { data.currentSkin = skinApplier.GetCurrentSkinName(); }
+        else { data.currentSkin = "Default"; }
 
-        Debug.Log("Finished gathering data.");
+        if (ItemTrackScript != null)
+        {
+            data.ballCount = ItemTrackScript.ball;
+            data.biscuitCount = ItemTrackScript.bisc;
+            data.brushCount = ItemTrackScript.brush;
+        }
+        else
+        { data.ballCount = 0; data.biscuitCount = 0; data.brushCount = 0; }
+
+        data.lastUpdated = DateTime.UtcNow.ToString("o");
         return data;
     }
 
+    // Applies the loaded PlayerData values back to the relevant game components.
     private void ApplyLoadedData(PlayerData loadedData)
     {
-        Debug.Log("Executing ApplyLoadedData...");
-        if (loadedData == null) { Debug.LogError("ApplyLoadedData received null data."); return; }
+        if (loadedData == null) { return; }
 
-        this.currentPlayerId = loadedData.PlayerId;
-        Debug.Log($"Applying data for Player ID: {loadedData.PlayerId}");
+        this.CurrentPlayerId = loadedData.playerId;
 
-        // Apply Currency
-        if (currencyScript != null) { currencyScript.coin = loadedData.Currency; Debug.Log($"Applied Currency: {loadedData.Currency}"); }
-        else { Debug.LogWarning("Currency script ref not set. Cannot apply currency."); }
+        if (CurrencyScript != null)
+        { CurrencyScript.coin = loadedData.currency; }
 
-        // Apply Owned Skins to GachaMachine
-        if (gachaMachineScript != null) { gachaMachineScript.mySkins = new HashSet<string>(loadedData.OwnedSkins); Debug.Log($"Applied Owned Skins Count: {loadedData.OwnedSkins.Count}"); }
-        else { Debug.LogWarning("GachaMachine script ref not set. Cannot apply skins."); }
+        if (loadedData.ownedSkins != null)
+        { lastLoadedOwnedSkins = new List<string>(loadedData.ownedSkins); }
+        else
+        { lastLoadedOwnedSkins = new List<string>(); }
 
-        if (skinChangerScript != null)
+        PlayerSkinApplierFromSave skinApplier = GameObject.FindFirstObjectByType<PlayerSkinApplierFromSave>();
+        if (skinApplier != null)
         {
-            skinChangerScript.SetCurrentSkin(loadedData.CurrentSkin);
-            Debug.Log($"Attempted to apply loaded current skin via SkinChanger: {loadedData.CurrentSkin}");
+            string skinToApply = string.IsNullOrEmpty(loadedData.currentSkin) ? "Default" : loadedData.currentSkin;
+            skinApplier.SetCurrentSkin(skinToApply);
         }
-        else { Debug.LogWarning("SkinChanger script ref not set. Cannot apply loaded current skin visuals."); }
 
+        if (ItemTrackScript != null)
+        {
+            ItemTrackScript.ball = loadedData.ballCount;
+            ItemTrackScript.bisc = loadedData.biscuitCount;
+            ItemTrackScript.brush = loadedData.brushCount;
+        }
 
-        Debug.Log("Finished applying loaded data.");
+        GachaMachine.Instance?.TryApplyLoadedSkins();
     }
 
+    // Gets the last loaded list of owned skin names.
+    public List<string> GetLoadedOwnedSkins()
+    {
+        return lastLoadedOwnedSkins;
+    }
+
+    // Initiates the game saving process.
+    public void SaveGame()
+    {
+        PlayerData dataToSave = GetCurrentPlayerData();
+        if (dataToSave != null)
+        { StartCoroutine(SaveRequestCoroutine(dataToSave)); }
+    }
+
+    // Initiates the game loading process.
+    public void LoadGame()
+    {
+        StartCoroutine(LoadRequestCoroutine(CurrentPlayerId));
+    }
+
+    // Coroutine to handle the asynchronous save request via HTTP PUT.
     private IEnumerator SaveRequestCoroutine(PlayerData dataToSave)
     {
-        string jsonData = JsonUtility.ToJson(dataToSave); 
-        string url = $"{apiBaseUrl}/{dataToSave.PlayerId}"; 
+        string jsonData = JsonUtility.ToJson(dataToSave);
+        string correctUrl = $"{ApiBaseUrl}/{this.CurrentPlayerId}";
 
-        Debug.Log($"API CALL (ENABLED): Sending PUT request to: {url}");
-        using (UnityWebRequest request = new UnityWebRequest(url, UnityWebRequest.kHttpVerbPUT))
+        using (UnityWebRequest request = new UnityWebRequest(correctUrl, UnityWebRequest.kHttpVerbPUT))
         {
             byte[] bodyRaw = Encoding.UTF8.GetBytes(jsonData);
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
@@ -100,44 +134,50 @@ public class MongoDBSaveLoadManager : MonoBehaviour
 
             yield return request.SendWebRequest();
 
-            #if UNITY_2020_2_OR_NEWER
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            #else
-            if (request.isNetworkError || request.isHttpError)
-            #endif
-            { Debug.LogError($"API ERROR Saving Data: {request.error} - Code: {request.responseCode}\nResponse: {request.downloadHandler.text}"); }
-            else { Debug.Log($"API SAVE Successful! Code: {request.responseCode}"); }
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogWarning($"Save Request Failed: {request.error} (Code: {request.responseCode})");
+            }
+            else { Debug.Log("Save Successful."); } 
         }
     }
 
+    // Coroutine to handle the asynchronous load request via HTTP GET.
     private IEnumerator LoadRequestCoroutine(string playerIdToLoad)
     {
-        string url = $"{apiBaseUrl}/{playerIdToLoad}";
-        Debug.Log($"API CALL (ENABLED): Sending GET request to: {url}");
-         using (UnityWebRequest request = UnityWebRequest.Get(url))
+        string url = $"{ApiBaseUrl}/{playerIdToLoad}";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
             yield return request.SendWebRequest();
 
-            #if UNITY_2020_2_OR_NEWER
-            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.ProtocolError)
-            #else
-            if (request.isNetworkError || request.isHttpError)
-            #endif
+            if (request.result == UnityWebRequest.Result.Success)
             {
-                 Debug.LogError($"API ERROR Loading Data: {request.error} - Code: {request.responseCode}");
-                 if(request.responseCode == 404) { Debug.LogWarning($"API: No save data found for player ID: {playerIdToLoad}."); }
+                string jsonResponse = request.downloadHandler.text;
+                if (!string.IsNullOrEmpty(jsonResponse))
+                {
+                    try
+                    {
+                        PlayerData loadedData = JsonUtility.FromJson<PlayerData>(jsonResponse);
+                        if (loadedData != null)
+                        {
+                            if (string.IsNullOrEmpty(loadedData.playerId)) { loadedData.playerId = playerIdToLoad; }
+                            ApplyLoadedData(loadedData);
+                        }
+                         else
+                        {
+                             Debug.LogWarning($"Load Request: Failed to deserialize JSON response from {url}");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogWarning($"Load Request: Exception during JSON parsing from {url}. Error: {ex.Message}");
+                    }
+                }
             }
             else
             {
-                string jsonResponse = request.downloadHandler.text;
-                Debug.Log($"API LOAD Successful! Code: {request.responseCode}");
-                if (!string.IsNullOrEmpty(jsonResponse)) {
-                    try {
-                        PlayerData loadedData = JsonUtility.FromJson<PlayerData>(jsonResponse);
-                        if (loadedData != null) { ApplyLoadedData(loadedData); }
-                        else { Debug.LogError("API Failed to deserialize JSON response into PlayerData."); }
-                    } catch (Exception ex) { Debug.LogError($"API Error deserializing JSON: {ex.Message}\nJSON: {jsonResponse}"); }
-                } else { Debug.LogWarning("API received empty response body."); }
+                Debug.LogWarning($"Load Request Failed: {request.error} (Code: {request.responseCode})");
             }
         }
     }

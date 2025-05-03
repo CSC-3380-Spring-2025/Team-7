@@ -714,6 +714,49 @@ MonoBehaviour:
   characterDB: {fileID: 11400000, guid: 7bbff5b81168b469dbfcd68294ccc346, type: 2}
   targetSpriteRenderer: {fileID: 92477239}
   targetAnimator: {fileID: 92477238}
+
+--- !u!114 &92477248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92477228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b4d4c8bee7de24a9dea9183c2c52e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHP: 5
+  healthUI: {fileID: 2145646822}
+  hearts:
+  - {fileID: 1554760031}
+  - {fileID: 1676454046}
+  - {fileID: 1311661961}
+  - {fileID: 1760436413}
+  - {fileID: 137019790}
+--- !u!114 &92477249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92477228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22ebf417d0632848b4e4bccf00a0d7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHearts: 5
+  currentHearts: 0
+  playerHP: 0
+  hearts:
+  - {fileID: 1554760031}
+  - {fileID: 1676454046}
+  - {fileID: 1311661961}
+  - {fileID: 1760436413}
+  - {fileID: 137019790}
+  HeartsUI: {fileID: 0}
 --- !u!4 &95894851
 Transform:
   m_ObjectHideFlags: 0
@@ -5390,7 +5433,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 905711718}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1775363320}
+        m_TargetAssemblyTypeName: MongoDBSaveLoadManager, ScriptsAssembly
+        m_MethodName: LoadGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &905711718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13657,6 +13712,7 @@ GameObject:
   - component: {fileID: 1765477263}
   - component: {fileID: 1765477269}
   - component: {fileID: 1765477270}
+  - component: {fileID: 1765477271}
   - component: {fileID: 1765477272}
   - component: {fileID: 1765477271}
   m_Layer: 5
@@ -13831,12 +13887,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765477262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1968ce0db8e6ea147a2510b406f4b6c0, type: 3}
+
+  m_Script: {fileID: 11500000, guid: 8653ca60e40334a19aaaf5b747d7436a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepCount: 0
-  attackCount: 0
-  damageCount: 0
+
 --- !u!114 &1765477272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13846,12 +13901,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 1765477262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1968ce0db8e6ea147a2510b406f4b6c0, type: 3}
+
+  m_Script: {fileID: 11500000, guid: 950fb191dd74744b087b90da37b3cee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stepCount: 0
   attackCount: 0
   damageCount: 0
+--- !u!1 &1775363319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1775363321}
+  - component: {fileID: 1775363320}
+  m_Layer: 0
+  m_Name: DatabaseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1775363320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775363319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf95bd39f5714dfea10e31420dfc0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  apiBaseUrl: http://localhost:5007/api/GameData
+  currentPlayerId: player123
+  currencyScript: {fileID: 1765477268}
+  itemTrackScript: {fileID: 1765477269}
+--- !u!4 &1775363321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775363319}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.4775374, y: 0.10436399, z: 0.06383187}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
 --- !u!1 &1776284848
 GameObject:
   m_ObjectHideFlags: 0
@@ -14617,7 +14722,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1963587243}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1775363320}
+        m_TargetAssemblyTypeName: MongoDBSaveLoadManager, ScriptsAssembly
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1963587243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15883,3 +16000,4 @@ SceneRoots:
   - {fileID: 1097689179}
   - {fileID: 1776284849}
   - {fileID: 526749462}
+  - {fileID: 1775363321}
