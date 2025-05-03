@@ -2,95 +2,76 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+// Applies saved skin preferences to the player character visuals.
 public class PlayerSkinApplierFromSave : MonoBehaviour
 {
+    // Reference to the database containing character skin data.
     public DataCharacters characterDB;
+    // The SpriteRenderer component on the player character to modify.
     public SpriteRenderer targetSpriteRenderer;
+    // The Animator component on the player character to modify.
     public Animator targetAnimator;
-    private string currentAppliedSkinName = ""; 
-    private bool isInitialized = false; 
+
+    private string currentAppliedSkinName = "";
+    private bool isInitialized = false;
 
     // Gets the name of the currently applied skin.
     public string GetCurrentSkinName()
     {
-        if (string.IsNullOrEmpty(currentAppliedSkinName))
-        {
-            return "Default";
-        }
-        else
-        {
-            return currentAppliedSkinName;
-        }
+        // Return "Default" if no skin name is set yet.
+        return string.IsNullOrEmpty(currentAppliedSkinName) ? "Default" : currentAppliedSkinName;
     }
 
     // Finds skin data by name, applies visuals (sprite/animator), and saves the choice.
     public void SetCurrentSkin(string skinName)
     {
-        if (!isInitialized || !this.enabled) { return; } 
+        if (!isInitialized || !this.enabled) { return; }
 
         DataCharacterEntry characterData = characterDB.GetCharacterByName(skinName);
-        if (characterData != null) // Found the requested skin data
+        if (characterData != null)
         {
             if (targetSpriteRenderer != null)
-            {
-                targetSpriteRenderer.sprite = characterData.characterDisplaySprite;
-            }
-            else
-            {
-                return; 
-            }
+            { targetSpriteRenderer.sprite = characterData.characterDisplaySprite; }
+            else { return; } // Stop if renderer is missing
 
-            if (targetAnimator != null)
+            if (targetAnimator != null && characterData.animatorController != null)
             {
-                if(characterData.animatorController != null)
-                {
-                    if(targetAnimator.runtimeAnimatorController != characterData.animatorController)
-                    {
-                        targetAnimator.runtimeAnimatorController = characterData.animatorController;
-                    }
-                }
+                // Only assign if different to avoid unnecessary animator resets.
+                if(targetAnimator.runtimeAnimatorController != characterData.animatorController)
+                { targetAnimator.runtimeAnimatorController = characterData.animatorController; }
             }
-            else
-            {  
-                return; 
-            }
+            else if (targetAnimator == null) { return; } // Stop if animator is missing
 
+            // Update internal state and save the choice persistently.
             currentAppliedSkinName = skinName;
-            PlayerPrefs.SetString("LastSelectedSkin", skinName); 
+            PlayerPrefs.SetString("LastSelectedSkin", skinName);
             PlayerPrefs.Save();
         }
-        else 
+        else
         {
-            ApplyDefaultSkin(); 
+            // If the requested skin isn't found, revert to default.
+            ApplyDefaultSkin();
         }
     }
 
-    // Initializes references, clears saved skin preference, and sets initialized flag.
+    // Initializes references and ensures the script is ready.
     void Awake()
     {
-        if (characterDB == null) {
-             Debug.LogError("[PlayerSkinApplier] CharacterDB not assigned in Inspector Disabling script.", this.gameObject); 
-            this.enabled = false; return;
-        }
+        if (characterDB == null) { this.enabled = false; return; }
 
         if (targetSpriteRenderer == null) {
             targetSpriteRenderer = GetComponent<SpriteRenderer>();
-            if (targetSpriteRenderer == null) {
-                 Debug.LogError("[PlayerSkinApplier] Target Sprite Renderer not found on GameObject or assigned Disabling script.", this.gameObject); 
-                this.enabled = false; return;
-            }
+            if (targetSpriteRenderer == null) { this.enabled = false; return; }
         }
         if (targetAnimator == null) {
             targetAnimator = GetComponent<Animator>();
-            if (targetAnimator == null) {
-                 Debug.LogError("[PlayerSkinApplier] Target Animator not found on GameObject or assigned Disabling script.", this.gameObject); 
-                this.enabled = false; return;
-            }
+            if (targetAnimator == null) { this.enabled = false; return; }
         }
 
-        // Clear previously saved skin to force default on game start
-        PlayerPrefs.DeleteKey("LastSelectedSkin");
-        PlayerPrefs.Save();
+        // --- REMOVED THE PlayerPrefs.DeleteKey CALL ---
+        // PlayerPrefs.DeleteKey("LastSelectedSkin");
+        // PlayerPrefs.Save();
+        // --- END REMOVAL ---
 
         isInitialized = true;
     }
@@ -100,6 +81,7 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     {
         if(isInitialized) {
             SceneManager.sceneLoaded += OnSceneLoaded;
+            // Use coroutine to ensure loading happens after potential scene setup.
             StartCoroutine(ApplySkinOnEnableIfApplicable());
         }
     }
@@ -118,11 +100,11 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     // Coroutine to wait briefly then load/apply skin if the scene is not excluded.
     IEnumerator ApplySkinOnEnableIfApplicable()
     {
-        yield return null;
-
+        yield return null; // Wait one frame
         if (!this.enabled || !isInitialized) yield break;
 
         Scene currentScene = SceneManager.GetActiveScene();
+        // Apply skin if the current scene is NOT one where selection happens.
         if (!IsSceneExcluded(currentScene.name))
         {
             LoadAndApplySkin();
@@ -132,8 +114,8 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     // Checks if the given scene name should skip automatic skin loading.
     bool IsSceneExcluded(string sceneName)
     {
-        return sceneName == "CharacterSelection" ||
-               sceneName == "Homescreen";
+        // Define scenes where the player makes choices, not where skin should be auto-applied.
+        return sceneName == "CharacterSelection" || sceneName == "Homescreen";
     }
 
     // Event handler for scene loads; reapplies skin if necessary.
@@ -141,6 +123,7 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     {
         if (this.enabled && isInitialized && !IsSceneExcluded(scene.name))
         {
+            // Re-apply skin when entering a valid gameplay scene.
             LoadAndApplySkin();
         }
     }
@@ -148,40 +131,26 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     // Loads the saved skin name from PlayerPrefs and applies it.
     void LoadAndApplySkin()
     {
-        if (!isInitialized || !this.enabled)
-        { 
-            return; 
-        }
-
+        if (!isInitialized || !this.enabled) { return; }
+        // Load the last saved choice, defaulting to "Default".
         string savedSkinName = PlayerPrefs.GetString("LastSelectedSkin", "Default");
-        SetCurrentSkin(savedSkinName); 
+        SetCurrentSkin(savedSkinName);
     }
 
     // Applies the specific 'Default' skin visuals and saves the preference.
     void ApplyDefaultSkin() {
          if (!this.enabled || !isInitialized) { return; }
-
          DataCharacterEntry defaultData = characterDB.GetCharacterByName("Default");
-            if (defaultData != null) { 
-                 if(targetSpriteRenderer != null) {
-                     targetSpriteRenderer.sprite = defaultData.characterDisplaySprite;
-                 } else { Debug.LogError("[PlayerSkinApplier] Cannot apply default sprite: targetSpriteRenderer is null!");}
-
-                 if (targetAnimator != null) {
-                     if(defaultData.animatorController != null) {
-                         if(targetAnimator.runtimeAnimatorController != defaultData.animatorController) {
-                               targetAnimator.runtimeAnimatorController = defaultData.animatorController;
-                         }
-                     }
-                 } else { Debug.LogError("[PlayerSkinApplier] Cannot apply default animator: targetAnimator is null!");} 
-
-                 currentAppliedSkinName = "Default";
-                 PlayerPrefs.SetString("LastSelectedSkin", "Default");
-                 PlayerPrefs.Save();
-            }
-            else
-            {
-                Debug.LogError("[PlayerSkinApplier] CRITICAL: Could not find 'Default' character data in CharacterDB! Cannot apply default skin.");
-            }
+         if (defaultData != null) {
+             if(targetSpriteRenderer != null) { targetSpriteRenderer.sprite = defaultData.characterDisplaySprite; }
+             if (targetAnimator != null && defaultData.animatorController != null) {
+                 if(targetAnimator.runtimeAnimatorController != defaultData.animatorController)
+                 { targetAnimator.runtimeAnimatorController = defaultData.animatorController; }
+             }
+             // Apply and save "Default" as the current skin.
+             currentAppliedSkinName = "Default";
+             PlayerPrefs.SetString("LastSelectedSkin", "Default");
+             PlayerPrefs.Save();
+         }
     }
 }

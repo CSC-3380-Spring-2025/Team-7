@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class ShopQuantityManager : MonoBehaviour
 {
     // Singleton instance for easy access.
