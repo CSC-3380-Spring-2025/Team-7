@@ -119,10 +119,6 @@ public class MyClass: MonoBehaviour {
 }
 ```
 
-```sh
-//This is a comment.
-```
-
 
 
 ```c#
