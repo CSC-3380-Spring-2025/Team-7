@@ -18,7 +18,7 @@ Describe a little about what the project is about here.
 # Important Links
 Kanban Board: [[link]](https://github.com/orgs/CSC-3380-Spring-2025/projects/15)\
 Designs: [[link]](https://drive.google.com/drive/folders/1ehqeFgpFYq9sNc9cmNqDLMn-iJhndK-l?usp=sharing)\
-Styles Guide(s): [[link]](https://google.github.io/styleguide/csharp-style.html)\
+Styles Guide(s): [[link]](https://google.github.io/styleguide/csharp-style.html)
 
 # How to Run Dev and Test Environment
 
@@ -93,20 +93,17 @@ db.players.find().pretty()
 ## Running the actual project
 
 Downloading Unity:
-
 For Unity, use the download for your operating system (Windows or MacOS). Once downloaded, you will be asked to sign in. You can sign in with your Google account, use an existing Unity account, or make a new account. In the Unity Hub, make sure that the version editor is 6000.0.37f1. If it is not this version, navigate to the "Installs" bar on the side and click "Install Editor". Install version 6000.0.37f1.
 
 Linking the project ot Unity:
-
 Once the installation is finished, go back to the "Projects" Bar and click "Add". "Add the project from disk", and go to where you cloned the repository. Make sure that you open the "Echoes of Ruin" folder. If you try to open the "Team-7" folder, it will pop up as an invalid project. Run the project.
 
-Settings before pressing play.
-
+Settings before pressing play:
 Once the project is opened, you should see the home screen. If not, go to the scenes folder and open the "Homescreen" scene. Double click the "Game" tab, so the window can take up more of the screen. Make sure it is 16:9 Aspect and the Scale is x1.3.
 Press Play at the top. 
 
 
-#Code Blocks:
+Code Blocks:
 
 ```c#
 static void Main(){
@@ -116,11 +113,16 @@ static void Main(){
 ```
 
 ```c#
-public class MyClass : MonoBehaviour {
+public class MyClass: MonoBehaviour {
 	public int Numbers;
 	private string numberNames;
 }
 ```
+
+```sh
+//This is a comment.
+```
+
 
 
 ```c#
