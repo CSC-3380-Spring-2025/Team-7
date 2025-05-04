@@ -9,8 +9,8 @@ public class LaserEnemy : MonoBehaviour, IDamageable
     public GameObject laser;
      [SerializeField]
     private EnemyData data;
-    //   [SerializeField]
-    // private int damage = 1;
+       [SerializeField]
+     private int damage = 1;
     [SerializeField]
     private float speed = 1.5f;  
      // Radius within which the enemy detects the player
@@ -71,9 +71,9 @@ public class LaserEnemy : MonoBehaviour, IDamageable
      private void SetEnemyValues()
     {
         currentHP = data.hp;
-        // GetComponent<Health>().SetHearts(currentHP, currentHP);
-        // damage = data.damage;
-        // speed = data.speed;
+        GetComponent<Health>().SetHearts(currentHP, currentHP);
+        damage = data.damage;
+        speed = data.speed;
     }
 
     private void Shoot()
