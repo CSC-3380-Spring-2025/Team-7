@@ -70,10 +70,16 @@ public class LaserEnemy : MonoBehaviour, IDamageable
 
      private void SetEnemyValues()
     {
-        currentHP = data.hp;
-        GetComponent<Health>().SetHearts(currentHP, currentHP);
-        damage = data.damage;
-        speed = data.speed;
+        if(currentHP != 0 || damage != 0 ){
+            currentHP = data.hp;
+            if(GetComponent<Health>() != null) {
+                GetComponent<Health>().SetHearts(currentHP, currentHP);
+                }else{
+                    return;
+                }
+            damage = data.damage;
+            speed = data.speed;
+        }
     }
 
     private void Shoot()
@@ -94,7 +100,6 @@ public class LaserEnemy : MonoBehaviour, IDamageable
     public void TakeDamage(int dmg)
     {
         currentHP -= dmg;
-        Debug.Log($"{gameObject.name} took {dmg} damage. HP: {currentHP}");
 
         if (currentHP <= 0)
         {

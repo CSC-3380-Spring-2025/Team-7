@@ -123,7 +123,6 @@ public class PlayerSkinApplierFromSave : MonoBehaviour
     {
         if (!isInitialized || !this.enabled) { return; }
         string skinToApply = sessionSelectedSkinName;
-        Debug.Log($"[PlayerSkinApplier] Loading session skin: {skinToApply}");
         SetCurrentSkin(skinToApply);
     }
 

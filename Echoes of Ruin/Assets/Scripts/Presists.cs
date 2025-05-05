@@ -14,6 +14,5 @@ public class Presists : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         instanceExists = true; 
-        Debug.Log($"PersistAcrossScenes: Called DontDestroyOnLoad on {gameObject.name}");
     }
 }

@@ -25,17 +25,9 @@ public class Player : MonoBehaviour{
    //private int selectedOption = 0;
 
 
-   // Loading in Player with skin selected.
+   // Loading in Player.
    void Start(){
        currentSceneName = SceneManager.GetActiveScene().name;
-       //if(!PlayerPrefs.HasKey("SelectedOption")){
-       //    selectedOption = 0;
-       //}else{
-       //Load();
-       //}
-       //UpdateCharacter(selectedOption);
-
-
        GameObject[] players = GameObject.FindGameObjectsWithTag("PlayerCat");
        if(currentSceneName == "CharacterSelection"){
            gameObject.SetActive(false);
@@ -55,21 +47,6 @@ public class Player : MonoBehaviour{
        savedPosition = PlayerTransform.position;
        hasSavedPosition = true;
    }
-
-
-   //Updates player skin and animator
-   //private void UpdateCharacter(int selectedOption){
-   //    Character character = CharacterDB.GetCharacter(selectedOption);
-   //    ArtworkSprite.sprite = character.CharacterSprite;
-   //    Animator.runtimeAnimatorController = character.AnimatorOverride;
-   //}
-
-
-   //Loads player pref skin
-   //private void Load(){
-   //    selectedOption = PlayerPrefs.GetInt("SelectedOption");
-   //}
-
 
    //Keep Position between scenes
    private void KeepPosition(){
@@ -109,7 +86,7 @@ public class Player : MonoBehaviour{
    }
 
 
-   //On Scene Load it applys the skin, position, destorys dups, and reassigns the camera
+   //On Scene Load it applys position, destorys dups, and reassigns the camera
    void OnSceneLoaded(Scene scene, LoadSceneMode mode){
        //Deletes dups in tutortialscene and resets position
        if (scene.name == "TutorialScene"){
@@ -124,13 +101,7 @@ public class Player : MonoBehaviour{
            savedPosition.x = 0;
            savedPosition.y = 0;
        }
-       //if(!PlayerPrefs.HasKey("SelectedOption")){
-       //    selectedOption = 0;
-       //}else{
-       //Load();
-       //}
-       //UpdateCharacter(selectedOption);
-      
+    
        Camera cam = Camera.main;
        if (cam != null){
            CameraFollow follow = cam.GetComponent<CameraFollow>();
