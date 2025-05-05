@@ -22,6 +22,9 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
       private float speed = 1.5f;  
     [SerializeField] private float stopDistance = 2f; // How close the enemy is allowed to get
 
+    //Loottable for dropped items
+    [Header("Loot")]
+    public List<LootItem> LootTable = new List<LootItem>();
 
     void Start()
     {
@@ -60,11 +63,16 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
 
  private void SetEnemyValues()
     {
-        currentHP = data.hp;
-        GetComponent<Health>().SetHearts(currentHP, currentHP);
-        damage = data.damage;
-        speed = data.speed;
-
+        if(this != null){
+            currentHP = data.hp;
+                if(GetComponent<Health>() != null) {
+                GetComponent<Health>().SetHearts(currentHP, currentHP);
+                }else{
+                    return;
+                }
+            damage = data.damage;
+            speed = data.speed;
+        }
     }
 
     void ShootBullets()
@@ -95,8 +103,6 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
-        Debug.Log($"{gameObject.name} took {damage} damage. HP: {currentHP}");
-
         if (currentHP <= 0)
         {
             Death();
@@ -105,7 +111,21 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
 
     private void Death()
     {
+        //Spawn Item dropped
+        foreach(LootItem LootItem in LootTable) {
+            if(Random.Range(0f,100f) <= LootItem.DropChance) {
+                InstantiateLoot(LootItem.ItemPrefab);
+            }
+            break;
+        }
         Destroy(gameObject);
+    }
+    
+    //Uses the prefab to make the item
+    void InstantiateLoot(GameObject loot) {
+        if(loot){
+            GameObject droppedLoot = Instantiate(loot, transform.position, Quaternion.identity);
+        }
     }
 
 }

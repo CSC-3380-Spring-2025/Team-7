@@ -1015,140 +1015,140 @@ MonoBehaviour:
   - name: Homescreen
     clip: {fileID: 8300000, guid: 6baa5fbe8d42a544d923d599efe69f6d, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: Base
     clip: {fileID: 8300000, guid: d301219e4416ba444a23957745cdc2bc, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: Nurture
     clip: {fileID: 8300000, guid: 2ffa925f3e71d5c45a78dd34779ffb48, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: GachaCave
     clip: {fileID: 8300000, guid: 773e6b7dc90102a4bbd5818cbec5164f, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: Level1
     clip: {fileID: 8300000, guid: 8211bb86545a77c40b23823abed957b9, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: Level2
     clip: {fileID: 8300000, guid: bcd5211d7e146904cb9540e309fd77ea, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: Level3
     clip: {fileID: 8300000, guid: f76972efe4a63384e9f8a775d6c7b87d, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: FinalBoss
     clip: {fileID: 8300000, guid: 3edbacc8117fe30478b23fc5b153f210, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: Credits
     clip: {fileID: 8300000, guid: 7aec3bf6a00aadc449c6e0a85f3fc875, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: GameOver
     clip: {fileID: 8300000, guid: c2f353bb8e427894185065fcc7b84fca, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   - name: SceneLore
     clip: {fileID: 8300000, guid: a17e9d3874739c64399182326109a6e0, type: 3}
     isLoop: 1
-    volume: 1
+    defaultVolume: 1
   soundEffects:
   - name: GachaPlay
     clip: {fileID: 8300000, guid: d82ba30202345904298fb5827a7c7648, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: GachaSpin
     clip: {fileID: 8300000, guid: fbe9388abb8c24f46ac9354dab846322, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: GachaWin
     clip: {fileID: 8300000, guid: 0fcee067c15790e4fa2eb2ca2937af84, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: GachaWinUltra
     clip: {fileID: 8300000, guid: 63bc652b8a2fd2048869e7de5ea3cd29, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: GachaLose
     clip: {fileID: 8300000, guid: cbde41e428477474faa489933cbc8360, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: Pause
     clip: {fileID: 8300000, guid: e93b7235b1c1d6c44b7503ec97c5ef2c, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: Unpause
     clip: {fileID: 8300000, guid: 7bf52beebbef931409bfc4ec79944a6e, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: Level1walk
     clip: {fileID: 8300000, guid: b251960cd5d27f94bb878bc2b4b5ea50, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: Level2walk
     clip: {fileID: 8300000, guid: 1f42cd8706da95b448cafbb3c5e845fa, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: woosh1
     clip: {fileID: 8300000, guid: f47d0ec6f7a593b489e98312c8ff1162, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: woosh2
     clip: {fileID: 8300000, guid: 57f5d976b646b634d8d81df04caa5aeb, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: PlayerHurt
     clip: {fileID: 8300000, guid: 3c002543b3dff3049bc054cccd4bd291, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: ShopOpen
     clip: {fileID: 8300000, guid: befc636fe6f79f04b9314790ab2555d5, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: ShopBuy
     clip: {fileID: 8300000, guid: 93bcc0f2b4ad3ce44a3436f4ee839e8a, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: ShopSell
     clip: {fileID: 8300000, guid: 6d8b015cdca8ada4b8f40da83679584c, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: LevelUp
     clip: {fileID: 8300000, guid: c6c2e862b35940a478c0117cdbd4a662, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: Feed
     clip: {fileID: 8300000, guid: f34c3a2edb2c20542af20d3040ae1ea6, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: PickUpCoin
     clip: {fileID: 8300000, guid: 7b27fe1aeffdd9d4f82acab0dba2795d, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: Mumble
     clip: {fileID: 8300000, guid: 836bf26ec28b4e642b5ff7fea51c6b68, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: EnemyHurt
     clip: {fileID: 8300000, guid: e7a1d72d3531be042832c54f2bded2d8, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: EnemyLaser
     clip: {fileID: 8300000, guid: b9ccdf318f829e84c9a45303a369e853, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: EnemyMelee
     clip: {fileID: 8300000, guid: fc31e15ca1fa513459e049f3d8c233a2, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
   - name: FinalBossHurt
     clip: {fileID: 8300000, guid: a0f9eb896989365418e21de6ec4858a3, type: 3}
     isLoop: 0
-    volume: 0
+    defaultVolume: 1
 --- !u!1 &830945100
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,7 +2691,6 @@ GameObject:
   - component: {fileID: 1942916211}
   - component: {fileID: 1942916210}
   - component: {fileID: 1942916209}
-  - component: {fileID: 1942916213}
   - component: {fileID: 1942916214}
   m_Layer: 5
   m_Name: MusicandSoundButtons
@@ -2787,20 +2786,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1942916213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1942916208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb4c679f1e28247c59a5af3df5389d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicSlider: {fileID: 384891279}
-  soundSlider: {fileID: 1306869414}
 --- !u!114 &1942916214
 MonoBehaviour:
   m_ObjectHideFlags: 0

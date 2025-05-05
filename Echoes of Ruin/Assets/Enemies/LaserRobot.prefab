@@ -80,7 +80,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -7584786164247460438, guid: f0b619580a834d145994f6eb588f61cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -140,9 +140,9 @@ MonoBehaviour:
   stopDistance: 2
   LootTable:
   - ItemPrefab: {fileID: 5728432783466620849, guid: 025ab6a5eda274249b67a3e1c231f9e8, type: 3}
-    DropChance: 25
+    DropChance: 50
   - ItemPrefab: {fileID: 6331116407127834118, guid: 8c163658054d42e44830d20fb7080205, type: 3}
-    DropChance: 25
+    DropChance: 50
 --- !u!50 &3483729750974565905
 Rigidbody2D:
   serializedVersion: 5
@@ -282,6 +282,7 @@ MonoBehaviour:
   lifeTime: 3
   damage: 1
   rb: {fileID: 0}
+  hpDeductTime: 1
 --- !u!50 &1010086795655654694
 Rigidbody2D:
   serializedVersion: 5

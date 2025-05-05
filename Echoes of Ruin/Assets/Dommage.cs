@@ -12,7 +12,6 @@ public class Dommage : MonoBehaviour
         IDamageable damageable = collision.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            Debug.Log($"Dealing {damage} damage to {collision.name}");
             damageable.TakeDamage(damage);
             if (attackType == AttackType.Range)
             {

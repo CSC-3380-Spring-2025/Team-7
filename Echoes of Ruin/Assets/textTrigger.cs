@@ -23,9 +23,13 @@ public class textTrigger : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D obj)
     {
+        if(obj != null) {
         textBubble.SetActive(false);
         exclaimation.SetActive(false);
         Destroy(trigger);
+        }else{
+            return;
+        }
        
     }
 }

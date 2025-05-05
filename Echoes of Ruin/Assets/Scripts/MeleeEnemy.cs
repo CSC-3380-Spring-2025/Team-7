@@ -70,7 +70,6 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
-        Debug.Log($"{gameObject.name} took {damage} damage. HP: {currentHP}");
 
         if (currentHP <= 0)
         {

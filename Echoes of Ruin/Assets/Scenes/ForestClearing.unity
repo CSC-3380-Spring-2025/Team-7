@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laser: {fileID: 6415723777379175193, guid: 9ca87475df8ede84fb09302ee8ab20e5, type: 3}
   data: {fileID: 11400000, guid: 0b03e3ca6fba92d47ab691f24d4cdf2a, type: 2}
+  damage: 1
   speed: 1.5
   detectionRange: 5
   startShootCooldown: 2
@@ -1041,7 +1042,7 @@ MonoBehaviour:
   - {fileID: 1311661961}
   - {fileID: 1760436413}
   - {fileID: 137019790}
-  HeartsUI: {fileID: 0}
+  HeartsUI: {fileID: 2145646822}
 --- !u!4 &95894851
 Transform:
   m_ObjectHideFlags: 0
@@ -4073,7 +4074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBubble: {fileID: 617412439}
   trigger: {fileID: 488888096}
-  exclaimation: {fileID: 0}
+  exclaimation: {fileID: 15769276}
 --- !u!61 &488888098
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4790,8 +4791,10 @@ MonoBehaviour:
   spreadAngle: 45
   startShootCooldown: 2
   data: {fileID: 11400000, guid: 270fa3f2501d7ff449eafec5c3ff68d4, type: 2}
+  damage: 1
   speed: 1.5
   stopDistance: 2
+  LootTable: []
 --- !u!61 &526749465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5551,7 +5554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBubble: {fileID: 1705374010}
   trigger: {fileID: 649560344}
-  exclaimation: {fileID: 0}
+  exclaimation: {fileID: 777819336}
 --- !u!61 &649560346
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7707,7 +7710,6 @@ GameObject:
   - component: {fileID: 1159093465}
   - component: {fileID: 1159093464}
   - component: {fileID: 1159093463}
-  - component: {fileID: 1159093462}
   - component: {fileID: 1159093461}
   m_Layer: 5
   m_Name: MusicandSoundButtons
@@ -7731,18 +7733,6 @@ MonoBehaviour:
   applyButton: {fileID: 223920333}
   musicSlider: {fileID: 1438582208}
   soundSlider: {fileID: 754512705}
---- !u!114 &1159093462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159093460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb4c679f1e28247c59a5af3df5389d66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1159093463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8581,7 +8571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBubble: {fileID: 499750119}
   trigger: {fileID: 1307454854}
-  exclaimation: {fileID: 0}
+  exclaimation: {fileID: 987659152}
 --- !u!61 &1307454856
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10246,7 +10236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textBubble: {fileID: 1807534837}
   trigger: {fileID: 1621823625}
-  exclaimation: {fileID: 0}
+  exclaimation: {fileID: 1760153231}
 --- !u!61 &1621823627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16219,7 +16209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304f2d33e6fbdc84787359b48f79aabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: 999
+  coin: 100
   currencyUI: {fileID: 1385836982}
   CoinsTXT: {fileID: 845870085}
 --- !u!114 &1765477269
@@ -17004,31 +16994,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1159093460}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6

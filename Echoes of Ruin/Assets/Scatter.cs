@@ -7,9 +7,9 @@ public class Scatter : MonoBehaviour
 {
     //set speed value in unity
     // public float speed;
-    [Range(1, 10)]
-    [SerializeField]
-    private float speed = 3f;
+    //[Range(1, 10)]
+    //[SerializeField]
+    //private float speed = 3f;
 
     [Range(1, 10)]
     [SerializeField]
