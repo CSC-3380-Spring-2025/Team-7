@@ -48,14 +48,14 @@ public class NurtureSlider : MonoBehaviour
     {   stepCount = tracking.stepCount;
         attackCount = tracking.attackCount;
         
-        if (attackCount != 0)
+        if (stepCount != 0)
         {   cleanAmount = cleanAmount - (stepCount / 3);
             cleanAmount = Mathf.Clamp(cleanAmount, 0, 100);
             stepCount = 0;
             tracking.stepCount = 0;
         }
 
-        if (attackCount != 0)
+        if (damageCount != 0)
         {   playAmount = playAmount - (3 * damageCount);
             playAmount = Mathf.Clamp(playAmount, 0, 100);
             damageCount = 0;
