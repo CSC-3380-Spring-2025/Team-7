@@ -5,7 +5,7 @@ using static Codice.CM.Common.CmCallContext;
 
 public class MeleeEnemy : MonoBehaviour, IDamageable
 {
-
+    StatsTracking tracking;
     // Radius within which the enemy detects the player
     [SerializeField]
     private float detectionRange = 5f;
@@ -33,6 +33,7 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     {
 
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        tracking = GameObject.Find("HeartsAndCoinsOverlay").GetComponent<StatsTracking>();
 
         SetEnemyValues();
         //currentHP = data.hp;
@@ -68,7 +69,7 @@ public class MeleeEnemy : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int damage)
-    {
+    {   damage  = 1 + tracking.statBonus;
         currentHP -= damage;
 
         if (currentHP <= 0)

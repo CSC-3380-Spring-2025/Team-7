@@ -7,11 +7,20 @@ public class StatsTracking : MonoBehaviour
     public int attackCount;
     public int damageCount;
 
+    public float hungerSave;
+    public float cleanSave;
+    public float playSave;
+
+    public int statBonus;
 
     void Start()
     {   stepCount = 0;
         attackCount = 0;
         damageCount = 0; 
+
+        hungerSave = 100.00f;
+        playSave = 100.00f;
+        cleanSave = 100.00f;
     }
 
     void Update()

@@ -17,10 +17,10 @@ public class NurtureItemsText : MonoBehaviour
       { case(1):
          QuantityTXT.text = "x" + items.ball;
          break;
-        case(2):
+        case(3):
          QuantityTXT.text = "x" + items.bisc;
          break;
-        case(3):
+        case(2):
          QuantityTXT.text = "x" + items.brush;
          break;
       }

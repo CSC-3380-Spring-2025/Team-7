@@ -38,25 +38,26 @@ public class NurtureSlider : MonoBehaviour
         hungerSlider.value = 100.0f;
 
         totalStat = 100.0f;
-        playAmount = 100.0f;
-        cleanAmount = 100.0f;
-        hungerAmount = 100.0f;
+        playAmount = tracking.playSave;
+        cleanAmount = tracking.cleanSave;
+        hungerAmount = tracking.hungerSave;
     }
 
     // Update is called once per frame
     void Update()
     {   stepCount = tracking.stepCount;
         attackCount = tracking.attackCount;
+        damageCount = tracking.damageCount;
         
         if (stepCount != 0)
-        {   cleanAmount = cleanAmount - (stepCount / 3);
-            cleanAmount = Mathf.Clamp(cleanAmount, 0, 100);
-            stepCount = 0;
-            tracking.stepCount = 0;
+        {   cleanAmount = cleanAmount - (stepCount / 10); // divided just to make it slower drain
+            cleanAmount = Mathf.Clamp(cleanAmount, 0, 100); //forces it to be between 0 and 100 for the sliders
+            stepCount = 0; //resets counter so it doesn't keep adding up
+            tracking.stepCount = 0; // ^ same as the above
         }
 
         if (damageCount != 0)
-        {   playAmount = playAmount - (3 * damageCount);
+        {   playAmount = playAmount - (2 * damageCount);
             playAmount = Mathf.Clamp(playAmount, 0, 100);
             damageCount = 0;
             tracking.damageCount = 0;
@@ -69,9 +70,13 @@ public class NurtureSlider : MonoBehaviour
             tracking.attackCount = 0;
         }
 
+        tracking.hungerSave = hungerAmount; //saves info otherwise it resets every time you reenter
+        tracking.cleanSave = cleanAmount;
+        tracking.playSave = playAmount;
+
         totalStat = (playAmount + cleanAmount + hungerAmount) / 3; //average of the 3 bars
 
-        if (totalStat >= 75) 
+        if (totalStat >= 75) //player stat gains
             { statBonus = 3; }
         else if (totalStat >= 50)
             { statBonus = 2; }
@@ -84,6 +89,8 @@ public class NurtureSlider : MonoBehaviour
         playSlider.value = playAmount;
         cleanSlider.value = cleanAmount;
         hungerSlider.value = hungerAmount;
+
+        tracking.statBonus = statBonus;
 
         statText.text = "+" + statBonus.ToString();
 

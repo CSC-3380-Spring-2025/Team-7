@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using static Codice.CM.Common.CmCallContext;
 
 public class LaserEnemy : MonoBehaviour, IDamageable
-{
+{   StatsTracking tracking;
      private GameObject PlayerCat;
     public GameObject laser;
      [SerializeField]
@@ -33,13 +33,14 @@ public class LaserEnemy : MonoBehaviour, IDamageable
     {
         shootCooldown = startShootCooldown;
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        tracking = GameObject.Find("HeartsAndCoinsOverlay").GetComponent<StatsTracking>();
+
         SetEnemyValues();
         //currentHP = data.hp;
     }
 
     void Update()
-    {
-        float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
+    {   float distanceToPlayer = Vector2.Distance(transform.position, PlayerCat.transform.position);
 
         if (distanceToPlayer <= shootingRange)
         {
@@ -98,7 +99,7 @@ public class LaserEnemy : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int dmg)
-    {
+    {   dmg  = 1 + tracking.statBonus;
         currentHP -= dmg;
 
         if (currentHP <= 0)
