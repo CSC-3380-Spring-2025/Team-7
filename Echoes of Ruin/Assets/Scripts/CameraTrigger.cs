@@ -4,28 +4,21 @@ using System.Collections.Generic;
 
 public class CameraTrigger : MonoBehaviour
 {
-    void onTriggerEnter2D(Collider2D other){
-        if (other.CompareTag("PlayerCat"))
-        {
-            Debug.Log("Trigger Activated!");
-        }
-    }
-    public Vector3 newCameraPos, newPlayerCatPos;
-    CamControl cameraControl; 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Vector3 newCameraPos; //when trigger hits between rooms, camera has to move certain points forward/lower
+    public Vector3 newPlayerCatPos; //new player position
+    CamControl cameraControl; //calls on CamControl script;
     void Start()
     {
-        cameraControl = Camera.main.GetComponent<CamControl>();
+        cameraControl = Camera.main.GetComponent<CamControl>(); //calls onto cameracontrol
     }
 
-    // Update is called once per frame
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D obj) //upon trigger of playercat
     {
-        if (other.gameObject.tag == "PlayerCat") 
+        if (obj.gameObject.tag == "PlayerCat") //if it is playercat
         {
-            cameraControl.minPosi += newCameraPos;
-            cameraControl.maxPosi += newCameraPos;
+            cameraControl.minPosi += newCameraPos; //camera will move from current pos to the amount set in unity
+            cameraControl.maxPosi += newCameraPos; //camera will move from current pos to the amount set in unity
         }
-        other.transform.position += newPlayerCatPos;
+        obj.transform.position += newPlayerCatPos; //playercat will also move
     }
 }
