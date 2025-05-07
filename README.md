@@ -99,7 +99,7 @@ Settings before pressing play:
 Once the project is opened, you should see the home screen. If not, go to the scenes folder and open the "Homescreen" scene. Double click the "Game" tab, so the window can take up more of the screen. Make sure it is 16:9 Aspect and the Scale is x1.3.
 Press Play at the top. 
 
-Coneecting tot the databasae for save and load functionality:
+Coneecting to the databasae for save and load functionality:
 In your terminal, navigate into the API's project directory: You need to be inside the folder that contains the GameDataApi.csproj file.
 Run command line:
 
