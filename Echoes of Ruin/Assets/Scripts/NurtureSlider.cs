@@ -50,7 +50,7 @@ public class NurtureSlider : MonoBehaviour
         damageCount = tracking.damageCount;
         
         if (stepCount != 0)
-        {   cleanAmount = cleanAmount - (stepCount / 10); // divided just to make it slower drain
+        {   cleanAmount = cleanAmount - (stepCount / 100); // divided just to make it slower drain
             cleanAmount = Mathf.Clamp(cleanAmount, 0, 100); //forces it to be between 0 and 100 for the sliders
             stepCount = 0; //resets counter so it doesn't keep adding up
             tracking.stepCount = 0; // ^ same as the above
