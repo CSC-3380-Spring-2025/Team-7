@@ -28071,6 +28071,22 @@ PrefabInstance:
       propertyPath: bulletCount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8713387036864649750, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: LootTable.Array.data[0].DropChance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713387036864649750, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: LootTable.Array.data[0].ItemPrefab
+      value: 
+      objectReference: {fileID: 5728432783466620849, guid: 025ab6a5eda274249b67a3e1c231f9e8, type: 3}
+    - target: {fileID: 8713387036864649750, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: LootTable.Array.data[1].DropChance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713387036864649750, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
+      propertyPath: LootTable.Array.data[1].ItemPrefab
+      value: 
+      objectReference: {fileID: 6331116407127834118, guid: 8c163658054d42e44830d20fb7080205, type: 3}
     - target: {fileID: 8994035660956046768, guid: 2269d9743d4d1c24983237dbda014e33, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.11
