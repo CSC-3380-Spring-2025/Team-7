@@ -6,16 +6,8 @@ Git Master: Steven Tan ([stanlsu](https://github.com/stanlsu))\
 Design Lead: Amy Tran ([Froggie-A](https://github.com/Froggie-A))\
 Quality Assurance Tester: Kashvi Teli ([kashvii](https://github.com/kashvii-1))\
 Quality Assurance Tester: Jalen Neverdon ([JJoestar4](https://github.com/JJoestar4))
-Project Manager: Amber Gill ([agill32](https://github.com/agill32))\
-Communications Lead: Renee Vo ([vrenee0](https://github.com/vrenee0))\
-Git Master: Steven Tan ([stanlsu](https://github.com/stanlsu))\
-Design Lead: Amy Tran ([Froggie-A](https://github.com/Froggie-A))\
-Quality Assurance Tester: Kashvi Teli ([kashvii](https://github.com/kashvii-1))\
-Quality Assurance Tester: Jalen Neverdon ([JJoestar4](https://github.com/JJoestar4))
 
 # About Our Software
-
-Echoes of Ruin is a game created in Unity that features a dungeon, a gacha, and a nurture mechanic. The main forest clearing houses the shop, the gacha, the skin changer, and the nurture. The shop is where you can use your coins to buy items to care for your animal in the nurture, which tracks your stats throughout the game and lowers your animal's needs accordingly-- as well as providing an attack bonus if high enough. The gacha is at the top of the clearing and features a fully animated and functional slot machine, which lets you spin for multiple skins of different rarities. Once won, these skins can be applied at the skin changer in the forest clearing. If you go down, you reach the dungeon which features three enemy types: melee, laser, and scatter. All three of these enemies have their own unique methods of attacking the player and unique tactics. There's also other small quality of life features like a save function and the ability to edit the music and sound volume.
 
 Echoes of Ruin is a game created in Unity that features a dungeon, a gacha, and a nurture mechanic. The main forest clearing houses the shop, the gacha, the skin changer, and the nurture. The shop is where you can use your coins to buy items to care for your animal in the nurture, which tracks your stats throughout the game and lowers your animal's needs accordingly-- as well as providing an attack bonus if high enough. The gacha is at the top of the clearing and features a fully animated and functional slot machine, which lets you spin for multiple skins of different rarities. Once won, these skins can be applied at the skin changer in the forest clearing. If you go down, you reach the dungeon which features three enemy types: melee, laser, and scatter. All three of these enemies have their own unique methods of attacking the player and unique tactics. There's also other small quality of life features like a save function and the ability to edit the music and sound volume.
 
@@ -28,18 +20,10 @@ Echoes of Ruin is a game created in Unity that features a dungeon, a gacha, and 
 Kanban Board: [[link]](https://github.com/orgs/CSC-3380-Spring-2025/projects/15)\
 Designs: [[link]](https://drive.google.com/drive/folders/1ehqeFgpFYq9sNc9cmNqDLMn-iJhndK-l?usp=sharing)\
 Styles Guide(s): [[link]](https://google.github.io/styleguide/csharp-style.html)
-Kanban Board: [[link]](https://github.com/orgs/CSC-3380-Spring-2025/projects/15)\
-Designs: [[link]](https://drive.google.com/drive/folders/1ehqeFgpFYq9sNc9cmNqDLMn-iJhndK-l?usp=sharing)\
-Styles Guide(s): [[link]](https://google.github.io/styleguide/csharp-style.html)
 
 # How to Run Dev and Test Environment
 
 ## Dependencies
-- Unity/ Unity Editor (Version 6000.0.37f1)
-- MongoDB Shell (Version 2.5.0)
-- VS Code
-- .Net (Version 9.0)
-
 - Unity/ Unity Editor (Version 6000.0.37f1)
 - MongoDB Shell (Version 2.5.0)
 - VS Code
@@ -52,58 +36,7 @@ Styles Guide(s): [[link]](https://google.github.io/styleguide/csharp-style.html)
 - VS Code [[link]](https://code.visualstudio.com/Download)
 - .Net [[link]](https://dotnet.microsoft.com/en-us/download/dotnet)
 
-- Unity [[link]](https://unity.com/download)
-- MongoDB Shell [[link]](https://www.mongodb.com/try/download/shell)
-- VS Code [[link]](https://code.visualstudio.com/Download)
-- .Net [[link]](https://dotnet.microsoft.com/en-us/download/dotnet)
-
 ## Commands
-Cloning repository and checking out the main branch.
-Clone the GitHub repository by clicking "<> Code" and coping the line under HTTPS or using the line provided below. Once copied run the command in a new VS Code terminal or powershell. Make sure to change directories (cd) to the place you want the repository to copy:
-```sh
-git clone https://github.com/CSC-3380-Spring-2025/Team-7.git
-```
-
-Once in, make sure you're in the place where you cloned the repository and cd into the Team-7 folder.
-```sh
-cd Team-7
-```
-
-Next cd into the Echoes of Ruin folder.
-```sh
-cd Echoes of Ruin
-```
-
-Checkout the main branch.
-```sh
-git checkout main
-```
-
-Viewing and connecting the Database. After downloading .Net and MongoDB Shell, extract the zip folder. In a new terminal, follow these commands:
-
-Cd into the extracted folder from your Downloads folder. (You might have to cd again into the folder. Depending how it is extracted)
-```sh
-cd mongosh-2.5.0-win32-x64
-```
-
-Make sure that your in the bin folder.
-```sh
-cd bin
-```
-
-Next follow these commands:
-```sh
-./mongosh
-```
-
-For this next command, "YOUR_USERNAME" and "YOUR_ACTUAL_PASSWORD" are placeholders for the actual username and actual password.
-```sh
-./mongodb+srv://YOUR_USERNAME:YOUR_ACTUAL_PASSWORD@cluster0.qbgga.mongodb.net/
-```
-
-```sh
-use PlayerData
-```
 Cloning repository and checking out the main branch.
 Clone the GitHub repository by clicking "<> Code" and coping the line under HTTPS or using the line provided below. Once copied run the command in a new VS Code terminal or powershell. Make sure to change directories (cd) to the place you want the repository to copy:
 ```sh
@@ -216,22 +149,6 @@ public class MyClass: MonoBehaviour {
 	Debug.Log("Hi.")
 }
 ```
-
-```c#
-public class MyClass: MonoBehaviour {
-	public int Numbers;
-	private string numberNames;
-}
-```
-
-
-
-```c#
-//This is a comment.
-```
-
-
-
 
 ```c#
 //This is a comment.
