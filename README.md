@@ -9,7 +9,7 @@ Quality Assurance Tester: Jalen Neverdon ([JJoestar4](https://github.com/JJoesta
 
 # About Our Software
 
-Describe a little about what the project is about here.
+Echoes of Ruin is a game created in Unity that features a dungeon, a gacha, and a nurture mechanic. The main forest clearing houses the shop, the gacha, the skin changer, and the nurture. The shop is where you can use your coins to buy items to care for your animal in the nurture, which tracks your stats throughout the game and lowers your animal's needs accordingly-- as well as providing an attack bonus if high enough. The gacha is at the top of the clearing and features a fully animated and functional slot machine, which lets you spin for multiple skins of different rarities. Once won, these skins can be applied at the skin changer in the forest clearing. If you go down, you reach the dungeon which features three enemy types: melee, laser, and scatter. All three of these enemies have their own unique methods of attacking the player and unique tactics. There's also other small quality of life features like a save function and the ability to edit the music and sound volume.
 
 ## Platforms Tested on
 - MacOS
@@ -29,7 +29,6 @@ Styles Guide(s): [[link]](https://google.github.io/styleguide/csharp-style.html)
 - .Net (Version 9.0)
 
 ### Downloading Dependencies
-Describe where to download the dependencies here. Some will likely require a web download. Provide links here. For IDE extensions, make sure your project works with the free version of them, and detail which IDE(s) these are available in. 
 
 - Unity [[link]](https://unity.com/download)
 - MongoDB Shell [[link]](https://www.mongodb.com/try/download/shell)
@@ -37,8 +36,6 @@ Describe where to download the dependencies here. Some will likely require a web
 - .Net [[link]](https://dotnet.microsoft.com/en-us/download/dotnet)
 
 ## Commands
-Describe how the commands and process to launch the project on the main branch in such a way that anyone working on the project knows how to check the affects of any code they add.
-
 Cloning repository and checking out the main branch.
 Clone the GitHub repository by clicking "<> Code" and coping the line under HTTPS or using the line provided below. Once copied run the command in a new VS Code terminal or powershell. Make sure to change directories (cd) to the place you want the repository to copy:
 ```sh
