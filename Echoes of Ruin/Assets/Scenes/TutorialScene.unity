@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324078432}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0afe6a5ead2a7654ea8dc3b4a87ce974, type: 3}
   m_Name: 
@@ -27371,7 +27371,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873839753}
   m_Layer: 0
-  m_Name: primaryAttackRoom
+  m_Name: PrimaryAttackRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31047,7 +31047,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1322568105}
   m_Layer: 0
-  m_Name: startRoom
+  m_Name: StartRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33062,7 +33062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1833678125}
   m_Layer: 0
-  m_Name: finalBossRoom
+  m_Name: FinalBossRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33099,7 +33099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1834164301}
   m_Layer: 0
-  m_Name: secondaryAttackRoom
+  m_Name: SecondaryAttackRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33651,7 +33651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1987094207}
   m_Layer: 0
-  m_Name: secondLastRoom
+  m_Name: SecondLastRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
