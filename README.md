@@ -57,7 +57,7 @@ Checkout the main branch.
 git checkout main
 ```
 
-Viewing the Database. After downloading .Net and MongoDB Shell, extract the zip folder. In a new terminal, follow these commands:
+Viewing and connecting the Database. After downloading .Net and MongoDB Shell, extract the zip folder. In a new terminal, follow these commands:
 
 Cd into the extracted folder from your Downloads folder. (You might have to cd again into the folder. Depending how it is extracted)
 ```sh
@@ -74,7 +74,7 @@ Next follow these commands:
 ./mongosh
 ```
 
-For this next command, "YOUR_USERNAME" and "YOUR_ACTUAL_PASSWORD" are placeholders for the actual username and actual password. This will be given via email.
+For this next command, "YOUR_USERNAME" and "YOUR_ACTUAL_PASSWORD" are placeholders for the actual username and actual password.
 ```sh
 ./mongodb+srv://YOUR_USERNAME:YOUR_ACTUAL_PASSWORD@cluster0.qbgga.mongodb.net/
 ```
@@ -99,6 +99,38 @@ Settings before pressing play:
 Once the project is opened, you should see the home screen. If not, go to the scenes folder and open the "Homescreen" scene. Double click the "Game" tab, so the window can take up more of the screen. Make sure it is 16:9 Aspect and the Scale is x1.3.
 Press Play at the top. 
 
+Coneecting tot the databasae for save and load functionality:
+In your terminal, navigate into the API's project directory: You need to be inside the folder that contains the GameDataApi.csproj file.
+Run command line:
+
+windows: 
+```sh
+cd C:\Users\YourName\Documents\YourProject\GameDataApi
+```
+
+Mac/Linux: 
+```sh
+cd /Users/yourname/Documents/YourProject/GameDataApi
+```
+
+After getting in the GameDataApi directory, Initialize User Secrets.
+Run command line: 
+```sh
+dotnet user-secrets init
+```
+
+After that, set the secret: This command stores your connection string. Use the exact key name: GameDatabase:ConnectionString
+Replace the example connection string in the command below with your complete, correct connection string.
+Run command line:
+```sh
+dotnet user-secrets set "GameDatabase:ConnectionString" "mongodb+srv://YOUR_USERNAME:YOUR_ACTUAL_PASSWORD@yourcluster.mongodb.net/?retryWrites=true&w=majority"
+```
+
+After that, make sure you are still in the GameDataApi directory in your terminal.
+Run command line:
+```sh
+dotnet run
+```
 
 Code Blocks:
 
@@ -121,3 +153,4 @@ public class MyClass: MonoBehaviour {
 ```c#
 //This is a comment.
 ```
+
