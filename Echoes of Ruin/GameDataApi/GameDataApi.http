@@ -1,6 +1,0 @@
-@GameDataApi_HostAddress = http://localhost:5007
-
-GET {{GameDataApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
