@@ -509,7 +509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d4e671a2254344694609df54cb4c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 3
+  ItemID: 2
   CostTXT: {fileID: 594701754}
   QuantTXT: {fileID: 1799211652}
   vend: {fileID: 176428025}
@@ -8253,7 +8253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36d4e671a2254344694609df54cb4c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemID: 2
+  ItemID: 3
   CostTXT: {fileID: 489038581}
   QuantTXT: {fileID: 1782785467}
   vend: {fileID: 176428025}
@@ -16289,6 +16289,10 @@ MonoBehaviour:
   stepCount: 0
   attackCount: 0
   damageCount: 0
+  hungerSave: 0
+  cleanSave: 0
+  playSave: 0
+  statBonus: 0
 --- !u!1 &1775363319
 GameObject:
   m_ObjectHideFlags: 0
