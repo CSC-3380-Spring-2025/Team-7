@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
 
     // PlayerHealth player = new PlayerHealth();
     PlayerHealth player;
+    StatsTracking track;
     public int playerHP;
     public GameObject[] hearts;
 
@@ -25,6 +26,8 @@ public class Health : MonoBehaviour
         currentHearts = maxHearts;  // Start with full hearts
         player = GetComponent<PlayerHealth>();
           // Get PlayerHealth from the same GameObject
+        track = GetComponent<StatsTracking>();
+
     }
 
     void Update() {
@@ -48,6 +51,7 @@ public class Health : MonoBehaviour
 
         playerHP -=1;
         player.playerHP -=1;
+        track.damageCount++;
         UpdateHP();
         player.UpdateHP();
 
@@ -66,7 +70,7 @@ public class Health : MonoBehaviour
           }
             for (int i = 0; i <hearts.Length; i++){
                 hearts[i].SetActive(i < playerHP);
-          } 
+          }
         
     }
     public void Heal(int amount) {

@@ -16086,6 +16086,7 @@ GameObject:
   - component: {fileID: 1765477270}
   - component: {fileID: 1765477271}
   - component: {fileID: 1765477272}
+  - component: {fileID: 1765477273}
   m_Layer: 5
   m_Name: HeartsAndCoinsOverlay
   m_TagString: HeartsCoins
@@ -16273,6 +16274,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 950fb191dd74744b087b90da37b3cee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1765477273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765477262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1968ce0db8e6ea147a2510b406f4b6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepCount: 0
+  attackCount: 0
+  damageCount: 0
 --- !u!1 &1775363319
 GameObject:
   m_ObjectHideFlags: 0

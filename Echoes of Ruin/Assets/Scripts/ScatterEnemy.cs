@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ScatterEnemy : MonoBehaviour, IDamageable
-{
+{   StatsTracking tracking;
     public GameObject PlayerCat;  //refrense to player
     public GameObject Scatter; //scatter bullets
     public int bulletCount = 5; //Number of bullets per shot
@@ -30,6 +30,7 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
     {
         shootCooldown = startShootCooldown;
         PlayerCat = GameObject.FindGameObjectWithTag("PlayerCat");
+        tracking = GameObject.Find("HeartsAndCoinsOverlay").GetComponent<StatsTracking>();
         SetEnemyValues();
     }
 
@@ -101,7 +102,7 @@ public class ScatterEnemy : MonoBehaviour, IDamageable
     }
 
     public void TakeDamage(int damage)
-    {
+    {   damage  = 1 + tracking.statBonus;
         currentHP -= damage;
         if (currentHP <= 0)
         {
